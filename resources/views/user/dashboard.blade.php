@@ -154,7 +154,7 @@
               	</div>
               </div>
               <div class="media-body">
-                <h3 class="heading mb-3">Friendly Service</h3>
+                <h3 class="heading mb-3">Pesan Laundry</h3>
               </div>
             </div>
           </div>
@@ -166,7 +166,7 @@
               	</div>
               </div>
               <div class="media-body">
-                <h3 class="heading mb-3">Get Breakfast</h3>
+                <h3 class="heading mb-3">Pesan Makanan</h3>
               </div>
             </div>
           </div>
@@ -179,30 +179,6 @@
               </div>
               <div class="media-body">
                 <h3 class="heading mb-3">Transfer Services</h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-md px-md-1 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services py-4 d-block text-center">
-              <div class="d-flex justify-content-center">
-              	<div class="icon d-flex align-items-center justify-content-center">
-              		<span class="flaticon-spa"></span>
-              	</div>
-              </div>
-              <div class="media-body">
-                <h3 class="heading mb-3">Suits &amp; SPA</h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-md pl-md-1 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services py-4 d-block text-center">
-              <div class="d-flex justify-content-center">
-              	<div class="icon d-flex align-items-center justify-content-center">
-              		<span class="ion-ios-bed"></span>
-              	</div>
-              </div>
-              <div class="media-body">
-                <h3 class="heading mb-3">Cozy Rooms</h3>
               </div>
             </div>
           </div>
