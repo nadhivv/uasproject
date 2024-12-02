@@ -16,7 +16,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'phone_number'
+        'jenisuser_id',
     ];
 
 
@@ -43,5 +43,9 @@ class User extends Authenticatable
     public function penginapan()
     {
         return $this->belongsTo(Penginapan::class);
+    }
+    public function jenisUser()
+    {
+        return $this->belongsTo(JenisUser::class, 'jenisuser_id', 'id');
     }
 }

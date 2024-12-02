@@ -20,7 +20,7 @@ return new class extends Migration
             $table->decimal('price', 10, 2);
             $table->timestamp('order_date')->useCurrent();
             $table->enum('status', ['processing', 'completed'])->default('processing');
-            $table->timestamps(0);
+            $table->timestamps();
         });
     }
 

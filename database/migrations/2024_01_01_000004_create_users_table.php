@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->foreignId('jenis_user_id')->constrained('jenis_user')->onDelete('cascade');
+            $table->foreignId('jenisuser_id')->constrained('jenis_user')->onDelete('cascade');
             $table->timestamps();
         });
 

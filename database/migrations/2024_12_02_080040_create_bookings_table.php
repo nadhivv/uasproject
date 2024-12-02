@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('check_out');
             $table->decimal('total_harga', 10, 2);
             $table->string('status');
-            $table->timestamps(0);
+            $table->timestamps();
         });
     }
 

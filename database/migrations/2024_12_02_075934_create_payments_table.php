@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamp('payment_date')->useCurrent();
             $table->string('method');
             $table->enum('status', ['completed', 'pending'])->default('pending');
-            $table->timestamps(0);
+            $table->timestamps();
         });
     }
 
