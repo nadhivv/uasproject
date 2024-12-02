@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('payments', function (Blueprint $table) {
+        Schema::create('service_payments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('reservasi_id')->constrained('reservasi')->onDelete('cascade');
+            $table->foreignId('order_id')->constrained('orders')->onDelete('cascade');
             $table->decimal('total_harga', 10, 2);
             $table->timestamp('payment_date')->useCurrent();
             $table->string('method');
             $table->enum('status', ['completed', 'pending'])->default('pending');
-            $table->timestamps(0);
+            $table->timestamps();
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('payments');
+        Schema::dropIfExists('service_payments');
     }
 };
