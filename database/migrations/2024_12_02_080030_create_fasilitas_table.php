@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('penginapan_id')->constrained('penginapan')->onDelete('cascade');
             $table->string('fasilitas');
-            $table->timestamps(0);
+            $table->timestamps();
         });
     }
 

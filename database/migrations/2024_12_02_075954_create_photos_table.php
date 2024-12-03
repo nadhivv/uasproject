@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('penginapan_id')->constrained('penginapan')->onDelete('cascade');
             $table->string('photo_url');
-            $table->timestamps(0);
+            $table->timestamps();
         });
     }
 

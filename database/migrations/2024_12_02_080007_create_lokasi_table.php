@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_kota', 100);
             $table->string('provinsi', 100);
-            $table->timestamps(0);
+            $table->timestamps();
         });
     }
 

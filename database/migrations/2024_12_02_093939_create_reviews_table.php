@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('penginapan_id')->constrained('penginapan')->onDelete('cascade');
             $table->integer('rating');
             $table->text('comment')->nullable();
-            $table->timestamps(0);
+            $table->timestamps();
         });
     }
 
