@@ -11,6 +11,7 @@ class Orders extends Model
 
     protected $fillable = [
         'user_id', 'penginapan_id', 'type', 'description', 'price', 'order_date', 'status',
+        'makanan_id', 'laundry_id',
     ];
 
     // Belongs to user
