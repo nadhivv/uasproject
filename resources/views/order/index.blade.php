@@ -12,7 +12,7 @@
 
     <!-- Pesanan Makanan -->
     <h2>Pesanan Makanan</h2>
-    @if($foodOrders->isEmpty())
+    @if($orders->isEmpty())
         <p>Tidak ada pesanan makanan yang ditemukan.</p>
     @else
         <table class="table table-striped">
@@ -27,7 +27,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($foodOrders as $order)
+                @foreach($orders as $order)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $order->penginapan->name ?? 'N/A' }}</td>
@@ -49,7 +49,7 @@
 
     <!-- Pesanan Laundry -->
     <h2>Pesanan Laundry</h2>
-    @if($laundryOrders->isEmpty())
+    @if($orders->isEmpty())
         <p>Tidak ada pesanan laundry yang ditemukan.</p>
     @else
         <table class="table table-striped">
@@ -64,7 +64,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($laundryOrders as $order)
+                @foreach($orders as $order)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $order->penginapan->name ?? 'N/A' }}</td>
