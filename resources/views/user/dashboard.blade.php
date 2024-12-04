@@ -38,8 +38,8 @@
 	          <div class="row no-gutters slider-text align-items-center justify-content-end">
 	          <div class="col-md-6 ftco-animate">
 	          	<div class="text">
-	          		<h2>More than a hotel... an experience</h2>
-		            <h1 class="mb-3">Hotel for the whole family, all year round.</h1>
+	          		<h2>More than a homestay... an experience</h2>
+		            <h1 class="mb-3">Homestay for the whole family, all year round.</h1>
 	            </div>
 	          </div>
 	        </div>
@@ -52,7 +52,7 @@
 	          <div class="row no-gutters slider-text align-items-center justify-content-end">
 	          <div class="col-md-6 ftco-animate">
 	          	<div class="text">
-	          		<h2>Harbor Lights Hotel &amp; Resort</h2>
+	          		<h2>StayNest Homestay &amp; Resort</h2>
 		            <h1 class="mb-3">It feels like staying in your own home.</h1>
 	            </div>
 	          </div>
@@ -141,7 +141,7 @@
       <div class="container">
       	<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
-          	<span class="subheading">Welcome to Harbor Lights Hotel</span>
+          	<span class="subheading">Welcome to StayNest Homestay</span>
             <h2 class="mb-4">You'll Never Want To Leave</h2>
           </div>
         </div>
@@ -154,7 +154,9 @@
               	</div>
               </div>
               <div class="media-body">
-                <h3 class="heading mb-3">Pesan Laundry</h3>
+                <h3 class="heading mb-3">
+                    <a href="#laundry" >Pesan Laundry</a>
+                </h3>
               </div>
             </div>
           </div>
@@ -166,19 +168,9 @@
               	</div>
               </div>
               <div class="media-body">
-                <h3 class="heading mb-3">Pesan Makanan</h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-md px-md-1 d-flex align-sel Searchf-stretch ftco-animate">
-            <div class="media block-6 services py-4 d-block text-center">
-              <div class="d-flex justify-content-center">
-              	<div class="icon d-flex align-items-center justify-content-center">
-              		<span class="flaticon-car"></span>
-              	</div>
-              </div>
-              <div class="media-body">
-                <h3 class="heading mb-3">Transfer Services</h3>
+                <h3 class="heading mb-3">
+                    <a href="#makanan" >Pesan Makanan</a>
+                </h3>
               </div>
             </div>
           </div>
@@ -195,8 +187,8 @@
 					</div>
 					<div class="col-md-5 wrap-about pb-md-3 ftco-animate pr-md-5 pb-md-5 pt-md-4">
 	          <div class="heading-section mb-4 my-5 my-md-0">
-	          	<span class="subheading">About Harbor Lights Hotel</span>
-	            <h2 class="mb-4">Harbor Lights Hotel the Most Recommended Hotel All Over the World</h2>
+	          	<span class="subheading">About StayNest</span>
+	            <h2 class="mb-4">StayNest the Most Recommended Homestay All Over the World</h2>
 	          </div>
 	          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
 	          <p><a href="#" class="btn btn-secondary rounded">Reserve Your Room Now</a></p>
@@ -289,8 +281,8 @@
     	<div class="container-fluid px-0">
     		<div class="row no-gutters justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
-          	<span class="subheading">Harbor Lights Rooms</span>
-            <h2 class="mb-4">Hotel Master's Rooms</h2>
+          	<span class="subheading">StayNest Rooms</span>
+            <h2 class="mb-4">Homestay Master's Rooms</h2>
           </div>
         </div>
     		<div class="row no-gutters">
@@ -383,12 +375,12 @@
 
 
 
-		<section class="ftco-section ftco-menu bg-light">
+	<section id="laundry" class="ftco-section ftco-menu bg-light">
 			<div class="container-fluid px-md-4">
 				<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
-          	<span class="subheading">Restaurant</span>
-            <h2>Restaurant</h2>
+          	<span class="subheading">Laundry</span>
+            <h2>Laundry</h2>
           </div>
         </div>
 				<div class="row">
@@ -481,7 +473,107 @@
         	</div>
         </div>
 			</div>
-		</section>
+	</section>
+
+    <section id="makanan" class="ftco-section ftco-menu bg-light">
+        <div class="container-fluid px-md-4">
+            <div class="row justify-content-center mb-5 pb-3">
+      <div class="col-md-7 heading-section text-center ftco-animate">
+          <span class="subheading">Makanan</span>
+        <h2>Makanan</h2>
+      </div>
+    </div>
+            <div class="row">
+        <div class="col-lg-6 col-xl-4 d-flex">
+            <div class="pricing-entry rounded d-flex ftco-animate">
+                <div class="img" style="background-image: url(images/menu-1.jpg);"></div>
+                <div class="desc p-4">
+                    <div class="d-md-flex text align-items-start">
+                        <h3><span>Grilled Crab with Onion</span></h3>
+                        <span class="price">$20.00</span>
+                    </div>
+                    <div class="d-block">
+                        <p>A small river named Duden flows by their place and supplies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4 d-flex">
+            <div class="pricing-entry rounded d-flex ftco-animate">
+                <div class="img" style="background-image: url(images/menu-2.jpg);"></div>
+                <div class="desc p-4">
+                    <div class="d-md-flex text align-items-start">
+                        <h3><span>Grilled Crab with Onion</span></h3>
+                        <span class="price">$20.00</span>
+                    </div>
+                    <div class="d-block">
+                        <p>A small river named Duden flows by their place and supplies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4 d-flex">
+            <div class="pricing-entry rounded d-flex ftco-animate">
+                <div class="img" style="background-image: url(images/menu-3.jpg);"></div>
+                <div class="desc p-4">
+                    <div class="d-md-flex text align-items-start">
+                        <h3><span>Grilled Crab with Onion</span></h3>
+                        <span class="price">$20.00</span>
+                    </div>
+                    <div class="d-block">
+                        <p>A small river named Duden flows by their place and supplies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4 d-flex">
+            <div class="pricing-entry rounded d-flex ftco-animate">
+                <div class="img" style="background-image: url(images/menu-4.jpg);"></div>
+                <div class="desc p-4">
+                    <div class="d-md-flex text align-items-start">
+                        <h3><span>Grilled Crab with Onion</span></h3>
+                        <span class="price">$20.00</span>
+                    </div>
+                    <div class="d-block">
+                        <p>A small river named Duden flows by their place and supplies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4 d-flex">
+            <div class="pricing-entry rounded d-flex ftco-animate">
+                <div class="img" style="background-image: url(images/menu-5.jpg);"></div>
+                <div class="desc p-4">
+                    <div class="d-md-flex text align-items-start">
+                        <h3><span>Grilled Crab with Onion</span></h3>
+                        <span class="price">$20.00</span>
+                    </div>
+                    <div class="d-block">
+                        <p>A small river named Duden flows by their place and supplies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4 d-flex">
+            <div class="pricing-entry rounded d-flex ftco-animate">
+                <div class="img" style="background-image: url(images/menu-6.jpg);"></div>
+                <div class="desc p-4">
+                    <div class="d-md-flex text align-items-start">
+                        <h3><span>Grilled Crab with Onion</span></h3>
+                        <span class="price">$20.00</span>
+                    </div>
+                    <div class="d-block">
+                        <p>A small river named Duden flows by their place and supplies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 text-center ftco-animate">
+            <p><a href="#" class="btn btn-primary rounded">View All Menu</a></p>
+        </div>
+    </div>
+        </div>
+</section>
 
 
     <section class="ftco-section">
