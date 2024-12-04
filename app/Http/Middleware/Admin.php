@@ -18,7 +18,7 @@ class Admin
         }
 
         if ($user->id_jenis_user !== 1) {
-            return redirect()->back()->withErrors(['error' => 'You must be an Admin to access this page.']);
+            return redirect('/dashboard')->withErrors(['error' => 'You must be an Admin to access this page.']);
         }
         return $next($request);
     }

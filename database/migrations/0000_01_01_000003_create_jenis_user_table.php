@@ -16,6 +16,11 @@ return new class extends Migration
             $table->string('jenis_user');
             $table->timestamps();
         });
+
+        DB::table('jenis_user')->insert([
+            ['id' => 1, 'jenis_user' => 'Admin', 'created_at' => now(), 'updated_at' => now()],
+            ['id' => 2, 'jenis_user' => 'User', 'created_at' => now(), 'updated_at' => now()],
+        ]);
     }
 
     /**

@@ -14,22 +14,21 @@ Route::get('/', function () {
 });
 
 // Show the login form
-Route::get('/login', [UserController::class, 'showLoginForm'])->name('login');
-
-// Handle login submission
-Route::post('/login', [UserController::class, 'login']);
+Route::get('login', [UserController::class, 'showLoginForm'])->name('login');
+Route::post('login', [UserController::class, 'login']);
 
 // Show the registration form
 Route::get('/register', [UserController::class, 'showRegisterForm'])->name('register');
-
-// Handle registration submission
 Route::post('/register', [UserController::class, 'register']);
+
+// Logout
+Route::post('logout', [UserController::class, 'logout'])->name('logout');
 
 // Protected routes - only accessible by authenticated users
 Route::middleware('auth')->group(function () {
     Route::get('dashboard', function () {
-        return view('dashboard');
-    });
+        return view('user.dashboard');
+    })->name('dashboard');
 });
 
 // Admin route

@@ -12,7 +12,10 @@
           <li class="nav-item"><a href="restaurant.html" class="nav-link">Restaurant</a></li>
           <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
           <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="btn btn-danger">Logout</button>
+          </form>
         </ul>
       </div>
     </div>

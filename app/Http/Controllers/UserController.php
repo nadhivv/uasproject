@@ -20,23 +20,20 @@ class UserController extends Controller
     // Handle login logic
     public function login(Request $request)
     {
-        // Validate the login form
         $validated = $request->validate([
-            'username' => 'required|email',
+            'email' => 'required|email',
             'password' => 'required',
         ]);
 
-        // Attempt to log the user in
-        if (Auth::attempt(['email' => $request->username, 'password' => $request->password])) {
-            return redirect()->intended('dashboard');
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            return redirect()->route('dashboard');
         }
 
         return back()->withErrors([
-            'username' => 'The provided credentials are incorrect.',
+            'email' => 'The provided credentials are incorrect.',
         ]);
     }
 
-    // Show the register form
     public function showRegisterForm()
     {
     return view('auth.register');
@@ -45,7 +42,6 @@ class UserController extends Controller
     // Handle register logic
         public function register(Request $request)
     {
-        // Buat user baru dengan default jenisuser_id = 2
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -53,10 +49,19 @@ class UserController extends Controller
             'jenisuser_id' => 2,
         ]);
 
+        Auth::login($user);
+        return redirect()->route('dashboard');
+    }
 
+    public function logout(Request $request)
+    {
+        // Melakukan logout
+        Auth::logout();
 
-        // Redirect ke dashboard
-        return redirect('/login');
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('login');
     }
 
 }
