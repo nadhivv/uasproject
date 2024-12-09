@@ -11,7 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::dropIfExists('payments');
+        Schema::table('photos', function (Blueprint $table) {
+            $table->unsignedBigInteger('penginapan_id')->nullable()->change();
+        });
     }
 
     /**
@@ -19,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('payments', function (Blueprint $table) {
-            //
+        Schema::table('photos', function (Blueprint $table) {
+            $table->unsignedBigInteger('penginapan_id')->nullable(false)->change();
         });
     }
 };

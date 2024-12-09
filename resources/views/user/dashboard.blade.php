@@ -178,104 +178,7 @@
       </div>
     </section>
 
-    <section class="ftco-section ftco-wrap-about ftco-no-pt ftco-no-pb">
-			<div class="container">
-				<div class="row no-gutters">
-					<div class="col-md-7 order-md-last d-flex">
-						<div class="img img-1 mr-md-2 ftco-animate" style="background-image: url(images/about-1.jpg);"></div>
-						<div class="img img-2 ml-md-2 ftco-animate" style="background-image: url(images/about-2.jpg);"></div>
-					</div>
-					<div class="col-md-5 wrap-about pb-md-3 ftco-animate pr-md-5 pb-md-5 pt-md-4">
-	          <div class="heading-section mb-4 my-5 my-md-0">
-	          	<span class="subheading">About StayNest</span>
-	            <h2 class="mb-4">StayNest the Most Recommended Homestay All Over the World</h2>
-	          </div>
-	          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-	          <p><a href="#" class="btn btn-secondary rounded">Reserve Your Room Now</a></p>
-					</div>
-				</div>
-			</div>
-		</section>
 
-    <section class="testimony-section">
-      <div class="container">
-        <div class="row no-gutters ftco-animate justify-content-center">
-        	<div class="col-md-5 d-flex">
-        		<div class="testimony-img aside-stretch-2" style="background-image: url(images/testimony-img.jpg);"></div>
-        	</div>
-          <div class="col-md-7 py-5 pl-md-5">
-          	<div class="py-md-5">
-	          	<div class="heading-section ftco-animate mb-4">
-	          		<span class="subheading">Testimony</span>
-			          <h2 class="mb-0">Happy Customer</h2>
-			        </div>
-	            <div class="carousel-testimony owl-carousel ftco-animate">
-	              <div class="item">
-	                <div class="testimony-wrap pb-4">
-	                  <div class="text">
-	                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	                  </div>
-	                  <div class="d-flex">
-		                  <div class="user-img" style="background-image: url(images/person_1.jpg)">
-		                  </div>
-		                  <div class="pos ml-3">
-		                  	<p class="name">Gerald Hodson</p>
-		                    <span class="position">Businessman</span>
-		                  </div>
-		                </div>
-	                </div>
-	              </div>
-	              <div class="item">
-	                <div class="testimony-wrap pb-4">
-	                  <div class="text">
-	                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	                  </div>
-	                  <div class="d-flex">
-		                  <div class="user-img" style="background-image: url(images/person_2.jpg)">
-		                  </div>
-		                  <div class="pos ml-3">
-		                  	<p class="name">Gerald Hodson</p>
-		                    <span class="position">Businessman</span>
-		                  </div>
-		                </div>
-	                </div>
-	              </div>
-	              <div class="item">
-	                <div class="testimony-wrap pb-4">
-	                  <div class="text">
-	                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	                  </div>
-	                  <div class="d-flex">
-		                  <div class="user-img" style="background-image: url(images/person_3.jpg)">
-		                  </div>
-		                  <div class="pos ml-3">
-		                  	<p class="name">Gerald Hodson</p>
-		                    <span class="position">Businessman</span>
-		                  </div>
-		                </div>
-	                </div>
-	              </div>
-	              <div class="item">
-	                <div class="testimony-wrap pb-4">
-	                  <div class="text">
-	                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	                  </div>
-	                  <div class="d-flex">
-		                  <div class="user-img" style="background-image: url(images/person_4.jpg)">
-		                  </div>
-		                  <div class="pos ml-3">
-		                  	<p class="name">Gerald Hodson</p>
-		                    <span class="position">Businessman</span>
-		                  </div>
-		                </div>
-	                </div>
-	              </div>
-	            </div>
-	          </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <section class="ftco-section ftco-no-pb ftco-room">
     	<div class="container-fluid px-0">
@@ -371,15 +274,11 @@
     </section>
 
 
-
-
-
-
 	<section id="laundry" class="ftco-section ftco-menu bg-light">
 			<div class="container-fluid px-md-4">
 				<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
-          	<span class="subheading">Laundry</span>
+          	<span class="subheading">Pesan Laundry</span>
             <h2>Laundry</h2>
           </div>
         </div>
@@ -475,113 +374,53 @@
 			</div>
 	</section>
 
+
     <section id="makanan" class="ftco-section ftco-menu bg-light">
         <div class="container-fluid px-md-4">
+            <!-- Header Section -->
             <div class="row justify-content-center mb-5 pb-3">
-      <div class="col-md-7 heading-section text-center ftco-animate">
-          <span class="subheading">Makanan</span>
-        <h2>Makanan</h2>
-      </div>
-    </div>
+                <div class="col-md-7 heading-section text-center ftco-animate">
+                    <span class="subheading">Pesan Makanan</span>
+                    <h2>Makanan</h2>
+                </div>
+            </div>
+            <!-- Menu Section -->
             <div class="row">
-        <div class="col-lg-6 col-xl-4 d-flex">
-            <div class="pricing-entry rounded d-flex ftco-animate">
-                <div class="img" style="background-image: url(images/menu-1.jpg);"></div>
-                <div class="desc p-4">
-                    <div class="d-md-flex text align-items-start">
-                        <h3><span>Grilled Crab with Onion</span></h3>
-                        <span class="price">$20.00</span>
+                @foreach ($makanan as $item)
+                    <div class="col-lg-6 col-xl-4 d-flex">
+                        <div class="pricing-entry rounded d-flex ftco-animate">
+                            <div class="img" style="background-image: url({{ asset('storage/images/' . $item->photo) }});"></div>
+                            <div class="desc p-4">
+                                <div class="d-md-flex text align-items-start">
+                                    <h3><span>{{ $item->nama_makanan }}</span></h3>
+                                    <span class="price">Rp {{ number_format($item->harga, 0, ',', '.') }}</span>
+                                </div>
+                                <div class="d-block">
+                                    <p>Nikmati hidangan yang menggugah selera anda selama menginap</p>
+                                </div>
+                                <div class="d-block mt-3">
+                                    <form method="POST" action="{{ route('pesan', $item->id) }}">
+                                        @csrf
+                                        {{-- <input type="hidden" name="penginapan_id" value="{{ $penginapanId }}"> --}}
+                                        <button type="submit" class="btn btn-primary btn-sm rounded">Pesan</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="d-block">
-                        <p>A small river named Duden flows by their place and supplies</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
-        <div class="col-lg-6 col-xl-4 d-flex">
-            <div class="pricing-entry rounded d-flex ftco-animate">
-                <div class="img" style="background-image: url(images/menu-2.jpg);"></div>
-                <div class="desc p-4">
-                    <div class="d-md-flex text align-items-start">
-                        <h3><span>Grilled Crab with Onion</span></h3>
-                        <span class="price">$20.00</span>
-                    </div>
-                    <div class="d-block">
-                        <p>A small river named Duden flows by their place and supplies</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6 col-xl-4 d-flex">
-            <div class="pricing-entry rounded d-flex ftco-animate">
-                <div class="img" style="background-image: url(images/menu-3.jpg);"></div>
-                <div class="desc p-4">
-                    <div class="d-md-flex text align-items-start">
-                        <h3><span>Grilled Crab with Onion</span></h3>
-                        <span class="price">$20.00</span>
-                    </div>
-                    <div class="d-block">
-                        <p>A small river named Duden flows by their place and supplies</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6 col-xl-4 d-flex">
-            <div class="pricing-entry rounded d-flex ftco-animate">
-                <div class="img" style="background-image: url(images/menu-4.jpg);"></div>
-                <div class="desc p-4">
-                    <div class="d-md-flex text align-items-start">
-                        <h3><span>Grilled Crab with Onion</span></h3>
-                        <span class="price">$20.00</span>
-                    </div>
-                    <div class="d-block">
-                        <p>A small river named Duden flows by their place and supplies</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6 col-xl-4 d-flex">
-            <div class="pricing-entry rounded d-flex ftco-animate">
-                <div class="img" style="background-image: url(images/menu-5.jpg);"></div>
-                <div class="desc p-4">
-                    <div class="d-md-flex text align-items-start">
-                        <h3><span>Grilled Crab with Onion</span></h3>
-                        <span class="price">$20.00</span>
-                    </div>
-                    <div class="d-block">
-                        <p>A small river named Duden flows by their place and supplies</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6 col-xl-4 d-flex">
-            <div class="pricing-entry rounded d-flex ftco-animate">
-                <div class="img" style="background-image: url(images/menu-6.jpg);"></div>
-                <div class="desc p-4">
-                    <div class="d-md-flex text align-items-start">
-                        <h3><span>Grilled Crab with Onion</span></h3>
-                        <span class="price">$20.00</span>
-                    </div>
-                    <div class="d-block">
-                        <p>A small river named Duden flows by their place and supplies</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12 text-center ftco-animate">
-            <p><a href="#" class="btn btn-primary rounded">View All Menu</a></p>
-        </div>
-    </div>
-        </div>
-</section>
+    </section>
+
 
 
     <section class="ftco-section">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
-          	<span class="subheading">Read Blog</span>
-            <h2>Recent Blog</h2>
+          	<span class="subheading">Read Review</span>
+            <h2>Review & Ratings</h2>
           </div>
         </div>
         <div class="row d-flex">

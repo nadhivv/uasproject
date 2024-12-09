@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\JenisUser;
+use App\Models\Makanan;
+use App\Models\Photos;
 
 class UserController extends Controller
 {
@@ -62,6 +64,16 @@ class UserController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->route('login');
+    }
+
+
+
+
+
+    public function index()
+    {
+        $makanan = Makanan::all();
+        return view('user.dashboard', compact('makanan'));
     }
 
 }

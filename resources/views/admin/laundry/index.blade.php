@@ -29,7 +29,7 @@
                         <form action="{{ route('laundry.store', $reservasiId) }}" method="POST">
                             @csrf
                             <input type="hidden" name="laundry_id" value="{{ $item->id }}">
-                            <input type="hidden" name="penginapan_id" value="{{ $reservasi->penginapan_id }}"> <!-- Menambahkan penginapan_id -->
+                            <input type="hidden" name="penginapan_id" value="{{ $reservasi->penginapan_id }}"> 
                             <button type="submit" class="btn btn-primary">Pesan Laundry</button>
                         </form>
                     </td>

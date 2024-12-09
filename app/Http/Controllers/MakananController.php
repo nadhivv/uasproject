@@ -5,45 +5,79 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Makanan;
 use App\Models\Orders;
+use App\Models\Photos;
 
 class MakananController extends Controller
 {
     public function index()
     {
-        $makanan = Makanan::all();
-        return view('makanan.index', compact('makanan'));
-    }
-    public function create($reservasiId)
-    {
-        $reservasi = Reservasi::findOrFail($reservasiId);
-        $makanan = Makanan::all();
-
-        return view('makanan.create', compact('reservasi', 'makanan')); // View untuk form pemesanan makanan
+        // $makanan = Makanan::all();
+        $makanan = Makanan::with('photos')->get();
+        return view('admin.makanan.index', compact('makanan'));
     }
 
-    public function store(Request $request, $reservasiId)
+    public function create()
     {
+        return view('admin.makanan.create');
+    }
+
+    public function store(Request $request)
+    {
+
         $request->validate([
-            'makanan_id' => 'required|exists:makanan,id',
-            'quantity' => 'required|integer|min:1',
+            'nama_makanan' => 'required|string|max:255',
+            'harga' => 'required|numeric|min:0',
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        // Cari data makanan berdasarkan ID
-        $makanan = Makanan::findOrFail($request->makanan_id);
-
-        // Ambil data reservasi untuk mendapatkan penginapan_id
-        $reservasi = Reservasi::findOrFail($reservasiId);
-
-        // Buat pemesanan makanan
-        Orders::create([
-            'user_id' => auth()->id(), // ID pengguna yang sedang login
-            'penginapan_id' => $reservasi->penginapan_id, // ID penginapan dari reservasi
-            'type' => 'food', // Jenis order
-            'description' => 'Pemesanan makanan: ' . $makanan->nama_makanan, // Deskripsi order
-            'price' => $makanan->harga * $request->quantity, // Total harga
-            'status' => 'processing', // Status awal pemesanan
+        $makanan = Makanan::create([
+            'nama_makanan' => $request->nama_makanan,
+            'harga' => $request->harga,
         ]);
 
-        return redirect()->route('reservasi.show', $reservasiId)->with('success', 'Pesanan makanan berhasil dibuat.');
+        if ($request->hasFile('photo')) {
+            $photoPath = $request->file('photo')->store('images', 'public');
+            $makanan->photo = basename($photoPath);
+            $makanan->save();
+
+            Photos::create([
+                'makanan_id' => $makanan->id,
+                'photo_url' => $photoPath,
+                'penginapan_id' => $request->penginapan_id ?? null,
+            ]);
+        }
+        $makanan->save();
+
+        return redirect()->route('admin.makanan.index')->with('success', 'Menu makanan berhasil ditambahkan!');
+    }
+
+    public function edit($makananId)
+    {
+        $makanan = Makanan::findOrFail($makananId);
+        return view('admin.makanan.edit', compact('makanan'));
+    }
+
+    public function update(Request $request, $makananId)
+    {
+        $makanan = Makanan::findOrFail($makananId);
+        $request->validate([
+            'nama_makanan' => 'required|string|max:255',
+            'harga' => 'required|numeric|min:0',
+        ]);
+
+        $makanan->nama_makanan = $request->nama_makanan;
+        $makanan->harga = $request->harga;
+        $makanan->save();
+
+        return redirect()->route('admin.makanan.index')->with('success', 'Menu makanan berhasil diperbarui!');
+    }
+
+    public function destroy($makananId)
+    {
+        $makanan = Makanan::findOrFail($makananId);
+        $makanan->delete();
+        Photos::where('makanan_id', $makananId)->delete();
+
+        return redirect()->route('admin.makanan.index')->with('success', 'Makanan berhasil dihapus');
     }
 }

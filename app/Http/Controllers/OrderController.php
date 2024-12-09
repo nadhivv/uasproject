@@ -7,6 +7,8 @@ use App\Models\Makanan;
 use App\Models\Laundry;
 use App\Models\Orders;
 use App\Models\Penginapan;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Photos;
 
 class OrderController extends Controller
 {
@@ -68,5 +70,21 @@ class OrderController extends Controller
         ]);
 
         return redirect()->route('laundry.index')->with('success', 'Pesanan laundry berhasil dibuat!');
+    }
+
+    public function pesan(Request $request, $makananId)
+    {
+        $penginapanId = $request->input('penginapan_id'); // Ambil penginapan_id dari request
+        if (!$penginapanId) {
+            return back()->withErrors(['error' => 'Kolom penginapan wajib diisi.']);
+        }
+
+        Order::create([
+            'user_id' => Auth::id(),
+            'makanan_id' => $makananId,
+            'penginapan_id' => $penginapanId, // Pastikan nilai tersedia
+        ]);
+
+        return redirect()->back()->with('success', 'Pesanan berhasil dibuat!');
     }
 }

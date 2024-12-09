@@ -40,9 +40,15 @@ Route::get('/admin', [AdminController::class, 'index']);
 
 // Orders Makanan
 Route::middleware('auth')->group(function () {
-    Route::get('/makanan', [MakananController::class, 'index'])->name('makanan.index');
-    Route::get('/reservasi/{reservasiId}/makanan/create', [MakananController::class, 'create'])->name('makanan.create');
-    Route::post('/reservasi/{reservasiId}/makanan', [MakananController::class, 'store'])->name('makanan.store');
+    Route::get('/makanan', [MakananController::class, 'index'])->name('admin.makanan.index');
+    // Route::get('/reservasi/{reservasiId}/makanan/create', [MakananController::class, 'create'])->name('admin.makanan.create');
+    // Route::post('/reservasi/{reservasiId}/makanan', [MakananController::class, 'store'])->name('makanan.store');
+    Route::get('/makanan/create', [MakananController::class, 'create'])->name('admin.makanan.create');
+    Route::post('/makanan/store', [MakananController::class, 'store'])->name('admin.makanan.store');
+    Route::get('/makanan/edit/{id}', [MakananController::class, 'edit'])->name('admin.makanan.edit');
+    Route::delete('/makanan/{makananId}', [MakananController::class, 'destroy'])->name('admin.makanan.destroy');
+    Route::put('/admin/makanan/{makananId}', [MakananController::class, 'update'])->name('admin.makanan.update');
+
 
     Route::get('/laundry', [LaundryController::class, 'index'])->name('laundry.index');
     Route::get('/reservasi/{reservasiId}/laundry/create', [LaundryController::class, 'create'])->name('laundry.create');
@@ -53,3 +59,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/order/laundry', [OrderController::class, 'storeLaundryOrder'])->name('order.laundry.store');
 });
 
+// menampilkan makanan pada dashboard User
+Route::get('/dashboard', [UserController::class, 'index'])->name('menu.index');
+Route::get('/pesan/{id}', [OrderController::class, 'pesan'])->name('pesan');
+Route::get('pesanmakan', function () {
+    return view('user.menu');
+});
