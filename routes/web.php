@@ -24,12 +24,15 @@ Route::post('/register', [UserController::class, 'register']);
 // Logout
 Route::post('logout', [UserController::class, 'logout'])->name('logout');
 
-// Protected routes - only accessible by authenticated users
 Route::middleware('auth')->group(function () {
-    Route::get('dashboard', function () {
-        return view('user.dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
+    Route::post('/pesan/{id}', [OrderController::class, 'pesan'])->name('pesan');
+    Route::get('/menu-makanan', function () {
+        return view('user.menu_makanan');
+    })->name('menu.makanan');
+    Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 });
+
 
 // Admin route
 Route::get('/admin', [AdminController::class, 'index']);
@@ -57,11 +60,4 @@ Route::middleware('auth')->group(function () {
     Route::get('/orders', [OrderController::class, 'index'])->name('order.index');
     Route::post('/order/makanan', [OrderController::class, 'storeFoodOrder'])->name('order.makanan.store');
     Route::post('/order/laundry', [OrderController::class, 'storeLaundryOrder'])->name('order.laundry.store');
-});
-
-// menampilkan makanan pada dashboard User
-Route::get('/dashboard', [UserController::class, 'index'])->name('menu.index');
-Route::get('/pesan/{id}', [OrderController::class, 'pesan'])->name('pesan');
-Route::get('pesanmakan', function () {
-    return view('user.menu');
 });

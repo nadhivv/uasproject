@@ -65,11 +65,7 @@ class UserController extends Controller
 
         return redirect()->route('login');
     }
-
-
-
-
-
+    
     public function index()
     {
         $makanan = Makanan::all();

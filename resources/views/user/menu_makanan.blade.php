@@ -9,19 +9,13 @@
 
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
-
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
-
     <link rel="stylesheet" href="css/aos.css">
-
     <link rel="stylesheet" href="css/ionicons.min.css">
-
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/jquery.timepicker.css">
-
-
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
@@ -63,37 +57,6 @@
 	  </div>
 
 
-    <section id="makanan" class="ftco-section ftco-menu bg-light">
-        <div class="container-fluid px-md-4">
-            <!-- Header Section -->
-            <div class="row justify-content-center mb-5 pb-3">
-                <div class="col-md-7 heading-section text-center ftco-animate">
-                    <span class="subheading">Pesan Makanan</span>
-                    <h2>Makanan</h2>
-                </div>
-            </div>
-            <!-- Menu Section -->
-            <div class="row">
-                <!-- Loop over makanan -->
-                    <div class="col-lg-6 col-xl-4 d-flex">
-                        <div class="pricing-entry rounded d-flex ftco-animate">
-                            {{-- <div class="img" style="background-image: url({{ asset('storage/images/' . $item->photo) }});"></div> --}}
-                            <div class="desc p-4">
-                                <!-- Nama dan Harga -->
-                                <div class="d-md-flex text align-items-start">
-                                    <h3><span>hsdgsjhgdsjh</span></h3>
-                                    <span class="price">Rp 20.000</span>
-                                </div>
-                                <!-- Deskripsi -->
-                                <div class="d-block">
-                                    <p>Nikmati hidangan yang mengenyangkan dan menggugah selera anda selama menginap</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-        </div>
-    </section>
 
    @include('user.layout.footer')
 
