@@ -26,5 +26,10 @@ class Orders extends Model
     {
         return $this->belongsTo(Penginapan::class);
     }
+
+    public function makanan()
+    {
+        return $this->belongsTo(Makanan::class); // Pastikan kolom 'makanan_id' ada di tabel orders
+    }
 }
 

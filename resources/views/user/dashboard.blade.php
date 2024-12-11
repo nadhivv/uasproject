@@ -137,7 +137,7 @@
     </section>
 
 
-		<section class="ftco-section">
+	<section class="ftco-section">
       <div class="container">
       	<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
@@ -399,11 +399,7 @@
                                     <p>Nikmati hidangan yang menggugah selera anda selama menginap</p>
                                 </div>
                                 <div class="d-block mt-3">
-                                    <form method="POST" action="{{ route('pesan', $item->id) }}">
-                                        @csrf
-                                        {{-- <input type="hidden" name="penginapan_id" value="{{ $penginapanId }}"> --}}
-                                        <button type="submit" class="btn btn-primary btn-sm rounded">Pesan</button>
-                                    </form>
+                                    <a href="{{ route('pesan', $item->id) }}" class="btn btn-primary btn-sm rounded">Pesan</a>
                                 </div>
                             </div>
                         </div>

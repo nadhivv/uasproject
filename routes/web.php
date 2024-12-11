@@ -31,6 +31,18 @@ Route::middleware('auth')->group(function () {
         return view('user.menu_makanan');
     })->name('menu.makanan');
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+
+    // pemesanan makanan
+    Route::get('/pesan/{id}', [UserController::class, 'showDetailPesanan'])->name('pesan');
+    Route::post('/pesan', [UserController::class, 'storePesanan'])->name('pesanan.store');
+
+    Route::get('/pembayaran/{orderId}', [UserController::class, 'showPembayaran'])->name('pembayaran');
+    Route::post('/pembayaran/proses/{orderId}', [UserController::class, 'prosesPembayaran'])->name('pembayaran.proses');
+    Route::get('/pembayaran/sukses/{orderId}', [UserController::class, 'showPembayaranSukses'])->name('pembayaran.sukses');
+
+
+
+
 });
 
 
