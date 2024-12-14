@@ -28,20 +28,6 @@ Route::post('/register', [AuthController::class, 'register']);
 // Logout
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
-// Protected routes - only accessible by authenticated users
-// Route::middleware('auth')->group(function () {
-//     Route::get('dashboard', function () {
-//         return view('user.dashboard');
-//     })->name('dashboard');
-// });
-
-// Admin route
-// Route::get('/admin', [AdminController::class, 'index']);
-
-// User home route
-// Route::get('/', [UserController::class, 'index']);
-
-
 // Orders Makanan
 Route::middleware('auth')->group(function () {
     Route::get('/makanan', [MakananController::class, 'index'])->name('makanan.index');
