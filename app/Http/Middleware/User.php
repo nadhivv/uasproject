@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class Admin
+class User
 {
     public function handle(Request $request, Closure $next)
     {
@@ -17,8 +17,8 @@ class Admin
             return redirect()->route('login')->withErrors(['error' => 'You must be logged in to access this page.']);
         }
 
-        if ($user->jenisuser_id !== 1) {
-            return redirect()->route('admin.dashboard')->withErrors(['error' => 'Access denied for Admin users.']);
+        if ($user->jenisuser_id !== 2) {
+            return redirect()->route('user.dashboard')->withErrors(['error' => 'Access denied for Admin users.']);
         }
         return $next($request);
     }
