@@ -94,7 +94,7 @@ class UserController extends Controller
         $totalPrice = $makanan->harga;
 
         // Simpan pesanan ke tabel orders
-        $order = Orders::create([
+        $orders = Orders::create([
             'user_id' => Auth::id(),
             'makanan_id' => $request->makanan_id,
             'description' => 'Pesanan makanan: ' . $makanan->nama_makanan,
@@ -103,7 +103,7 @@ class UserController extends Controller
         ]);
 
         // Setelah pesanan berhasil disimpan, arahkan ke halaman pembayaran
-        return redirect()->route('pembayaran', ['orderId' => $order->id]);
+        return redirect()->route('pembayaran', ['orderId' => $orders->id]);
     }
 
     public function showPembayaran($orderId)

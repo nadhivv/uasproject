@@ -42,6 +42,19 @@ Route::middleware('auth')->group(function () {
 
 
 
+    // pemesanan laundry
+    // Menyimpan pesanan laundry
+    Route::get('/pesanan/detail/{orderId}', [LaundryController::class, 'detail'])->name('detail_pesanan2');
+    Route::post('/pesanlaundry', [LaundryController::class, 'storelaundry'])->name('store.pesanan');
+    Route::get('/pesanan/create', [LaundryController::class, 'create'])->name('pesanan.create');
+
+
+    // Menampilkan halaman pembayaran untuk pesanan
+    // Route::get('/pembayaran/laundry/{orderId}', [LaundryController::class, 'showPembayaranlaundry'])->name('pembayaran2');
+    // // Proses pembayaran
+    // Route::post('/pembayaran/laundry/{orderId}', [LaundryController::class, 'prosesPembayaranlaundry'])->name('pembayaran.proses2');
+    // // Halaman sukses pembayaran
+    // Route::get('/pembayaran-sukses/{orderId}', [LaundryController::class, 'showPembayaranSukseslaundry'])->name('pembayaran.sukses2');
 
 });
 
@@ -56,8 +69,6 @@ Route::get('/admin', [AdminController::class, 'index']);
 // Orders Makanan
 Route::middleware('auth')->group(function () {
     Route::get('/makanan', [MakananController::class, 'index'])->name('admin.makanan.index');
-    // Route::get('/reservasi/{reservasiId}/makanan/create', [MakananController::class, 'create'])->name('admin.makanan.create');
-    // Route::post('/reservasi/{reservasiId}/makanan', [MakananController::class, 'store'])->name('makanan.store');
     Route::get('/makanan/create', [MakananController::class, 'create'])->name('admin.makanan.create');
     Route::post('/makanan/store', [MakananController::class, 'store'])->name('admin.makanan.store');
     Route::get('/makanan/edit/{id}', [MakananController::class, 'edit'])->name('admin.makanan.edit');
@@ -66,8 +77,7 @@ Route::middleware('auth')->group(function () {
 
 
     Route::get('/laundry', [LaundryController::class, 'index'])->name('laundry.index');
-    Route::get('/reservasi/{reservasiId}/laundry/create', [LaundryController::class, 'create'])->name('laundry.create');
-    Route::post('/reservasi/{reservasiId}/laundry', [LaundryController::class, 'store'])->name('laundry.store');
+
 
     Route::get('/orders', [OrderController::class, 'index'])->name('order.index');
     Route::post('/order/makanan', [OrderController::class, 'storeFoodOrder'])->name('order.makanan.store');

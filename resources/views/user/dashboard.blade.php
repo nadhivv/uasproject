@@ -275,103 +275,83 @@
 
 
 	<section id="laundry" class="ftco-section ftco-menu bg-light">
-			<div class="container-fluid px-md-4">
-				<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-          	<span class="subheading">Pesan Laundry</span>
-            <h2>Laundry</h2>
-          </div>
+        <div class="container-fluid px-md-4">
+            <div class="row justify-content-center mb-5 pb-3">
+                <div class="col-md-7 heading-section text-center ftco-animate">
+                    <span class="subheading">Laundry</span>
+                    <h2>Pesan Laundry</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-xl-6 d-flex">
+                    <div class="pricing-entry rounded d-flex ftco-animate">
+                        <div class="desc p-4">
+                            <form action="{{ route('store.pesanan') }}" method="POST">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="jenis_laundry">Jenis Layanan</label>
+                                    <select id="jenis_laundry" name="jenis_laundry" class="form-control" onchange="updatePrice()">
+                                        <option value="cuci_kering" data-price="20000">Cuci Kering</option>
+                                        <option value="cuci_setrika" data-price="30000">Cuci + Setrika</option>
+                                        <option value="setrika" data-price="15000">Setrika Saja</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="jumlah">Jumlah Laundry (Kg/Item)</label>
+                                    <input type="number" id="jumlah" name="jumlah" class="form-control" placeholder="Masukkan jumlah" oninput="updatePrice()">
+                                </div>
+                                <div class="form-group">
+                                    <label for="waktu_pengambilan">Waktu Pengambilan</label>
+                                    <input type="datetime-local" id="waktu_pengambilan" name="waktu_pengambilan" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="waktu_pengembalian">Estimasi Waktu Pengembalian</label>
+                                    <input type="datetime-local" id="waktu_pengembalian" name="waktu_pengembalian" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="harga">Total Harga</label>
+                                    <input type="text" id="harga" name="harga" class="form-control" value="Rp 0" readonly>
+                                </div>
+                                <div class="form-group text-center">
+                                    <button type="submit" class="btn btn-primary rounded">Pesan Sekarang</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-6 d-flex">
+                    <div class="pricing-entry rounded d-flex ftco-animate">
+                        <div class="desc p-4">
+                            <h4>Status Pemesanan Laundry</h4>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Tanggal</th>
+                                        <th>Layanan</th>
+                                        <th>Jumlah</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>12 Desember 2024</td>
+                                        <td>Cuci Kering</td>
+                                        <td>5 Kg</td>
+                                        <td>Diproses</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10 Desember 2024</td>
+                                        <td>Setrika</td>
+                                        <td>3 Item</td>
+                                        <td>Selesai</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-				<div class="row">
-        	<div class="col-lg-6 col-xl-4 d-flex">
-        		<div class="pricing-entry rounded d-flex ftco-animate">
-        			<div class="img" style="background-image: url(images/menu-1.jpg);"></div>
-        			<div class="desc p-4">
-	        			<div class="d-md-flex text align-items-start">
-	        				<h3><span>Grilled Crab with Onion</span></h3>
-	        				<span class="price">$20.00</span>
-	        			</div>
-	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
-	        			</div>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-6 col-xl-4 d-flex">
-        		<div class="pricing-entry rounded d-flex ftco-animate">
-        			<div class="img" style="background-image: url(images/menu-2.jpg);"></div>
-        			<div class="desc p-4">
-	        			<div class="d-md-flex text align-items-start">
-	        				<h3><span>Grilled Crab with Onion</span></h3>
-	        				<span class="price">$20.00</span>
-	        			</div>
-	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
-	        			</div>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-6 col-xl-4 d-flex">
-        		<div class="pricing-entry rounded d-flex ftco-animate">
-        			<div class="img" style="background-image: url(images/menu-3.jpg);"></div>
-        			<div class="desc p-4">
-	        			<div class="d-md-flex text align-items-start">
-	        				<h3><span>Grilled Crab with Onion</span></h3>
-	        				<span class="price">$20.00</span>
-	        			</div>
-	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
-	        			</div>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-6 col-xl-4 d-flex">
-        		<div class="pricing-entry rounded d-flex ftco-animate">
-        			<div class="img" style="background-image: url(images/menu-4.jpg);"></div>
-        			<div class="desc p-4">
-	        			<div class="d-md-flex text align-items-start">
-	        				<h3><span>Grilled Crab with Onion</span></h3>
-	        				<span class="price">$20.00</span>
-	        			</div>
-	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
-	        			</div>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-6 col-xl-4 d-flex">
-        		<div class="pricing-entry rounded d-flex ftco-animate">
-        			<div class="img" style="background-image: url(images/menu-5.jpg);"></div>
-        			<div class="desc p-4">
-	        			<div class="d-md-flex text align-items-start">
-	        				<h3><span>Grilled Crab with Onion</span></h3>
-	        				<span class="price">$20.00</span>
-	        			</div>
-	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
-	        			</div>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-6 col-xl-4 d-flex">
-        		<div class="pricing-entry rounded d-flex ftco-animate">
-        			<div class="img" style="background-image: url(images/menu-6.jpg);"></div>
-        			<div class="desc p-4">
-	        			<div class="d-md-flex text align-items-start">
-	        				<h3><span>Grilled Crab with Onion</span></h3>
-	        				<span class="price">$20.00</span>
-	        			</div>
-	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
-	        			</div>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-md-12 text-center ftco-animate">
-        		<p><a href="#" class="btn btn-primary rounded">View All Menu</a></p>
-        	</div>
-        </div>
-			</div>
 	</section>
 
 
@@ -380,8 +360,8 @@
             <!-- Header Section -->
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section text-center ftco-animate">
-                    <span class="subheading">Pesan Makanan</span>
-                    <h2>Makanan</h2>
+                    <span class="subheading">Makanan</span>
+                    <h2>Pesan Makanan</h2>
                 </div>
             </div>
             <!-- Menu Section -->
@@ -538,6 +518,19 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
+
+
+  <script>
+    function updatePrice() {
+        const laundryType = document.getElementById('jenis_laundry');
+        const selectedOption = laundryType.options[laundryType.selectedIndex];
+        const pricePerUnit = parseFloat(selectedOption.getAttribute('data-price')) || 0;
+        const quantity = parseFloat(document.getElementById('jumlah').value) || 0;
+        const totalPrice = pricePerUnit * quantity;
+
+        document.getElementById('harga').value = `Rp ${totalPrice.toLocaleString('id-ID')}`;
+    }
+</script>
 
   </body>
 </html>

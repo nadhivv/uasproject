@@ -29,7 +29,12 @@ class Orders extends Model
 
     public function makanan()
     {
-        return $this->belongsTo(Makanan::class); // Pastikan kolom 'makanan_id' ada di tabel orders
+        return $this->belongsTo(Makanan::class);
+    }
+
+    public function laundry()
+    {
+        return $this->belongsTo(Laundry::class, 'laundry_id');
     }
 }
 
