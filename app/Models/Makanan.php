@@ -18,4 +18,9 @@ class Makanan extends Model
     {
         return $this->hasMany(Orders::class);
     }
+
+    public function photos()
+    {
+        return $this->hasMany(Photos::class);
+    }
 }

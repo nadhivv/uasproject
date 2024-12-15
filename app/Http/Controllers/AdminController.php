@@ -11,4 +11,12 @@ class AdminController extends Controller
         return view('admin.pages.dashboard');
 
     }
+
+
+    // Menampilkan daftar makanan untuk user
+    public function makanan()
+    {
+        $makanan = Makanan::all();
+        return view('user.dashboard', compact('makanan'));
+    }
 }

@@ -11,7 +11,12 @@ class Laundry extends Model
     protected $table = 'laundry';
 
     protected $fillable = [
-        'jenis_laundry', 'harga',
+        'jenis_laundry',
+        'jumlah',
+        'waktu_pengambilan',
+        'waktu_pengembalian',
+        'harga',
+        'created_by',
     ];
 
     public function orders()
