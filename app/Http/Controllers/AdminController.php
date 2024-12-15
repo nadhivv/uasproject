@@ -23,6 +23,15 @@ class AdminController extends Controller
             'assignedMenus' => $assignedMenus, 'jenisusers' => $jenisusers]);
 
     }
+
+
+    // Menampilkan daftar makanan untuk user
+    public function makanan()
+    {
+        $makanan = Makanan::all();
+        return view('user.dashboard', compact('makanan'));
+    }
+
     public function list()
     {
         $users = User::all();

@@ -26,5 +26,15 @@ class Orders extends Model
     {
         return $this->belongsTo(Penginapan::class);
     }
+
+    public function makanan()
+    {
+        return $this->belongsTo(Makanan::class);
+    }
+
+    public function laundry()
+    {
+        return $this->belongsTo(Laundry::class, 'laundry_id');
+    }
 }
 

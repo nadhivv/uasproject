@@ -9,6 +9,7 @@ class Service_Payment extends Model
 {
     use HasFactory;
 
+    protected $table = 'service_payments';
     protected $fillable = [
         'order_id', 'total_harga', 'payment_date', 'method', 'status',
     ];
