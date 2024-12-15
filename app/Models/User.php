@@ -34,18 +34,28 @@ class User extends Authenticatable
         ];
     }
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    // public function users()
+    // {
+    //     return $this->belongsTo(User::class);
+    // }
 
     // Belongs to penginapan
     public function penginapan()
     {
         return $this->belongsTo(Penginapan::class);
     }
-    public function jenisUser()
+    public function users()
+{
+    return $this->hasMany(User::class, 'jenisuser_id');
+}
+
+    public function menus()
     {
-        return $this->belongsTo(JenisUser::class, 'jenisuser_id', 'id');
+        return $this->belongsToMany(Menu::class, 'settingmenu', 'jenisuser_id', 'menu_id');
+    }
+
+    public function jenisusers()
+    {
+        return $this->belongsTo(JenisUser::class, 'jenisuser_id');
     }
 }

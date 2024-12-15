@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MakananController;
 use App\Http\Controllers\LaundryController;
@@ -17,16 +16,18 @@ Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.d
 Route::get('/user/dashboard', [UserController::class, 'index'])->name('user.dashboard');
 
 
-// Show the login form
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
+Route::get('/register', [UserController::class, 'registerview']);
+Route::post('/register', [UserController::class, 'register'])->name('register');
+Route::get('/', [UserController::class, 'loginview']);
+Route::post('/login', [UserController::class, 'login'])->name('login');
+Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
-// Show the registration form
-Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
-Route::post('/register', [AuthController::class, 'register']);
-
-// Logout
-Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+// User management
+Route::get('/admin/user', [AdminController::class, 'list']);
+Route::post('/admin/user/add', [AdminController::class, 'store'])->name('store.users');
+Route::get('/admin/user/{id}/edit', [AdminController::class, 'edit'])->name('edit.users');
+Route::put('/admin/user/{id}', [AdminController::class, 'update'])->name('update.users');
+Route::delete('/admin/user/{id}', [AdminController::class, 'destroy'])->name('delete.users');
 
 // Orders Makanan
 Route::middleware('auth')->group(function () {
