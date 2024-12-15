@@ -9,7 +9,20 @@ class JenisUser extends Model
 {
     use HasFactory;
 
+    protected $table = 'jenis_user';
+
+    protected $primarykey = 'id';
     protected $fillable = [
         'jenis_user',
     ];
+    public function users()
+    {
+        return $this->hasMany(User::class, 'jenisuser_id');
+    }
+
+
+    public function menus()
+    {
+        return $this->belongsToMany(Menu::class, 'settingmenu', 'jenisuser_id', 'menu_id')->withTimestamps();;
+    }
 }
