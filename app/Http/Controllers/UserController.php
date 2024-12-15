@@ -96,7 +96,7 @@ class UserController extends Controller
     public function register(request $request)
     {
         User::create([
-            'nama' => $request->input('nama'),
+            'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
             'create_by' => 'system',
