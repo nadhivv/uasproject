@@ -15,7 +15,7 @@ class UserController extends Controller
     public function index()
 {
     // Eager load relasi jenisUser
-    $users = User::with('jenisUser')->get();
+    $users = User::with('jenisusers')->get();
     $jenisusers = JenisUser::all();
     $menus = Menu::all();
     $currentUserRole = Auth::user()->jenisuser_id;

@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\MakananController;
 use App\Http\Controllers\LaundryController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\MenuController;
 
 // Home route
 Route::get('/', function () {
@@ -18,7 +19,7 @@ Route::get('/user/dashboard', [UserController::class, 'index'])->name('user.dash
 
 Route::get('/register', [UserController::class, 'registerview']);
 Route::post('/register', [UserController::class, 'register'])->name('register');
-Route::get('/', [UserController::class, 'loginview']);
+Route::get('/login', [UserController::class, 'loginview']);
 Route::post('/login', [UserController::class, 'login'])->name('login');
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
@@ -28,6 +29,13 @@ Route::post('/admin/user/add', [AdminController::class, 'store'])->name('store.u
 Route::get('/admin/user/{id}/edit', [AdminController::class, 'edit'])->name('edit.users');
 Route::put('/admin/user/{id}', [AdminController::class, 'update'])->name('update.users');
 Route::delete('/admin/user/{id}', [AdminController::class, 'destroy'])->name('delete.users');
+
+// Menu management
+Route::get('/admin/menu', [MenuController::class, 'index']);
+Route::post('/admin/menu/add', [MenuController::class, 'store'])->name('store.menu');
+Route::get('/admin/menu/{id}/edit', [MenuController::class, 'edit'])->name('edit.menu');
+Route::put('/admin/menu/{id}', [MenuController::class, 'update'])->name('update.menu');
+Route::delete('/admin/menu/{id}', [MenuController::class, 'destroy'])->name('delete.menu');
 
 // Orders Makanan
 Route::middleware('auth')->group(function () {

@@ -19,8 +19,8 @@
                 @method('PUT')
 
                 <div class="form-group">
-                    <label for="nama" class="form-label">Nama User</label>
-                    <input type="text" class="form-control" id="nama" name="nama" value="{{ old('nama', $users->nama) }}" required>
+                    <label for="name" class="form-label">Nama User</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $users->name) }}" required>
                 </div>
 
                 <div class="form-group">

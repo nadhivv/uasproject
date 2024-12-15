@@ -34,11 +34,6 @@ class User extends Authenticatable
         ];
     }
 
-    // public function users()
-    // {
-    //     return $this->belongsTo(User::class);
-    // }
-
     // Belongs to penginapan
     public function penginapan()
     {

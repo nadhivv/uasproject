@@ -55,7 +55,7 @@ class AdminController extends Controller
         $users = User::findOrFail($id);
         $jenisusers = JenisUser::all();
         $menus = Menu::all();
-        $currentUserRole = Auth::user()->id_jenis_user;
+        $currentUserRole = Auth::user()->jenisuser_id;
         $assignedMenuIds = JenisUser::findOrFail($currentUserRole)->menus->pluck('id')->toArray();
         $assignedMenus = Menu::whereIn('id', $assignedMenuIds)->get();
         return view('admin.pages.useredit', ['users'=>$users,'menus' => $menus,

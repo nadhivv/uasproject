@@ -22,7 +22,6 @@
                             <th>Nama User</th>
                             <th>Email</th>
                             <th>Jenis User</th>
-                            <th>Status</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -33,7 +32,6 @@
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->jenisusers->jenis_user }}</td>
-                                <td>{{ $user->status_user }}</td>
                                 <td>
                                     <a href="{{ route('edit.users', $user->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                     <form action="{{ route('delete.users', $user->id) }}" method="POST" style="display:inline;">

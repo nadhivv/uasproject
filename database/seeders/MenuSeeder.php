@@ -22,13 +22,6 @@ class MenuSeeder extends Seeder
                 'update_by' => 'system',
             ],
             [
-                'menu_name' => 'User',
-                'menu_link' => '#ui-basic',
-                'menu_icon' => 'icon-layout menu-icon',
-                'create_by' => 'system',
-                'update_by' => 'system',
-            ],
-            [
                 'menu_name' => 'Daftar User',
                 'menu_link' => '/admin/user',
                 'menu_icon' => '',
