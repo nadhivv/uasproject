@@ -8,6 +8,7 @@ use App\Http\Controllers\LaundryController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\MenuController;
 
+
 // Home route
 Route::get('/', function () {
     return view('welcome');
@@ -24,9 +25,7 @@ Route::post('/login', [UserController::class, 'login'])->name('login');
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
 
-// Show the registration form
-Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
-Route::post('/register', [AuthController::class, 'register']);
+
 
 // Logout
 Route::post('logout', [UserController::class, 'logout'])->name('logout');

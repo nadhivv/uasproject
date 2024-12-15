@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\JenisUser;
 use App\Models\Menu;
+use App\Models\Makanan;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
