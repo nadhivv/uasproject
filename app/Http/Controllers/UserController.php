@@ -186,7 +186,4 @@ class UserController extends Controller
             'method' => $validated['method'],
         ]);
     }
-
-
 }
-
