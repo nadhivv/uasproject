@@ -563,9 +563,7 @@
         </div>
       </div>
     </section>
-<<<<<<< HEAD
 @endsection
-=======
 
    @include('user.layout.footer')
 
@@ -607,4 +605,3 @@
 
   </body>
 </html>
->>>>>>> branchcindy
