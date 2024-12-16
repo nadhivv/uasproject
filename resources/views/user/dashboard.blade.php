@@ -356,7 +356,7 @@
                 <div class="col-lg-6 col-xl-6 d-flex">
                     <div class="pricing-entry rounded d-flex ftco-animate">
                         <div class="desc p-4">
-                            <form action="" method="POST">
+                            <form action="{{ route('store.pesanan') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label for="jenis_laundry">Jenis Layanan</label>
@@ -603,5 +603,7 @@
     }
 </script>
 
-  </body>
+    </body>
 </html>
+
+

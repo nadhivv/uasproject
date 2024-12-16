@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\JenisUserController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MakananController;
 use App\Http\Controllers\LaundryController;
@@ -56,6 +57,13 @@ Route::post('/admin/menu/add', [MenuController::class, 'store'])->name('store.me
 Route::get('/admin/menu/{id}/edit', [MenuController::class, 'edit'])->name('edit.menu');
 Route::put('/admin/menu/{id}', [MenuController::class, 'update'])->name('update.menu');
 Route::delete('/admin/menu/{id}', [MenuController::class, 'destroy'])->name('delete.menu');
+
+// Role management
+Route::get('/admin/role', [JenisUserController::class, 'index']);
+Route::post('/admin/role/add', [JenisUserController::class, 'store'])->name('store.role');
+Route::get('/admin/role/{id}/edit', [JenisUserController::class, 'edit'])->name('edit.role');
+Route::put('/admin/role/{id}', [JenisUserController::class, 'update'])->name('update.role');
+Route::delete('/admin/role/{id}', [JenisUserController::class, 'destroy'])->name('delete.role');
 
 // Orders Makanan
 Route::middleware('auth')->group(function () {

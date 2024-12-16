@@ -29,13 +29,6 @@ class MenuSeeder extends Seeder
                 'update_by' => 'system',
             ],
             [
-                'menu_name' => 'Activity',
-                'menu_link' => '/admin/useractivity',
-                'menu_icon' => '',
-                'create_by' => 'system',
-                'update_by' => 'system',
-            ],
-            [
                 'menu_name' => 'Add Role',
                 'menu_link' => '/admin/role',
                 'menu_icon' => 'icon-grid menu-icon',
