@@ -15,13 +15,16 @@ return new class extends Migration
         Schema::create('jenis_user', function (Blueprint $table) {
             $table->id();
             $table->string('jenis_user');
+            $table->string('create_by', 30);
+            $table->string('delete_mark', 1);
+            $table->string('update_by', 30);
             $table->timestamps();
         });
 
-        DB::table('jenis_user')->insert([
-            ['id' => 1, 'jenis_user' => 'Admin', 'created_at' => now(), 'updated_at' => now()],
-            ['id' => 2, 'jenis_user' => 'User', 'created_at' => now(), 'updated_at' => now()],
-        ]);
+        // DB::table('jenis_user')->insert([
+        //     ['id' => 1, 'jenis_user' => 'Admin', 'created_at' => now(), 'updated_at' => now()],
+        //     ['id' => 2, 'jenis_user' => 'User', 'created_at' => now(), 'updated_at' => now()],
+        // ]);
     }
 
     /**

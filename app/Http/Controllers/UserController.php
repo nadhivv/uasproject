@@ -27,21 +27,19 @@ class UserController extends Controller
     $currentUserRole = Auth::user()->jenisuser_id;
     $assignedMenuIds = JenisUser::findOrFail($currentUserRole)->menus->pluck('id')->toArray();
     $assignedMenus = Menu::whereIn('id', $assignedMenuIds)->get();
+    $makanan = Makanan::all();
 
     return view('user.dashboard', [
         'users' => $users,
         'menus' => $menus,
         'assignedMenus' => $assignedMenus,
-        'jenisusers' => $jenisusers
+        'jenisusers' => $jenisusers,
+        'makanan'=> $makanan
     ]);
 }
 
     public function loginview()
     {
-
-        $makanan = Makanan::all();
-        return view('user.dashboard', compact('makanan'));
-
         return view('auth.login');
 
     }
