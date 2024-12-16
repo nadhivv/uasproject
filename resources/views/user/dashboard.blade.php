@@ -127,7 +127,7 @@
               </div>
               <div class="media-body">
                 <h3 class="heading mb-3">
-                    <a href="{{ asset('#laundry')}}" >Pesan Laundry</a>
+                    <a href="#laundry" >Pesan Laundry</a>
                 </h3>
               </div>
             </div>
@@ -141,7 +141,7 @@
               </div>
               <div class="media-body">
                 <h3 class="heading mb-3">
-                    <a href="{{ asset('#makanan')}}" >Pesan Makanan</a>
+                    <a href="#makanan" >Pesan Makanan</a>
                 </h3>
               </div>
             </div>
@@ -356,7 +356,7 @@
                 <div class="col-lg-6 col-xl-6 d-flex">
                     <div class="pricing-entry rounded d-flex ftco-animate">
                         <div class="desc p-4">
-                            {{-- <form action="{{ route('store.pesanan') }}" method="POST"> --}}
+                            <form action="{{ route('store.pesanan') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label for="jenis_laundry">Jenis Layanan</label>
@@ -449,7 +449,7 @@
                                     <p>Nikmati hidangan yang menggugah selera anda selama menginap</p>
                                 </div>
                                 <div class="d-block mt-3">
-                                    <a href="{{ route('pesan', $item->id) }}" class="btn btn-primary btn-sm rounded">Pesan</a>
+                                    <a href="" class="btn btn-primary btn-sm rounded">Pesan</a>
                                 </div>
                             </div>
                         </div>
