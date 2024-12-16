@@ -30,7 +30,7 @@
             <div class="container">
                 <h1>Pembayaran Berhasil!</h1>
                 <p>Pesanan Anda telah dibayar. Terima kasih atas pesanan Anda!</p>
-                <a href="{{ route('dashboard') }}" class="btn btn-primary">Kembali ke Daftar Makanan</a>
+                <a href="{{ route('user.dashboard') }}" class="btn btn-primary">Kembali ke Daftar Makanan</a>
             </div>
         </div>
     </section>

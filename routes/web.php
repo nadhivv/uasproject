@@ -79,8 +79,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth'])->group(function () {
 
-    // Detail Pesanan
-    Route::get('/user/pesanan/{makananId}', [UserController::class, 'showDetailPesanan'])->name('pesanan.detail');
+    Route::get('/pesanan/{makananId}', [UserController::class, 'showDetailPesanan'])->name('pesan');
     Route::post('/user/pesanan', [UserController::class, 'storePesanan'])->name('pesanan.store');
 
     // Pembayaran

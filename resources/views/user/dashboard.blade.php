@@ -409,12 +409,6 @@
                                         <td>5 Kg</td>
                                         <td>Diproses</td>
                                     </tr>
-                                    <tr>
-                                        <td>10 Desember 2024</td>
-                                        <td>Setrika</td>
-                                        <td>3 Item</td>
-                                        <td>Selesai</td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -449,7 +443,7 @@
                                     <p>Nikmati hidangan yang menggugah selera anda selama menginap</p>
                                 </div>
                                 <div class="d-block mt-3">
-                                    <a href="" class="btn btn-primary btn-sm rounded">Pesan</a>
+                                    <a href="{{ route('pesan', $item->id) }}" class="btn btn-primary btn-sm rounded">Pesan</a>
                                 </div>
                             </div>
                         </div>
