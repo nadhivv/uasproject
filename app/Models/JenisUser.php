@@ -25,4 +25,9 @@ class JenisUser extends Model
     {
         return $this->belongsToMany(Menu::class, 'settingmenu', 'jenisuser_id', 'menu_id')->withTimestamps();;
     }
+
+    public function settingMenus()
+    {
+        return $this->hasMany(SettingMenu::class, 'jenisuser_id');
+    }
 }

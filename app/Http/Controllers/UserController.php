@@ -13,6 +13,7 @@ use App\Models\Makanan;
 use App\Models\Photos;
 use App\Models\Orders;
 use App\Models\Service_Payment;
+use App\Models\SettingMenu;
 
 
 class UserController extends Controller
