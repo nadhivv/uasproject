@@ -9,7 +9,13 @@ class Lokasi extends Model
 {
     use HasFactory;
 
+    protected $table = 'lokasi';
     protected $fillable = [
         'nama_kota', 'provinsi',
     ];
+
+    public function penginapan()
+    {
+        return $this->hasMany(Penginapan::class);
+    }
 }

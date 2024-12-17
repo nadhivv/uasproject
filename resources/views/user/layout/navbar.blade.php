@@ -9,7 +9,7 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active"><a href="" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="" class="nav-link">Our Rooms</a></li>
-          <li class="nav-item"><a href="" class="nav-link">About Us</a></li>
+          {{-- <li class="nav-item"><a href="{{ route('lokasi.cari') }}" class="nav-link">Nearby</a></li> --}}
           <li class="nav-item"><a href="" class="nav-link">Blog</a></li>
           <form action="{{ route('logout') }}" method="POST">
             @csrf

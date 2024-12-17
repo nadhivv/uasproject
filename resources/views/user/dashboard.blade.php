@@ -59,17 +59,34 @@
 	        			<div class="col-md d-flex py-md-4">
 	        				<div class="form-group align-self-stretch d-flex align-items-end">
 	        					<div class="wrap align-self-stretch py-3 px-4">
-			      					<label for="#">Room</label>
+			      					<label for="#">Provinsi</label>
 			      					<div class="form-field">
 			        					<div class="select-wrap">
 			                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
 			                    <select name="" id="" class="form-control">
-			                    	<option value="">Suite</option>
-			                      <option value="">Family Room</option>
-			                      <option value="">Deluxe Room</option>
-			                      <option value="">Classic Room</option>
-			                      <option value="">Superior Room</option>
-			                      <option value="">Luxury Room</option>
+			                    	<option value="">Pilih</option>
+			                      <option value="">Jawa Timur</option>
+			                      <option value="">Jawa Barat</option>
+			                      <option value="">Jawa Tengah</option>
+			                    </select>
+			                  </div>
+				              </div>
+				            </div>
+		              </div>
+	        			</div>
+                        <div class="col-md d-flex py-md-4">
+	        				<div class="form-group align-self-stretch d-flex align-items-end">
+	        					<div class="wrap align-self-stretch py-3 px-4">
+			      					<label for="#">Kota</label>
+			      					<div class="form-field">
+			        					<div class="select-wrap">
+			                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+			                    <select name="" id="" class="form-control">
+			                    	<option value="">Pilih</option>
+			                      <option value="">Surabaya</option>
+			                      <option value="">Bandung</option>
+			                      <option value="">Semarang</option>
+			                      <option value="">Madiun</option>
 			                    </select>
 			                  </div>
 				              </div>
@@ -356,7 +373,7 @@
                 <div class="col-lg-6 col-xl-6 d-flex">
                     <div class="pricing-entry rounded d-flex ftco-animate">
                         <div class="desc p-4">
-                            <form action="{{ route('store.pesanan') }}" method="POST">
+                            <form action="" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label for="jenis_laundry">Jenis Layanan</label>
@@ -564,46 +581,4 @@
       </div>
     </section>
 @endsection
-
-{{--
-   @include('user.layout.footer')
-
-
-
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/bootstrap-datepicker.js"></script>
-  <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="js/google-map.js"></script>
-  <script src="js/main.js"></script>
-
-
-  <script>
-    function updatePrice() {
-        const laundryType = document.getElementById('jenis_laundry');
-        const selectedOption = laundryType.options[laundryType.selectedIndex];
-        const pricePerUnit = parseFloat(selectedOption.getAttribute('data-price')) || 0;
-        const quantity = parseFloat(document.getElementById('jumlah').value) || 0;
-        const totalPrice = pricePerUnit * quantity;
-
-        document.getElementById('harga').value = `Rp ${totalPrice.toLocaleString('id-ID')}`;
-    }
-</script>
-
-  </body>
-</html> --}}
 

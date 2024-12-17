@@ -8,7 +8,8 @@ use App\Http\Controllers\MakananController;
 use App\Http\Controllers\LaundryController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\MenuController;
-
+use App\Http\Controllers\LokasiController;
+use App\Http\Controllers\PencarianController;
 
 // Home route
 Route::get('/', function () {
@@ -24,8 +25,6 @@ Route::post('/register', [UserController::class, 'register'])->name('register');
 Route::get('/login', [UserController::class, 'loginview']);
 Route::post('/login', [UserController::class, 'login'])->name('login');
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
-
-
 
 
 // Logout
@@ -81,4 +80,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/orders', [OrderController::class, 'index'])->name('order.index');
     Route::post('/order/makanan', [OrderController::class, 'storeFoodOrder'])->name('order.makanan.store');
     Route::post('/order/laundry', [OrderController::class, 'storeLaundryOrder'])->name('order.laundry.store');
+
+    // Route::get('/lokasi/cari', [LokasiController::class, 'cariLokasi'])->name('lokasi.cari');
+
 });

@@ -8,12 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Penginapan extends Model
 {
     use HasFactory;
-
+    protected $table = 'penginapan';
     protected $fillable = [
         'name', 'location', 'description', 'price', 'rating',
     ];
 
     // One-to-many relationship with reviews
+    public function lokasi()
+    {
+        return $this->belongsTo(Lokasi::class);
+    }
     public function reviews()
     {
         return $this->hasMany(Review::class);
