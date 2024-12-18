@@ -12,18 +12,18 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         DB::table('users')->insert([
+            // [
+            //     'name' => 'Admin',
+            //     'password' => Hash::make('1234'), // Encrypting the password
+            //     'email' => 'admin@gmail.com',
+            //     'jenisuser_id' => 1,
+            //     'create_by' => 'system',
+            //     'update_by' => 'system',
+            //     'created_at' => now(),
+            //     'updated_at' => now(),
+            // ],
             [
-                'name' => 'Admin',
-                'password' => Hash::make('1234'), // Encrypting the password
-                'email' => 'admin@gmail.com',
-                'jenisuser_id' => 1,
-                'create_by' => 'system',
-                'update_by' => 'system',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'nama_user' => 'User',
+                'name' => 'User',
                 'password' => Hash::make('1234'),
                 'email' => 'user@gmail.com',
                 'jenisuser_id' => 2,
