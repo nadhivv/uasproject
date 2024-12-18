@@ -4,7 +4,7 @@
 
 		<div class="hero">
 	    <section class="home-slider owl-carousel">
-	      <div class="slider-item" style="{{ asset('background-image:url(images/bg_1.jpg);') }}">
+	      <div class="slider-item" style="background-image: url('{{ asset('images/bg_1.jpg') }}');">
 	      	<div class="overlay"></div>
 	        <div class="container">
 	          <div class="row no-gutters slider-text align-items-center justify-content-end">
@@ -18,7 +18,7 @@
 	        </div>
 	      </div>
 
-	      <div class="slider-item" style="{{ asset('background-image:url(images/bg_1.jpg);') }}">
+	      <div class="slider-item" style="background-image: url('{{ asset('images/bg_1.jpg') }}');">
 	      	<div class="overlay"></div>
 	        <div class="container">
 	          <div class="row no-gutters slider-text align-items-center justify-content-end">
@@ -34,87 +34,83 @@
 	    </section>
 	  </div>
 
-      <form action="{{ route('cari.penginapan') }}" method="POST" class="booking-form aside-stretch">
-        @csrf
-        <div class="row">
-            <!-- Check-in Date -->
-            <div class="col-md d-flex py-md-4">
-                <div class="form-group align-self-stretch d-flex align-items-end">
-                    <div class="wrap align-self-stretch py-3 px-4">
-                        <label for="checkin_date">Check-in Date</label>
-                        <input type="date" name="checkin_date" class="form-control" placeholder="Check-in date" required>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Check-out Date -->
-            <div class="col-md d-flex py-md-4">
-                <div class="form-group align-self-stretch d-flex align-items-end">
-                    <div class="wrap align-self-stretch py-3 px-4">
-                        <label for="checkout_date">Check-out Date</label>
-                        <input type="date" name="checkout_date" class="form-control" placeholder="Check-out date" required>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Provinsi -->
-            <div class="col-md d-flex py-md-4">
-                <div class="form-group align-self-stretch d-flex align-items-end">
-                    <div class="wrap align-self-stretch py-3 px-4">
-                        <label for="provinsi">Provinsi</label>
-                        <select name="provinsi" id="provinsi" class="form-control" required>
-                            <option value="">Pilih</option>
-                            <option value="Jawa Timur">Jawa Timur</option>
-                            <option value="Jawa Barat">Jawa Barat</option>
-                            <option value="Jawa Tengah">Jawa Tengah</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Kota -->
-            <div class="col-md d-flex py-md-4">
-                <div class="form-group align-self-stretch d-flex align-items-end">
-                    <div class="wrap align-self-stretch py-3 px-4">
-                        <label for="kota">Kota</label>
-                        <select name="kota" id="kota" class="form-control" required>
-                            <option value="">Pilih</option>
-                            <option value="Surabaya">Surabaya</option>
-                            <option value="Bandung">Bandung</option>
-                            <option value="Semarang">Semarang</option>
-                            <option value="Madiun">Madiun</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Guests -->
-            <div class="col-md d-flex py-md-4">
-                <div class="form-group align-self-stretch d-flex align-items-end">
-                    <div class="wrap align-self-stretch py-3 px-4">
-                        <label for="guests">Guests</label>
-                        <select name="guests" id="guests" class="form-control" required>
-                            <option value="1">1 Adult</option>
-                            <option value="2">2 Adults</option>
-                            <option value="3">3 Adults</option>
-                            <option value="4">4 Adults</option>
-                            <option value="5">5 Adults</option>
-                            <option value="6">6 Adults</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Submit -->
-            <div class="col-md d-flex">
-                <div class="form-group d-flex align-self-stretch">
-                    <button type="submit" class="btn btn-primary py-5 py-md-3 px-4 align-self-stretch d-block">
-                        <span>Check Availability <small>Best Price Guaranteed!</small></span>
-                    </button>
+	  <section class="ftco-booking ftco-section ftco-no-pt ftco-no-pb">
+        <div class="container">
+            <div class="row no-gutters">
+                <div class="col-lg-12">
+                    <form action="{{ url('/user/sample') }}" class="booking-form aside-stretch">
+                        <div class="row">
+                            <!-- Check-in Date -->
+                            <div class="col-md-3 py-md-3">
+                                <div class="form-group align-self-stretch">
+                                    <div class="wrap align-self-stretch py-3 px-3">
+                                        <label for="checkin_date" class="mb-2">Check-in Date</label>
+                                        <input type="date" name="checkin_date" id="checkin_date" class="form-control" placeholder="Check-in date" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 py-md-3">
+                                <div class="form-group align-self-stretch">
+                                    <div class="wrap align-self-stretch py-3 px-3">
+                                        <label for="checkout_date" class="mb-2">Check-out Date</label>
+                                        <input type="date" name="checkout_date" id="checkout_date" class="form-control" placeholder="Check-out date" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 py-md-3">
+                                <div class="form-group align-self-stretch">
+                                    <div class="wrap align-self-stretch py-3 px-3">
+                                        <label for="provinsi" class="mb-2">Provinsi</label>
+                                        <select name="provinsi" id="provinsi" class="form-control" required>
+                                            <option value="">Pilih</option>
+                                            <option value="Jawa Timur">Jawa Timur</option>
+                                            <option value="Jawa Barat">Jawa Barat</option>
+                                            <option value="Jawa Tengah">Jawa Tengah</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 py-md-3">
+                                <div class="form-group align-self-stretch">
+                                    <div class="wrap align-self-stretch py-3 px-3">
+                                        <label for="kota" class="mb-2">Kota</label>
+                                        <select name="kota" id="kota" class="form-control" required>
+                                            <option value="">Pilih</option>
+                                            <option value="Surabaya">Surabaya</option>
+                                            <option value="Bandung">Bandung</option>
+                                            <option value="Semarang">Semarang</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 py-md-3">
+                                <div class="form-group align-self-stretch">
+                                    <div class="wrap align-self-stretch py-3 px-3">
+                                        <label for="guests" class="mb-2">Guests</label>
+                                        <select name="guests" id="guests" class="form-control" required>
+                                            <option value="1">1 Adult</option>
+                                            <option value="2">2 Adults</option>
+                                            <option value="3">3 Adults</option>
+                                            <option value="4">4 Adults</option>
+                                            <option value="5">5 Adults</option>
+                                            <option value="6">6 Adults</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 d-flex justify-content-center py-md-3">
+                                <div class="form-group" style="width: 30%;">
+                                    <button type="submit" class="btn btn-primary py-4 px-5 w-200 text-center">
+                                        <span>Check Availability <small>Best Price Guaranteed!</small></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </form>
+    </section>
 
 
 
@@ -164,8 +160,8 @@
 			<div class="container">
 				<div class="row no-gutters">
 					<div class="col-md-7 order-md-last d-flex">
-						<div class="img img-1 mr-md-2 ftco-animate" style="{{ asset('background-image: url(images/about-1.jpg);') }}"></div>
-						<div class="img img-2 ml-md-2 ftco-animate" style="{{ asset('background-image: url(images/about-1.jpg);') }}"></div>
+						<div class="img img-1 mr-md-2 ftco-animate" style="background-image: url('{{ asset('images/testimony-img.jpg') }}');"></div>
+						<div class="img img-2 ml-md-2 ftco-animate" style="background-image: url('{{ asset('images/about-1.jpg') }}');"></div>
 					</div>
 					<div class="col-md-5 wrap-about pb-md-3 ftco-animate pr-md-5 pb-md-5 pt-md-4">
 	          <div class="heading-section mb-4 my-5 my-md-0">
@@ -183,7 +179,7 @@
       <div class="container">
         <div class="row no-gutters ftco-animate justify-content-center">
         	<div class="col-md-5 d-flex">
-        		<div class="testimony-img aside-stretch-2" style="{{ asset('background-image: url(images/testimony-img.jpg);') }}"></div>
+        		<div class="testimony-img aside-stretch-2" style="background-image: url('{{ asset('images/testimony-img.jpg') }}');"></div>
         	</div>
           <div class="col-md-7 py-5 pl-md-5">
           	<div class="py-md-5">
@@ -198,7 +194,7 @@
 	                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
 	                  </div>
 	                  <div class="d-flex">
-		                  <div class="user-img" style="{{ asset('background-image: url(images/testimony-img.jpg);') }}">
+		                  <div class="user-img" style="background-image: url('{{ asset('images/testimony-img.jpg') }}');">
 		                  </div>
 		                  <div class="pos ml-3">
 		                  	<p class="name">Gerald Hodson</p>
@@ -213,7 +209,7 @@
 	                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
 	                  </div>
 	                  <div class="d-flex">
-		                  <div class="user-img" style="{{ asset('background-image: url(images/testimony-img.jpg);') }}">
+		                  <div class="user-img" style="background-image: url('{{ asset('images/testimony-img.jpg') }}');">
 		                  </div>
 		                  <div class="pos ml-3">
 		                  	<p class="name">Gerald Hodson</p>
@@ -228,7 +224,7 @@
 	                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
 	                  </div>
 	                  <div class="d-flex">
-		                  <div class="user-img" style="{{ asset('background-image: url(images/testimony-img.jpg);') }}">
+		                  <div class="user-img" style="background-image: url('{{ asset('images/testimony-img.jpg') }}');">
 		                  </div>
 		                  <div class="pos ml-3">
 		                  	<p class="name">Gerald Hodson</p>
@@ -243,7 +239,7 @@
 	                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
 	                  </div>
 	                  <div class="d-flex">
-		                  <div class="user-img" style="{{ asset('background-image: url(images/testimony-img.jpg);') }}">
+		                  <div class="user-img" style="background-image: url('{{ asset('images/testimony-img.jpg') }}');">
 		                  </div>
 		                  <div class="pos ml-3">
 		                  	<p class="name">Gerald Hodson</p>
@@ -270,7 +266,7 @@
     		<div class="row no-gutters">
     			<div class="col-lg-6">
     				<div class="room-wrap d-md-flex ftco-animate">
-    					<a href="#" class="img" style="{{ asset('background-image: url(images/testimony-img.jpg);') }}"></a>
+    					<a href="#" class="img" style="background-image: url('{{ asset('images/testimony-img.jpg') }}');"></a>
     					<div class="half left-arrow d-flex align-items-center">
     						<div class="text p-4 text-center">
     							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p>
@@ -283,7 +279,7 @@
     			</div>
     			<div class="col-lg-6">
     				<div class="room-wrap d-md-flex ftco-animate">
-    					<a href="#" class="img" style="{{ asset('background-image: url(images/testimony-img.jpg);') }}"></a>
+    					<a href="#" class="img" style="background-image: url('{{ asset('images/testimony-img.jpg') }}');"></a>
     					<div class="half left-arrow d-flex align-items-center">
     						<div class="text p-4 text-center">
     							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p>
@@ -297,7 +293,7 @@
 
     			<div class="col-lg-6">
     				<div class="room-wrap d-md-flex ftco-animate">
-    					<a href="#" class="img order-md-last" style="background-image: url(images/room-2.jpg);"></a>
+    					<a href="#" class="img order-md-last" style="background-image: url('{{ asset('images/room-2.jpg') }}');"></a>
     					<div class="half right-arrow d-flex align-items-center">
     						<div class="text p-4 text-center">
     							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p>
@@ -310,7 +306,7 @@
     			</div>
     			<div class="col-lg-6">
     				<div class="room-wrap d-md-flex ftco-animate">
-    					<a href="#" class="img order-md-last" style="background-image: url(images/room-3.jpg);"></a>
+    					<a href="#" class="img order-md-last" style="background-image: url('{{ asset('images/room-3.jpg') }}');"></a>
     					<div class="half right-arrow d-flex align-items-center">
     						<div class="text p-4 text-center">
     							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p>
@@ -324,7 +320,7 @@
 
     			<div class="col-lg-6">
     				<div class="room-wrap d-md-flex ftco-animate">
-    					<a href="#" class="img" style="background-image: url(images/room-4.jpg);"></a>
+    					<a href="#" class="img" style="background-image: url('{{ asset('images/room-4.jpg') }}');"></a>
     					<div class="half left-arrow d-flex align-items-center">
     						<div class="text p-4 text-center">
     							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p>
@@ -337,7 +333,7 @@
     			</div>
     			<div class="col-lg-6">
     				<div class="room-wrap d-md-flex ftco-animate">
-    					<a href="#" class="img" style="background-image: url(images/room-5.jpg);"></a>
+    					<a href="#" class="img" style="background-image: url('{{ asset('images/room-5.jpg') }}');"></a>
     					<div class="half left-arrow d-flex align-items-center">
     						<div class="text p-4 text-center">
     							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p>

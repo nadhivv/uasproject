@@ -75,7 +75,7 @@ Route::middleware('auth')->group(function () {
 
     // Route::get('/lokasi/cari', [LokasiController::class, 'cariLokasi'])->name('lokasi.cari');
 
-    Route::post('/penginapan', [PenginapanController::class, 'search'])->name('cari.penginapan');
+    Route::get('/user/sample', [PenginapanController::class, 'search'])->name('cari.penginapan');
     Route::get('/penginapan/results', [PenginapanController::class, 'results'])->name('hasil.penginapan');
 
 
@@ -97,3 +97,16 @@ Route::middleware(['auth'])->group(function () {
 
 Route::post('create-payment', [PaymentController::class, 'createPayment']);
 Route::post('payment-callback', [PaymentController::class, 'paymentCallback']);
+
+// Room
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('/usdr')
+// });
+
+// Route::get('/user/order_room', function () {
+//     return view('user.order_room');
+// });
+
+// Route::get('/user/sample', function () {
+//     return view('user.sample');
+// });
