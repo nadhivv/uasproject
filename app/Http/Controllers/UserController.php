@@ -13,30 +13,31 @@ use App\Models\Makanan;
 use App\Models\Photos;
 use App\Models\Orders;
 use App\Models\Service_Payment;
+use App\Models\SettingMenu;
 
 
 class UserController extends Controller
 {
 
     public function index()
-{
-    // Eager load relasi jenisUser
-    $users = User::with('jenisusers')->get();
-    $jenisusers = JenisUser::all();
-    $menus = Menu::all();
-    $currentUserRole = Auth::user()->jenisuser_id;
-    $assignedMenuIds = JenisUser::findOrFail($currentUserRole)->menus->pluck('id')->toArray();
-    $assignedMenus = Menu::whereIn('id', $assignedMenuIds)->get();
-    $makanan = Makanan::all();
+    {
+        // Eager load relasi jenisUser
+        $users = User::with('jenisusers')->get();
+        $jenisusers = JenisUser::all();
+        $menus = Menu::all();
+        $currentUserRole = Auth::user()->jenisuser_id;
+        $assignedMenuIds = JenisUser::findOrFail($currentUserRole)->menus->pluck('id')->toArray();
+        $assignedMenus = Menu::whereIn('id', $assignedMenuIds)->get();
+        $makanan = Makanan::all();
 
-    return view('user.dashboard', [
-        'users' => $users,
-        'menus' => $menus,
-        'assignedMenus' => $assignedMenus,
-        'jenisusers' => $jenisusers,
-        'makanan'=> $makanan
-    ]);
-}
+        return view('user.dashboard', [
+            'users' => $users,
+            'menus' => $menus,
+            'assignedMenus' => $assignedMenus,
+            'jenisusers' => $jenisusers,
+            'makanan'=> $makanan
+        ]);
+    }
 
     public function loginview()
     {
@@ -56,11 +57,10 @@ class UserController extends Controller
         if (Auth::attempt($request->only('email', 'password'), $request->has('remember'))) {
             $user = Auth::user();
 
-
             if ($user->jenisuser_id == 1) {
-                return redirect()->intended('/admin/dashboard')->with('success', 'Welcome Admin!');
-            } else {
-                return redirect()->intended('/user/dashboard')->with('success', 'Welcome User!');
+                return redirect('/admin/dashboard')->with('success', 'Welcome Admin!');
+            } elseif ($user->jenisuser_id == 2) {
+                return redirect('/user/dashboard')->with('success', 'Welcome User!');
             }
         }
 
@@ -97,6 +97,7 @@ class UserController extends Controller
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
+            'jenisuser_id' => 2, // Default untuk user biasa
             'create_by' => 'system',
             'update_by' => 'system',
             'status_user' => 'active',
@@ -186,7 +187,4 @@ class UserController extends Controller
             'method' => $validated['method'],
         ]);
     }
-
-
 }
-

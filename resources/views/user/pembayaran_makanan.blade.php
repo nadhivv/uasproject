@@ -56,7 +56,7 @@
                                     </select>
                                 </div>
 
-                                <button type="submit" class="btn btn-success">Konfirmasi Pembayaran</button>
+                                <button  id="pay-button" type="submit" class="btn btn-success">Konfirmasi Pembayaran</button>
                             </form>
                         </div>
                     </div>
@@ -91,5 +91,30 @@
   <script ript src="{{ asset('js/main.js') }}"></script>
 
 
+
+<script src="https://app.midtrans.com/snap/snap.js" data-client-key="{{ env('MIDTRANS_CLIENT_KEY') }}"></script>
+<script>
+    document.getElementById('pay-button').onclick = function () {
+        fetch('/create-payment', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                order_id: 'order-id-12345',
+                gross_amount: 100000
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            snap.pay(data.token);
+        });
+    }
+</script>
+
+
+
   </body>
 </html>
+
+

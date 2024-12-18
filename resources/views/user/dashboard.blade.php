@@ -374,6 +374,7 @@
                     <div class="pricing-entry rounded d-flex ftco-animate">
                         <div class="desc p-4">
                             <form action="" method="POST">
+                            <form action="" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label for="jenis_laundry">Jenis Layanan</label>
@@ -426,12 +427,6 @@
                                         <td>5 Kg</td>
                                         <td>Diproses</td>
                                     </tr>
-                                    <tr>
-                                        <td>10 Desember 2024</td>
-                                        <td>Setrika</td>
-                                        <td>3 Item</td>
-                                        <td>Selesai</td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -466,7 +461,7 @@
                                     <p>Nikmati hidangan yang menggugah selera anda selama menginap</p>
                                 </div>
                                 <div class="d-block mt-3">
-                                    <a href="" class="btn btn-primary btn-sm rounded">Pesan</a>
+                                    <a href="{{ route('pesan', $item->id) }}" class="btn btn-primary btn-sm rounded">Pesan</a>
                                 </div>
                             </div>
                         </div>
@@ -581,4 +576,45 @@
       </div>
     </section>
 @endsection
+
+
+
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
+    <script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.stellar.min.js') }}"></script>
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('js/aos.js') }}"></script>
+    <script src="{{ asset('js/jquery.animateNumber.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
+    <script src="{{ asset('js/scrollax.min.js') }}"></script>
+    <script src="{{ asset('js/google-map.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+
+
+  <script>
+    function updatePrice() {
+        const laundryType = document.getElementById('jenis_laundry');
+        const selectedOption = laundryType.options[laundryType.selectedIndex];
+        const pricePerUnit = parseFloat(selectedOption.getAttribute('data-price')) || 0;
+        const quantity = parseFloat(document.getElementById('jumlah').value) || 0;
+        const totalPrice = pricePerUnit * quantity;
+
+        document.getElementById('harga').value = `Rp ${totalPrice.toLocaleString('id-ID')}`;
+    }
+</script>
+
+    </body>
+</html>
+
 

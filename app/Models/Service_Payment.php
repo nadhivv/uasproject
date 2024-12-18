@@ -16,6 +16,6 @@ class Service_Payment extends Model
 
     public function orders()
     {
-        return $this->belongsTo(Orders::class);
+        return $this->belongsTo(Orders::class, 'order_id');
     }
 }

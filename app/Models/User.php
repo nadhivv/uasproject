@@ -12,6 +12,8 @@ class User extends Authenticatable
 
     use HasFactory, Notifiable;
 
+    protected $table = 'users';
+
     protected $fillable = [
         'name',
         'email',
@@ -51,6 +53,11 @@ class User extends Authenticatable
 
     public function jenisusers()
     {
-        return $this->belongsTo(JenisUser::class, 'jenisuser_id');
+        return $this->belongsTo(JenisUser::class, 'jenisuser_id', 'id');
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Orders::class, 'user_id');
     }
 }
