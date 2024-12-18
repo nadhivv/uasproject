@@ -19,7 +19,7 @@ class PaymentController extends Controller
     {
         $transaction_details = [
             'order_id' => 'order-id-' . time(),
-            'gross_amount' => 100000, 
+            'gross_amount' => 100000,
         ];
 
         $item_details = [

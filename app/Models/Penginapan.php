@@ -10,9 +10,17 @@ class Penginapan extends Model
     use HasFactory;
     protected $table = 'penginapan';
     protected $fillable = [
-        'name', 'location', 'description', 'price', 'rating',
+        'name',
+        'location',
+        'description',
+        'price',
+        'rating',
+        'image_url',
+        'available_from',
+        'available_to',
+        'latitude',
+        'longitude',
     ];
-
     // One-to-many relationship with reviews
     public function lokasi()
     {

@@ -34,96 +34,88 @@
 	    </section>
 	  </div>
 
-    <section class="ftco-booking ftco-section ftco-no-pt ftco-no-pb">
-    	<div class="container">
-    		<div class="row no-gutters">
-    			<div class="col-lg-12">
-    				<form action="#" class="booking-form aside-stretch">
-	        		<div class="row">
-	        			<div class="col-md d-flex py-md-4">
-	        				<div class="form-group align-self-stretch d-flex align-items-end">
-	        					<div class="wrap align-self-stretch py-3 px-4">
-				    					<label for="#">Check-in Date</label>
-				    					<input type="text" class="form-control checkin_date" placeholder="Check-in date">
-			    					</div>
-			    				</div>
-	        			</div>
-	        			<div class="col-md d-flex py-md-4">
-	        				<div class="form-group align-self-stretch d-flex align-items-end">
-	        					<div class="wrap align-self-stretch py-3 px-4">
-				    					<label for="#">Check-out Date</label>
-				    					<input type="text" class="form-control checkout_date" placeholder="Check-out date">
-			    					</div>
-			    				</div>
-	        			</div>
-	        			<div class="col-md d-flex py-md-4">
-	        				<div class="form-group align-self-stretch d-flex align-items-end">
-	        					<div class="wrap align-self-stretch py-3 px-4">
-			      					<label for="#">Provinsi</label>
-			      					<div class="form-field">
-			        					<div class="select-wrap">
-			                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-			                    <select name="" id="" class="form-control">
-			                    	<option value="">Pilih</option>
-			                      <option value="">Jawa Timur</option>
-			                      <option value="">Jawa Barat</option>
-			                      <option value="">Jawa Tengah</option>
-			                    </select>
-			                  </div>
-				              </div>
-				            </div>
-		              </div>
-	        			</div>
-                        <div class="col-md d-flex py-md-4">
-	        				<div class="form-group align-self-stretch d-flex align-items-end">
-	        					<div class="wrap align-self-stretch py-3 px-4">
-			      					<label for="#">Kota</label>
-			      					<div class="form-field">
-			        					<div class="select-wrap">
-			                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-			                    <select name="" id="" class="form-control">
-			                    	<option value="">Pilih</option>
-			                      <option value="">Surabaya</option>
-			                      <option value="">Bandung</option>
-			                      <option value="">Semarang</option>
-			                      <option value="">Madiun</option>
-			                    </select>
-			                  </div>
-				              </div>
-				            </div>
-		              </div>
-	        			</div>
-	        			<div class="col-md d-flex py-md-4">
-	        				<div class="form-group align-self-stretch d-flex align-items-end">
-	        					<div class="wrap align-self-stretch py-3 px-4">
-			      					<label for="#">Guests</label>
-			      					<div class="form-field">
-			        					<div class="select-wrap">
-			                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-			                    <select name="" id="" class="form-control">
-			                    	<option value="">1 Adult</option>
-			                      <option value="">2 Adult</option>
-			                      <option value="">3 Adult</option>
-			                      <option value="">4 Adult</option>
-			                      <option value="">5 Adult</option>
-			                      <option value="">6 Adult</option>
-			                    </select>
-			                  </div>
-				              </div>
-				            </div>
-		              </div>
-	        			</div>
-	        			<div class="col-md d-flex">
-	        				<div class="form-group d-flex align-self-stretch">
-			              <a href="#" class="btn btn-primary py-5 py-md-3 px-4 align-self-stretch d-block"><span>Check Availability <small>Best Price Guaranteed!</small></span></a>
-			            </div>
-	        			</div>
-	        		</div>
-	        	</form>
-	    		</div>
-    		</div>
-    	</div>
-    </section>
+      <form action="{{ route('cari.penginapan') }}" method="POST" class="booking-form aside-stretch">
+        @csrf
+        <div class="row">
+            <!-- Check-in Date -->
+            <div class="col-md d-flex py-md-4">
+                <div class="form-group align-self-stretch d-flex align-items-end">
+                    <div class="wrap align-self-stretch py-3 px-4">
+                        <label for="checkin_date">Check-in Date</label>
+                        <input type="date" name="checkin_date" class="form-control" placeholder="Check-in date" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Check-out Date -->
+            <div class="col-md d-flex py-md-4">
+                <div class="form-group align-self-stretch d-flex align-items-end">
+                    <div class="wrap align-self-stretch py-3 px-4">
+                        <label for="checkout_date">Check-out Date</label>
+                        <input type="date" name="checkout_date" class="form-control" placeholder="Check-out date" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Provinsi -->
+            <div class="col-md d-flex py-md-4">
+                <div class="form-group align-self-stretch d-flex align-items-end">
+                    <div class="wrap align-self-stretch py-3 px-4">
+                        <label for="provinsi">Provinsi</label>
+                        <select name="provinsi" id="provinsi" class="form-control" required>
+                            <option value="">Pilih</option>
+                            <option value="Jawa Timur">Jawa Timur</option>
+                            <option value="Jawa Barat">Jawa Barat</option>
+                            <option value="Jawa Tengah">Jawa Tengah</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kota -->
+            <div class="col-md d-flex py-md-4">
+                <div class="form-group align-self-stretch d-flex align-items-end">
+                    <div class="wrap align-self-stretch py-3 px-4">
+                        <label for="kota">Kota</label>
+                        <select name="kota" id="kota" class="form-control" required>
+                            <option value="">Pilih</option>
+                            <option value="Surabaya">Surabaya</option>
+                            <option value="Bandung">Bandung</option>
+                            <option value="Semarang">Semarang</option>
+                            <option value="Madiun">Madiun</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guests -->
+            <div class="col-md d-flex py-md-4">
+                <div class="form-group align-self-stretch d-flex align-items-end">
+                    <div class="wrap align-self-stretch py-3 px-4">
+                        <label for="guests">Guests</label>
+                        <select name="guests" id="guests" class="form-control" required>
+                            <option value="1">1 Adult</option>
+                            <option value="2">2 Adults</option>
+                            <option value="3">3 Adults</option>
+                            <option value="4">4 Adults</option>
+                            <option value="5">5 Adults</option>
+                            <option value="6">6 Adults</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit -->
+            <div class="col-md d-flex">
+                <div class="form-group d-flex align-self-stretch">
+                    <button type="submit" class="btn btn-primary py-5 py-md-3 px-4 align-self-stretch d-block">
+                        <span>Check Availability <small>Best Price Guaranteed!</small></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+
 
 
 	<section class="ftco-section">
@@ -599,7 +591,7 @@
     <script src="{{ asset('js/scrollax.min.js') }}"></script>
     <script src="{{ asset('js/google-map.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="{{ asset('https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false') }}"></script>
 
 
   <script>
