@@ -9,7 +9,7 @@
                 <tr>
                     <th>Order ID</th>
                     <th>Date</th>
-                    <th>Makanan</th>
+                    <th>Service</th>
                     <th>Total Amount</th>
                     <th>Status</th>
                 </tr>

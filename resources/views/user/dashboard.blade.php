@@ -470,7 +470,6 @@
         </div>
         <div class="row d-flex">
           <div class="col-md-4 d-flex ftco-animate">
-<<<<<<< HEAD
             <div class="blog-entry align-self-stretch">
               <a href="blog-single.html" class="block-20 rounded" style="background-image: url({{ asset('images/surabaya3.webp') }});">
               </a>
@@ -487,10 +486,8 @@
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry align-self-stretch">
               <a href="blog-single.html" class="block-20 rounded" style="background-image: url({{ asset('images/bandung3.webp') }});">
-=======
             <div class="blog-entry align-self-stretch">
               <a href="blog-single.html" class="block-20 rounded" style="background-image: url(' {{ asset('images/image_1.jpg') }} ');">
->>>>>>> 83f407af28fd91887eb18e92d8121d34433adccc
               </a>
               <div class="text mt-3 text-center">
               	<div class="meta mb-2">

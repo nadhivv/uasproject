@@ -26,7 +26,12 @@ class Transaction extends Model
     }
 
     public function laundry()
-{
-    return $this->belongsTo(Laundry::class);
-}
+    {
+        return $this->belongsTo(Laundry::class);
+    }
+
+    public function makanan()
+    {
+        return $this->belongsTo(Makanan::class);
+    }
 }
