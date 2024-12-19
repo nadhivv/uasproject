@@ -27,7 +27,7 @@
                     <div class="col-md-8">
                       <form action="{{ route('penginapan.booking', ['name' => $penginapan->name]) }}" method="POST">
                         @csrf
-                   
+
                         
                         <div class="form-group">
                           <label for="check_in">Nama</label>
@@ -54,6 +54,26 @@
                 
                         <button type="submit" class="btn btn-success">Pesan Sekarang</button>
                     </form>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Nama</label>
+                            <input type="text" class="form-control" id="name" name="name" value="{{ Auth::user()->name }}" readonly>
+                          </div>
+                          <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" name="email" value="{{ Auth::user()->email }}" readonly>
+                          </div>
+                          <div class="mb-3">
+                            <label for="checkInDate" class="form-label">Check-In Date</label>
+                            <input type="date" class="form-control" id="check_in" name="check_in" value="{{ old('check_in', $check_in_date ?? '') }}" required>
+                          </div>
+                          <div class="mb-3">
+                            <label for="checkOutDate" class="form-label">Check-Out Date</label>
+                            <input type="date" class="form-control" id="check_out" name="check_out" value="{{ old('check_out', $check_out_date ?? '') }}" required>
+                          </div>
+                        <button type="submit" class="btn btn-primary float-end">Submit</button>
+                      </form>
+
                     </div>
                   </div>
                 </div>

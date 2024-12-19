@@ -27,7 +27,7 @@ Route::get('/user/dashboard', [UserController::class, 'index'])->name('user.dash
 
 Route::get('/register', [UserController::class, 'registerview']);
 Route::post('/register', [UserController::class, 'register'])->name('register');
-Route::get('/login', [UserController::class, 'loginview']);
+Route::get('/', [UserController::class, 'loginview']);
 Route::post('/login', [UserController::class, 'login'])->name('login');
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
@@ -115,6 +115,10 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/penginapan/{name}', [PenginapanController::class, 'show'])->name('penginapan.show');
 
-// Route::get('/booking', [PenginapanController::class, 'index'])->name('booking.index');
+Route::get('/penginapan/detail/{name}', [PenginapanController::class, 'detail'])->name('penginapan.detail');
 Route::post('/penginapan/{name}', [PenginapanController::class, 'booking'])->name('penginapan.booking');
+
 Route::get('/penginapan/{name}/detail', [PenginapanController::class, 'detail'])->name('penginapan.detail');
+
+Route::post('/penginapan/{id}/add-review', [PenginapanController::class, 'addReview'])->name('penginapan.addReview');
+
