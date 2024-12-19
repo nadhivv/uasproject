@@ -114,3 +114,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/laundry/payment/failed', [LaundryController::class, 'paymentFailed'])->name('laundry.payment.failed');
 
 });
+
+Route::get('/penginapan/{name}', [PenginapanController::class, 'show'])->name('penginapan.show');
+
+// Route::get('/booking', [PenginapanController::class, 'index'])->name('booking.index');
+Route::post('/penginapan/{name}', [PenginapanController::class, 'booking'])->name('penginapan.booking');
