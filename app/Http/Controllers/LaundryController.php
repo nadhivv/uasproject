@@ -2,127 +2,147 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Laundry;
-use App\Models\Orders;
-use App\Models\Penginapan;
-use App\Models\Service_Payment;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Transaction;
+use App\Models\TransactionLaundry;
+use Illuminate\Http\Request;
+use Midtrans\Snap;
+use Midtrans\Config;
 
 class LaundryController extends Controller
 {
-    // Menampilkan daftar layanan laundry
-    public function index()
+    public function store(Request $request)
     {
-        $laundry = Laundry::all();
-        return view('admin.laundry.index', compact('laundry'));
-    }
-
-    public function create(Request $request)
-    {
-        // Ambil laundry_id dari request
-        $laundryId = $request->input('laundry_id');
-
-        // Cari data laundry berdasarkan ID
-        $laundry = Laundry::find($laundryId);
-
-        // Jika data laundry tidak ditemukan, kirimkan pesan kesalahan
-        if (!$laundry) {
-            return view('dashboard', ['error' => 'Data laundry tidak ditemukan.']);
-        }
-
-        // Jika data ditemukan, tampilkan halaman untuk mengonfirmasi pesanan
-        return view('user.detail_pesanan2', compact('laundry'));
-    }
-
-
-
-    // Memproses pesanan laundry
-
-    public function storelaundry(Request $request)
-    {
-        // Validasi input dari form
-        $validated = $request->validate([
-            'jenis_laundry' => 'required|string',
-            'harga' => 'required|numeric',
+        $request->validate([
+            'jenis_laundry' => 'required',
             'jumlah' => 'required|integer|min:1',
             'waktu_pengambilan' => 'required|date',
-            'waktu_pengembalian' => 'required|date|after_or_equal:waktu_pengambilan',
+            'waktu_pengembalian' => 'required|date',
         ]);
 
-        // Simpan data laundry
-        $laundry = Laundry::create([
-            'jenis_laundry' => $validated['jenis_laundry'],
-            'harga' => $validated['harga'],
-            'jumlah' => $validated['jumlah'],
-            'waktu_pengambilan' => $validated['waktu_pengambilan'],
-            'waktu_pengembalian' => $validated['waktu_pengembalian'],
-        ]);
+        // Tentukan harga berdasarkan jenis layanan laundry
+        $jenisLayanan = $request->jenis_laundry;
+        $harga = match ($jenisLayanan) {
+            'cuci_kering' => 20000,
+            'cuci_setrika' => 30000,
+            'setrika' => 15000,
+            default => 0,
+        };
 
         // Hitung total harga
-        $totalPrice = $validated['harga'] * $validated['jumlah'];
+        $totalHarga = $harga * $request->jumlah;
 
-        // Simpan data orders
-        $orders = Orders::create([
-            'user_id' => Auth::id(),
-            'laundry_id' => $request->laundry_id,
-            'description' => 'Pesanan laundry: ' . $laundry->jenis_laundry,
-            'price' => $totalPrice,
-            'order_date' => now(),
+        // Buat data laundry
+        $laundry = Laundry::create([
+            'jenis_laundry' => $request->jenis_laundry,
+            'harga' => $totalHarga,
+            'jumlah' => $request->jumlah,
+            'waktu_pengambilan' => $request->waktu_pengambilan,
+            'waktu_pengembalian' => $request->waktu_pengembalian,
         ]);
 
-        // Redirect ke halaman detail pesanan
-        return redirect()->route('detail_pesanan2', ['orderId' => $orders->id])
-                         ->with('success', 'Pesanan Anda berhasil dibuat.');
-    }
-
-
-    public function detail($orderId)
-    {
-        $orders = Orders::with('laundry')->findOrFail($orderId);
-        $laundry = $orders->laundry;
-
-        return view('user.detail_pesanan2', compact('orders', 'laundry'));
-    }
-
-
-    // Menampilkan halaman pembayaran
-    public function showPembayaranlaundry($orderId)
-    {
-        $orders = Orders::with('laundry')->findOrFail($orderId);
-
-        return view('user.pembayaran_laundry', compact('orders'));
-    }
-
-    // Proses pembayaran pesanan
-    public function prosesPembayaranlaundry(Request $request, $orderId)
-    {
-        $validated = $request->validate([
-            'method' => 'required|string',
+        // Buat transaksi baru
+        $order_id = 'TRX-' . time();
+        $transaction = Transaction::create([
+            'user_id' => auth()->id(),
+            'order_id' => $order_id,
+            'total_amount' => $totalHarga,
+            'status' => 'pending',
         ]);
 
-        $orders = Orders::findOrFail($orderId);
-
-        $this->savePayment($orders, $validated);
-
-        return redirect()->route('pembayaran.sukses2', ['orderId' => $orderId]);
-    }
-
-    // Menampilkan halaman pembayaran sukses
-    public function showPembayaranSukseslaundry($orderId)
-    {
-        $orders = Orders::findOrFail($orderId);
-        return view('user.pembayaran_sukses_laundry', compact('orders'));
-    }
-
-    // Menyimpan informasi pembayaran
-    private function savePayment($orders, $validated)
-    {
-        Service_Payment::create([
-            'order_id' => $orders->id,
-            'total_harga' => $orders->price,
-            'payment_date' => now(),
-            'method' => $validated['method'],
+        // Simpan data transaksi laundry
+        TransactionLaundry::create([
+            'transaction_id' => $transaction->id,
+            'laundry_id' => $laundry->id, // Mengambil ID laundry yang baru saja dibuat
+            'jumlah' => $request->jumlah,
+            'price' => $totalHarga,
         ]);
+
+        return redirect()->route('laundry.detail', ['laundryId' => $laundry->id]);
+    }
+
+    public function payment(Request $request, $transactionId)
+    {
+        if (!$transactionId) {
+            return redirect()->back()->with('error', 'Transaction ID is missing.');
+        }
+
+        $transaction = Transaction::findOrFail($transactionId);
+
+        // Konfigurasi Midtrans
+        \Midtrans\Config::$serverKey = config('midtrans.server_key');
+        \Midtrans\Config::$isProduction = false;
+
+        $params = [
+            'transaction_details' => [
+                'order_id' => $transaction->order_id,
+                'gross_amount' => $transaction->total_amount,
+            ],
+            'customer_details' => [
+                'first_name' => auth()->user()->name,
+                'email' => auth()->user()->email,
+            ],
+        ];
+
+        try {
+            $snapToken = \Midtrans\Snap::getSnapToken($params);
+            return view('transactions.laundry', compact('transaction', 'snapToken'));
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Gagal mendapatkan Snap Token');
+        }
+    }
+
+
+    public function detail($laundryId)
+    {
+        $laundry = Laundry::with('transactionLaundry.transaction')->findOrFail($laundryId);
+
+        $transaction = $laundry->transactionLaundry->first()->transaction;
+
+        $transactionId = $transaction->id;
+        return view('user.detail_pesanan2', compact('laundry', 'transactionId'));
+    }
+
+
+
+    public function callback(Request $request)
+    {
+        // Verifikasi signature dari Midtrans
+        $serverKey = config('midtrans.server_key');
+        $hashed = hash("sha512", $request->order_id.$request->status_code.$request->gross_amount.$serverKey);
+
+        if ($hashed == $request->signature_key) {
+            $transaction = Transaction::where('order_id', $request->order_id)->first();
+
+            // Cek status transaksi dari Midtrans
+            if ($request->transaction_status == 'capture' || $request->transaction_status == 'settlement') {
+                // Pembayaran berhasil
+                $transaction->update(['status' => 'paid']);
+            } elseif ($request->transaction_status == 'cancel' || $request->transaction_status == 'expire') {
+                // Pembayaran dibatalkan
+                $transaction->update(['status' => 'cancelled']);
+            }
+        }
+
+        return response()->json(['status' => 'success']);
+    }
+
+    public function DetailPesanan($laundryId)
+    {
+        $transaction = Transaction::with('laundry')->findOrFail($laundryId);
+
+        return view('user.detail_pesanan2', compact('transaction'));
+    }
+
+    public function laundryhistory()
+    {
+        // Mengambil semua transaksi untuk pengguna yang sedang login
+        $transaction = Transaction::with('item.laundry')
+            ->where('user_id', auth()->id())
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        // Mengembalikan view dengan data transaksi
+        return view('transactions.history_laundry', compact('transaction'));
     }
 }

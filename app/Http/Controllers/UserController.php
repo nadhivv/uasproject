@@ -115,7 +115,7 @@ class UserController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('login');
+        return redirect()->route('landing');
     }
 
     public function showDetailPesanan($makananId)
@@ -154,7 +154,7 @@ class UserController extends Controller
     {
         $orders = Orders::with('makanan')->findOrFail($orderId);
 
-        return view('user.pembayaran_makanan', compact('orders'));
+        return view('transactions.payment', compact('orders'));
     }
 
     public function prosesPembayaran(Request $request, $orderId)

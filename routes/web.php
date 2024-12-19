@@ -12,8 +12,13 @@ use App\Http\Controllers\PenginapanController;
 use App\Http\Controllers\ReviewController;
 
 // Home route
+Route::get('/StayNest', function () {
+    return view('user.layout.landing');
+})->name('landing');
+
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('transactions.payment');
 });
 
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
@@ -59,7 +64,7 @@ Route::delete('/admin/menu/{id}', [MenuController::class, 'destroy'])->name('del
 
 // Orders Makanan
 Route::middleware('auth')->group(function () {
-    Route::get('/makanan', [MakananController::class, 'index'])->name('admin.makanan.index');
+    Route::get('/daftarmakanan', [MakananController::class, 'index'])->name('admin.makanan.index');
     Route::get('/makanan/create', [MakananController::class, 'create'])->name('admin.makanan.create');
     Route::post('/makanan/store', [MakananController::class, 'store'])->name('admin.makanan.store');
     Route::get('/makanan/edit/{id}', [MakananController::class, 'edit'])->name('admin.makanan.edit');
@@ -85,31 +90,27 @@ Route::middleware('auth')->group(function () {
 });
 
 
+
+// detail makanan
 Route::middleware(['auth'])->group(function () {
-
-    Route::get('/pesanan/{makananId}', [UserController::class, 'showDetailPesanan'])->name('pesan');
-    Route::post('/user/pesanan', [UserController::class, 'storePesanan'])->name('pesanan.store');
-
-    // Pembayaran
-    Route::get('/user/pembayaran/{orderId}', [UserController::class, 'showPembayaran'])->name('pembayaran');
-    Route::post('/user/pembayaran/{orderId}', [UserController::class, 'prosesPembayaran'])->name('pembayaran.proses');
-
-    // Pembayaran Sukses
-    Route::get('/user/pembayaran/sukses/{orderId}', [UserController::class, 'showPembayaranSukses'])->name('pembayaran.sukses');
+    Route::get('/pesan/{makananId}', [UserController::class, 'showDetailPesanan'])->name('pesan');
 });
 
-Route::post('create-payment', [PaymentController::class, 'createPayment']);
-Route::post('payment-callback', [PaymentController::class, 'paymentCallback']);
+// pembayaran midtrans
+Route::middleware(['auth'])->group(function () {
+    Route::get('/transactions', [PaymentController::class, 'index'])->name('transactions.index');
+    Route::post('/transactions/process', [PaymentController::class, 'process'])->name('transactions.process');
+    // Route::get('/transactions/checkout/{transaction}', [PaymentController::class, 'checkout'])->name('checkout');
+    Route::post('/transactions/callback', [PaymentController::class, 'callback'])->name('transactions.callback');
+    Route::post('/transactions/update-payment-status', [PaymentController::class, 'updatePaymentStatus'])->name('transactions.updatePaymentStatus');
 
-// Room
-// Route::middleware(['auth'])->group(function () {
-//     Route::get('/usdr')
-// });
+    Route::post('/laundry/store', [LaundryController::class, 'store'])->name('laundry.store');
+    Route::get('/laundry/detail/{laundryId}', [LaundryController::class, 'detail'])->name('laundry.detail');
+    Route::post('/laundry/payment/{transactionId}', [LaundryController::class, 'payment'])->name('laundry.payment');
+    Route::post('/laundry/callback', [LaundryController::class, 'callback'])->name('laundry.callback');
+    Route::get('/laundry/history', [LaundryController::class, 'laundryhistory'])->name('laundry.history');
+    Route::get('/laundry/detail-pesanan/{laundryId}', [LaundryController::class, 'DetailPesanan'])->name('laundry.detail.pesanan');
+    Route::get('/laundry/payment/success', [LaundryController::class, 'paymentSuccess'])->name('laundry.payment.success');
+    Route::get('/laundry/payment/failed', [LaundryController::class, 'paymentFailed'])->name('laundry.payment.failed');
 
-// Route::get('/user/order_room', function () {
-//     return view('user.order_room');
-// });
-
-// Route::get('/user/sample', function () {
-//     return view('user.sample');
-// });
+});

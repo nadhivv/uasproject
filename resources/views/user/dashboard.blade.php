@@ -361,15 +361,14 @@
                 <div class="col-lg-6 col-xl-6 d-flex">
                     <div class="pricing-entry rounded d-flex ftco-animate">
                         <div class="desc p-4">
-                            <form action="" method="POST">
-                            <form action="" method="POST">
+                            <form action="{{ route('laundry.store') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label for="jenis_laundry">Jenis Layanan</label>
                                     <select id="jenis_laundry" name="jenis_laundry" class="form-control" onchange="updatePrice()">
-                                        <option value="cuci_kering" data-price="20000">Cuci Kering</option>
-                                        <option value="cuci_setrika" data-price="30000">Cuci + Setrika</option>
-                                        <option value="setrika" data-price="15000">Setrika Saja</option>
+                                        <option value="cuci_kering" harga="20000">Cuci Kering</option>
+                                        <option value="cuci_setrika" harga="30000">Cuci + Setrika</option>
+                                        <option value="setrika" harga="15000">Setrika Saja</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -449,7 +448,7 @@
                                     <p>Nikmati hidangan yang menggugah selera anda selama menginap</p>
                                 </div>
                                 <div class="d-block mt-3">
-                                    <a href="{{ route('pesan', $item->id) }}" class="btn btn-primary btn-sm rounded">Pesan</a>
+                                    <a href="{{ route('pesan', $item->id) }}" class="btn btn-primary btn-sm rounded">View Details</a>
                                 </div>
                             </div>
                         </div>
@@ -594,7 +593,7 @@
     function updatePrice() {
         const laundryType = document.getElementById('jenis_laundry');
         const selectedOption = laundryType.options[laundryType.selectedIndex];
-        const pricePerUnit = parseFloat(selectedOption.getAttribute('data-price')) || 0;
+        const pricePerUnit = parseFloat(selectedOption.getAttribute('harga')) || 0;
         const quantity = parseFloat(document.getElementById('jumlah').value) || 0;
         const totalPrice = pricePerUnit * quantity;
 
