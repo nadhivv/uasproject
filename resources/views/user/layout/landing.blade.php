@@ -1,30 +1,76 @@
-@extends('user.layout.main')
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Harborlights - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-@section('content')
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">Stay<span>Nest</span></a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="rooms.html" class="nav-link">Our Rooms</a></li>
+	          <li class="nav-item"><a href="restaurant.html" class="nav-link">Restaurant</a></li>
+	          <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
 		<div class="hero">
 	    <section class="home-slider owl-carousel">
-	      <div class="slider-item" style="{{ asset('background-image:url(images/bg_1.jpg);') }}">
+	      <div class="slider-item" style="background-image:url(images/bg_1.jpg);">
 	      	<div class="overlay"></div>
 	        <div class="container">
 	          <div class="row no-gutters slider-text align-items-center justify-content-end">
 	          <div class="col-md-6 ftco-animate">
 	          	<div class="text">
-	          		<h2>More than a homestay... an experience</h2>
-		            <h1 class="mb-3">Homestay for the whole family, all year round.</h1>
+	          		<h2>More than a hotel... an experience</h2>
+		            <h1 class="mb-3">Hotel for the whole family, all year round.</h1>
 	            </div>
 	          </div>
 	        </div>
 	        </div>
 	      </div>
 
-	      <div class="slider-item" style="{{ asset('background-image:url(images/bg_1.jpg);') }}">
+	      <div class="slider-item" style="background-image:url(images/bg_2.jpg);">
 	      	<div class="overlay"></div>
 	        <div class="container">
 	          <div class="row no-gutters slider-text align-items-center justify-content-end">
 	          <div class="col-md-6 ftco-animate">
 	          	<div class="text">
-	          		<h2>StayNest Homestay &amp; Resort</h2>
+	          		<h2>Harbor Lights Hotel &amp; Resort</h2>
 		            <h1 class="mb-3">It feels like staying in your own home.</h1>
 	            </div>
 	          </div>
@@ -98,7 +144,7 @@
 	        			</div>
 	        			<div class="col-md d-flex">
 	        				<div class="form-group d-flex align-self-stretch">
-			              <a href="#" class="btn btn-primary py-5 py-md-3 px-4 align-self-stretch d-block"><span>Check Availability <small>Best Price Guaranteed!</small></span></a>
+			              <a href="{{ route('login') }}" class="btn btn-primary py-5 py-md-3 px-4 align-self-stretch d-block"><span>Check Availability <small>Best Price Guaranteed!</small></span></a>
 			            </div>
 	        			</div>
 	        		</div>
@@ -109,11 +155,11 @@
     </section>
 
 
-	<section class="ftco-section">
+		<section class="ftco-section">
       <div class="container">
       	<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
-          	<span class="subheading">Welcome to StayNest Homestay</span>
+          	<span class="subheading">Welcome to Harbor Lights Hotel</span>
             <h2 class="mb-4">You'll Never Want To Leave</h2>
           </div>
         </div>
@@ -126,9 +172,7 @@
               	</div>
               </div>
               <div class="media-body">
-                <h3 class="heading mb-3">
-                    <a href="#laundry" >Pesan Laundry</a>
-                </h3>
+                <h3 class="heading mb-3">Friendly Service</h3>
               </div>
             </div>
           </div>
@@ -140,9 +184,43 @@
               	</div>
               </div>
               <div class="media-body">
-                <h3 class="heading mb-3">
-                    <a href="#makanan" >Pesan Makanan</a>
-                </h3>
+                <h3 class="heading mb-3">Get Breakfast</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-md px-md-1 d-flex align-sel Searchf-stretch ftco-animate">
+            <div class="media block-6 services py-4 d-block text-center">
+              <div class="d-flex justify-content-center">
+              	<div class="icon d-flex align-items-center justify-content-center">
+              		<span class="flaticon-car"></span>
+              	</div>
+              </div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Transfer Services</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-md px-md-1 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services py-4 d-block text-center">
+              <div class="d-flex justify-content-center">
+              	<div class="icon d-flex align-items-center justify-content-center">
+              		<span class="flaticon-spa"></span>
+              	</div>
+              </div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Suits &amp; SPA</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-md pl-md-1 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services py-4 d-block text-center">
+              <div class="d-flex justify-content-center">
+              	<div class="icon d-flex align-items-center justify-content-center">
+              		<span class="ion-ios-bed"></span>
+              	</div>
+              </div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Cozy Rooms</h3>
               </div>
             </div>
           </div>
@@ -150,18 +228,17 @@
       </div>
     </section>
 
-
     <section class="ftco-section ftco-wrap-about ftco-no-pt ftco-no-pb">
 			<div class="container">
 				<div class="row no-gutters">
 					<div class="col-md-7 order-md-last d-flex">
-						<div class="img img-1 mr-md-2 ftco-animate" style="{{ asset('background-image: url(images/about-1.jpg);') }}"></div>
-						<div class="img img-2 ml-md-2 ftco-animate" style="{{ asset('background-image: url(images/about-1.jpg);') }}"></div>
+						<div class="img img-1 mr-md-2 ftco-animate" style="background-image: url(images/about-1.jpg);"></div>
+						<div class="img img-2 ml-md-2 ftco-animate" style="background-image: url(images/about-2.jpg);"></div>
 					</div>
 					<div class="col-md-5 wrap-about pb-md-3 ftco-animate pr-md-5 pb-md-5 pt-md-4">
 	          <div class="heading-section mb-4 my-5 my-md-0">
-	          	<span class="subheading">About StayNest</span>
-	            <h2 class="mb-4">StayNest the Most Recommended Homestay All Over the World</h2>
+	          	<span class="subheading">About Harbor Lights Hotel</span>
+	            <h2 class="mb-4">Harbor Lights Hotel the Most Recommended Hotel All Over the World</h2>
 	          </div>
 	          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
 	          <p><a href="#" class="btn btn-secondary rounded">Reserve Your Room Now</a></p>
@@ -174,7 +251,7 @@
       <div class="container">
         <div class="row no-gutters ftco-animate justify-content-center">
         	<div class="col-md-5 d-flex">
-        		<div class="testimony-img aside-stretch-2" style="{{ asset('background-image: url(images/testimony-img.jpg);') }}"></div>
+        		<div class="testimony-img aside-stretch-2" style="background-image: url(images/testimony-img.jpg);"></div>
         	</div>
           <div class="col-md-7 py-5 pl-md-5">
           	<div class="py-md-5">
@@ -189,7 +266,7 @@
 	                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
 	                  </div>
 	                  <div class="d-flex">
-		                  <div class="user-img" style="{{ asset('background-image: url(images/testimony-img.jpg);') }}">
+		                  <div class="user-img" style="background-image: url(images/person_1.jpg)">
 		                  </div>
 		                  <div class="pos ml-3">
 		                  	<p class="name">Gerald Hodson</p>
@@ -204,7 +281,7 @@
 	                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
 	                  </div>
 	                  <div class="d-flex">
-		                  <div class="user-img" style="{{ asset('background-image: url(images/testimony-img.jpg);') }}">
+		                  <div class="user-img" style="background-image: url(images/person_2.jpg)">
 		                  </div>
 		                  <div class="pos ml-3">
 		                  	<p class="name">Gerald Hodson</p>
@@ -219,7 +296,7 @@
 	                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
 	                  </div>
 	                  <div class="d-flex">
-		                  <div class="user-img" style="{{ asset('background-image: url(images/testimony-img.jpg);') }}">
+		                  <div class="user-img" style="background-image: url(images/person_3.jpg)">
 		                  </div>
 		                  <div class="pos ml-3">
 		                  	<p class="name">Gerald Hodson</p>
@@ -234,7 +311,7 @@
 	                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
 	                  </div>
 	                  <div class="d-flex">
-		                  <div class="user-img" style="{{ asset('background-image: url(images/testimony-img.jpg);') }}">
+		                  <div class="user-img" style="background-image: url(images/person_4.jpg)">
 		                  </div>
 		                  <div class="pos ml-3">
 		                  	<p class="name">Gerald Hodson</p>
@@ -254,14 +331,14 @@
     	<div class="container-fluid px-0">
     		<div class="row no-gutters justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
-          	<span class="subheading">StayNest Rooms</span>
-            <h2 class="mb-4">Homestay Master's Rooms</h2>
+          	<span class="subheading">Harbor Lights Rooms</span>
+            <h2 class="mb-4">Hotel Master's Rooms</h2>
           </div>
         </div>
     		<div class="row no-gutters">
     			<div class="col-lg-6">
     				<div class="room-wrap d-md-flex ftco-animate">
-    					<a href="#" class="img" style="{{ asset('background-image: url(images/testimony-img.jpg);') }}"></a>
+    					<a href="#" class="img" style="background-image: url(images/room-6.jpg);"></a>
     					<div class="half left-arrow d-flex align-items-center">
     						<div class="text p-4 text-center">
     							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p>
@@ -274,7 +351,7 @@
     			</div>
     			<div class="col-lg-6">
     				<div class="room-wrap d-md-flex ftco-animate">
-    					<a href="#" class="img" style="{{ asset('background-image: url(images/testimony-img.jpg);') }}"></a>
+    					<a href="#" class="img" style="background-image: url(images/room-1.jpg);"></a>
     					<div class="half left-arrow d-flex align-items-center">
     						<div class="text p-4 text-center">
     							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p>
@@ -344,123 +421,117 @@
     </section>
 
 
-	<section id="laundry" class="ftco-section ftco-menu bg-light">
-        <div class="container-fluid px-md-4">
-            <div class="row justify-content-center mb-5 pb-3">
-                <div class="col-md-7 heading-section text-center ftco-animate">
-                    <span class="subheading">Laundry</span>
-                    <h2>Pesan Laundry</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 col-xl-6 d-flex">
-                    <div class="pricing-entry rounded d-flex ftco-animate">
-                        <div class="desc p-4">
-                            <form action="{{ route('laundry.store') }}" method="POST">
-                                @csrf
-                                <div class="form-group">
-                                    <label for="jenis_laundry">Jenis Layanan</label>
-                                    <select id="jenis_laundry" name="jenis_laundry" class="form-control" onchange="updatePrice()">
-                                        <option value="cuci_kering" harga="20000">Cuci Kering</option>
-                                        <option value="cuci_setrika" harga="30000">Cuci + Setrika</option>
-                                        <option value="setrika" harga="15000">Setrika Saja</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="jumlah">Jumlah Laundry (Kg/Item)</label>
-                                    <input type="number" id="jumlah" name="jumlah" class="form-control" placeholder="Masukkan jumlah" oninput="updatePrice()">
-                                </div>
-                                <div class="form-group">
-                                    <label for="waktu_pengambilan">Waktu Pengambilan</label>
-                                    <input type="datetime-local" id="waktu_pengambilan" name="waktu_pengambilan" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="waktu_pengembalian">Estimasi Waktu Pengembalian</label>
-                                    <input type="datetime-local" id="waktu_pengembalian" name="waktu_pengembalian" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="harga">Total Harga</label>
-                                    <input type="text" id="harga" name="harga" class="form-control" value="Rp 0" readonly>
-                                </div>
-                                <div class="form-group text-center">
-                                    <button type="submit" class="btn btn-primary rounded">Pesan Sekarang</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-6 d-flex">
-                    <div class="pricing-entry rounded d-flex ftco-animate">
-                        <div class="desc p-4">
-                            <h4>Status Pemesanan Laundry</h4>
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Tanggal</th>
-                                        <th>Layanan</th>
-                                        <th>Jumlah</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>12 Desember 2024</td>
-                                        <td>Cuci Kering</td>
-                                        <td>5 Kg</td>
-                                        <td>Diproses</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+
+
+
+		<section class="ftco-section ftco-menu bg-light">
+			<div class="container-fluid px-md-4">
+				<div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+          	<span class="subheading">Restaurant</span>
+            <h2>Restaurant</h2>
+          </div>
         </div>
-	</section>
-
-
-    <section id="makanan" class="ftco-section ftco-menu bg-light">
-        <div class="container-fluid px-md-4">
-            <!-- Header Section -->
-            <div class="row justify-content-center mb-5 pb-3">
-                <div class="col-md-7 heading-section text-center ftco-animate">
-                    <span class="subheading">Makanan</span>
-                    <h2>Pesan Makanan</h2>
-                </div>
-            </div>
-            <!-- Menu Section -->
-            <div class="row">
-                @foreach ($makanan as $item)
-                    <div class="col-lg-6 col-xl-4 d-flex">
-                        <div class="pricing-entry rounded d-flex ftco-animate">
-                            <div class="img" style="background-image: url({{ asset('storage/images/' . $item->photo) }});"></div>
-                            <div class="desc p-4">
-                                <div class="d-md-flex text align-items-start">
-                                    <h3><span>{{ $item->nama_makanan }}</span></h3>
-                                    <span class="price">Rp {{ number_format($item->harga, 0, ',', '.') }}</span>
-                                </div>
-                                <div class="d-block">
-                                    <p>Nikmati hidangan yang menggugah selera anda selama menginap</p>
-                                </div>
-                                <div class="d-block mt-3">
-                                    <a href="{{ route('pesan', $item->id) }}" class="btn btn-primary btn-sm rounded">View Details</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
+				<div class="row">
+        	<div class="col-lg-6 col-xl-4 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(images/menu-1.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>Grilled Crab with Onion</span></h3>
+	        				<span class="price">$20.00</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>A small river named Duden flows by their place and supplies</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-lg-6 col-xl-4 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(images/menu-2.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>Grilled Crab with Onion</span></h3>
+	        				<span class="price">$20.00</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>A small river named Duden flows by their place and supplies</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-lg-6 col-xl-4 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(images/menu-3.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>Grilled Crab with Onion</span></h3>
+	        				<span class="price">$20.00</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>A small river named Duden flows by their place and supplies</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-lg-6 col-xl-4 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(images/menu-4.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>Grilled Crab with Onion</span></h3>
+	        				<span class="price">$20.00</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>A small river named Duden flows by their place and supplies</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-lg-6 col-xl-4 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(images/menu-5.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>Grilled Crab with Onion</span></h3>
+	        				<span class="price">$20.00</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>A small river named Duden flows by their place and supplies</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-lg-6 col-xl-4 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(images/menu-6.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>Grilled Crab with Onion</span></h3>
+	        				<span class="price">$20.00</span>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>A small river named Duden flows by their place and supplies</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-md-12 text-center ftco-animate">
+        		<p><a href="#" class="btn btn-primary rounded">View All Menu</a></p>
+        	</div>
         </div>
-    </section>
-
+			</div>
+		</section>
 
 
     <section class="ftco-section">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
-          	<span class="subheading">Read Review</span>
-            <h2>Review & Ratings</h2>
+          	<span class="subheading">Read Blog</span>
+            <h2>Recent Blog</h2>
           </div>
         </div>
         <div class="row d-flex">
@@ -557,8 +628,67 @@
         </div>
       </div>
     </section>
-@endsection
 
+    <footer class="ftco-footer ftco-section img" style="background-image: url(images/bg_4.jpg);">
+    	<div class="overlay"></div>
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Harbor Lights</h2>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-5">
+              <h2 class="ftco-heading-2">Useful Links</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">Blog</a></li>
+                <li><a href="#" class="py-2 d-block">Rooms</a></li>
+                <li><a href="#" class="py-2 d-block">Amenities</a></li>
+                <li><a href="#" class="py-2 d-block">Gift Card</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Privacy</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">Career</a></li>
+                <li><a href="#" class="py-2 d-block">About Us</a></li>
+                <li><a href="#" class="py-2 d-block">Contact Us</a></li>
+                <li><a href="#" class="py-2 d-block">Services</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+        </div>
+      </div>
+    </footer>
 
 
 
@@ -566,37 +696,22 @@
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
-    <script src="{{ asset('js/popper.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
-    <script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.stellar.min.js') }}"></script>
-    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('js/aos.js') }}"></script>
-    <script src="{{ asset('js/jquery.animateNumber.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
-    <script src="{{ asset('js/scrollax.min.js') }}"></script>
-    <script src="{{ asset('js/google-map.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
+  <script src="js/main.js"></script>
 
-
-  <script>
-    function updatePrice() {
-        const laundryType = document.getElementById('jenis_laundry');
-        const selectedOption = laundryType.options[laundryType.selectedIndex];
-        const pricePerUnit = parseFloat(selectedOption.getAttribute('harga')) || 0;
-        const quantity = parseFloat(document.getElementById('jumlah').value) || 0;
-        const totalPrice = pricePerUnit * quantity;
-
-        document.getElementById('harga').value = `Rp ${totalPrice.toLocaleString('id-ID')}`;
-    }
-</script>
-
-    </body>
+  </body>
 </html>
-
-

@@ -11,7 +11,7 @@ class Makanan extends Model
     protected $table = 'makanan';
 
     protected $fillable = [
-        'nama_makanan', 'harga',
+        'nama_makanan', 'harga','stock',
     ];
 
     public function orders()
@@ -22,5 +22,10 @@ class Makanan extends Model
     public function photos()
     {
         return $this->hasMany(Photos::class);
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany(TransactionItem::class);
     }
 }

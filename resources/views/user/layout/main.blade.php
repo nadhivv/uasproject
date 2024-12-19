@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Htemplate</title>
+    <title>StayNest</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700&display=swap" rel="stylesheet">
 
-    <!-- CSS Stylesheets -->
+    <!-- Menggunakan asset() untuk memuat file CSS -->
     <link rel="stylesheet" href="{{ asset('css/open-iconic-bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
@@ -47,7 +46,7 @@
     <script src="{{ asset('js/jquery.animateNumber.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
     <script src="{{ asset('js/scrollax.min.js') }}"></script>
-    <script src="{{ asset('https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700&display=swap') }}"></script>
+    <script src="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700&display=swap"></script>
     <script src="{{ asset('js/google-map.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
 

@@ -3,83 +3,125 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Midtrans\Snap;
+use App\Models\Makanan;
+use App\Models\Transaction;
+use App\Models\TransactionItem;
 use Midtrans\Config;
+use Midtrans\Snap;
 
 class PaymentController extends Controller
 {
-    public function __construct()
+
+    public function process(Request $request)
     {
-        Config::$serverKey = config('midtrans.server_key');
-        Config::$clientKey = config('midtrans.client_key');
-        Config::$isProduction = config('midtrans.is_production');
-    }
+        $request->validate([
+            'makanan_id' => 'required|exists:makanan,id',
+            'quantity' => 'required|integer|min:1',
+        ]);
 
-    public function createPayment(Request $request)
-    {
-        $transaction_details = [
-            'order_id' => 'order-id-' . time(),
-            'gross_amount' => 100000, 
-        ];
+        $makanan = Makanan::findOrFail($request->makanan_id);
 
-        $item_details = [
-            [
-                'id' => 'item-01',
-                'price' => 100000,
-                'quantity' => 1,
-                'name' => 'Product Name'
-            ]
-        ];
+        if ($makanan->stock < $request->quantity) {
+            return back()->with('error', 'Stock tidak mencukupi');
+        }
 
-        $billing_address = [
-            'first_name'    => 'John',
-            'last_name'     => 'Doe',
-            'address'       => 'Bandung',
-            'city'          => 'Bandung',
-            'postal_code'   => '40122',
-            'phone'         => '081234567890',
-            'country_code'  => 'IDN'
-        ];
+        $total_amount = $makanan->harga * $request->quantity;
+        $order_id = 'TRX-' . time();
 
-        $customer_details = [
-            'first_name'    => "John",
-            'last_name'     => "Doe",
-            'email'         => "john.doe@example.com",
-            'phone'         => "081234567890",
-            'billing_address'=> $billing_address
-        ];
+        $transaction = Transaction::create([
+            'user_id' => auth()->id(),
+            'order_id' => $order_id,
+            'total_amount' => $total_amount,
+            'status' => 'pending',
+        ]);
 
-        $transaction_data = [
-            'payment_type' => 'credit_card',
-            'transaction_details' => $transaction_details,
-            'item_details' => $item_details,
-            'customer_details' => $customer_details
+        TransactionItem::create([
+            'transaction_id' => $transaction->id,
+            'makanan_id' => $makanan->id,
+            'quantity' => $request->quantity,
+            'price' => $makanan->harga,
+        ]);
+
+        // Mengonfigurasi Midtrans
+        \Midtrans\Config::$serverKey = config('midtrans.server_key');
+        \Midtrans\Config::$isProduction = false;
+
+        $params = [
+            'transaction_details' => [
+                'order_id' => $transaction->order_id,
+                'gross_amount' => $transaction->total_amount, 
+            ],
+            'customer_details' => [
+                'first_name' => auth()->user()->name,
+                'email' => auth()->user()->email,
+            ],
         ];
 
         try {
-            $snap_token = Snap::getSnapToken($transaction_data);
-            return response()->json(['token' => $snap_token]);
+            $snapToken = \Midtrans\Snap::getSnapToken($params);
+
+            return view('transactions.payment', compact('transaction', 'makanan', 'snapToken'));
         } catch (\Exception $e) {
-            return response()->json(['error' => $e->getMessage()]);
+            return redirect()->back()->with('error', 'Gagal mendapatkan Snap Token');
         }
     }
 
-    public function paymentCallback(Request $request)
+    public function callback(Request $request)
     {
-        // Handle Midtrans callback and verify the transaction
-        $notification = new \Midtrans\Notification();
+        $serverKey = config('midtrans.server_key');
+        $hashed = hash("sha512", $request->order_id.$request->status_code.$request->gross_amount.$serverKey);
 
-        $status = $notification->transaction_status;
-        $order_id = $notification->order_id;
-        $payment_type = $notification->payment_type;
+        if ($hashed == $request->signature_key) {
+            $transaction = Transaction::where('order_id', $request->order_id)->first();
 
-        // Update the payment status in your database accordingly
-        if ($status == 'success') {
-            // Handle success
-        } else {
-            // Handle failure or pending
+            if ($request->transaction_status == 'capture' || $request->transaction_status == 'Settlement') {
+                $transaction->update(['status' => 'paid']);
+
+                // Update stock
+                foreach ($transaction->items as $item) {
+                    $makanan = $item->makanan;
+                    $makanan->update([
+                        'stock' => $makanan->stock - $item->quantity
+                    ]);
+                }
+            } elseif ($request->transaction_status == 'cancel' || $request->transaction_status == 'expire') {
+                $transaction->update(['status' => 'cancelled']);
+            }
         }
 
-        return response('OK', 200);
+        return response()->json(['status' => 'success']);
+    }
+
+    public function updatePaymentStatus(Request $request)
+    {
+        $transaction = Transaction::where('order_id', $request->order_id)->first();
+
+        if ($transaction) {
+            $transaction->update(['status' => 'paid']);
+
+            // Update stock untuk setiap item yang ada di dalam transaksi
+            foreach ($transaction->items as $item) {
+                $makanan = $item->makanan;
+                $makanan->update([
+                    'stock' => $makanan->stock - $item->quantity
+                ]);
+            }
+
+            return response()->json(['status' => 'success']);
+        }
+
+        return response()->json(['status' => 'error'], 404);
+    }
+
+    public function index()
+    {
+        // Mengambil semua transaksi untuk pengguna yang sedang login
+        $transaction = Transaction::with('items.makanan')
+            ->where('user_id', auth()->id())
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        // Mengembalikan view dengan data transaksi
+        return view('transactions.history', compact('transaction'));
     }
 }

@@ -44,16 +44,19 @@
                                 <h5 class="card-title">{{ $laundry->jenis_laundry }}</h5>
                                 <p class="card-text">Harga: Rp {{ number_format($laundry->harga, 0, ',', '.') }}</p>
                             @endif
-                            <p class="card-text">Nikmati hidangan yang menggugah selera anda selama menginap.</p>
-                            <form action="{{ route('store.pesanan') }}" method="POST">
+                            <p class="card-text">Nikmati layanan laundry selama menginap.</p>
+
+                            <form action="{{ route('laundry.payment', ['transactionId' => $transactionId]) }}" method="POST">
                                 @csrf
                                 @if($laundry)
                                     <input type="hidden" name="laundry_id" value="{{ $laundry->id }}">
+                                    <input type="hidden" name="harga" value="{{ $laundry->harga }}">
+                                    <input type="hidden" name="jenis_laundry" value="{{ $laundry->jenis_laundry }}">
                                     <button type="submit" class="btn btn-success">Konfirmasi Pesanan</button>
                                 @else
                                     <button type="button" class="btn btn-danger" disabled>Konfirmasi Pesanan</button>
                                 @endif
-                                <a href="{{ route('dashboard') }}" class="btn btn-secondary">Batal</a>
+                                <a href="{{ route('user.dashboard') }}" class="btn btn-secondary">Batal</a>
                             </form>
                         </div>
                     </div>
@@ -62,7 +65,6 @@
         </div>
     </section>
 
-   @include('user.layout.footer')
 
 
 

@@ -11,7 +11,7 @@ class MakananController extends Controller
 {
     public function index()
     {
-        // $makanan = Makanan::all();
+        //$makanan = Makanan::all();
         $makanan = Makanan::with('photos')->get();
         return view('admin.makanan.index', compact('makanan'));
     }

@@ -44,11 +44,19 @@
                             <h5 class="card-title">{{ $makanan->nama_makanan }}</h5>
                             <p class="card-text">Harga: Rp {{ number_format($makanan->harga, 0, ',', '.') }}</p>
                             <p class="card-text">Nikmati hidangan yang menggugah selera anda selama menginap.</p>
-                            <form action="{{ route('pesanan.store') }}" method="POST">
+                            <form action="{{ route('transactions.process') }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="makanan_id" value="{{ $makanan->id }}">
-                                <button type="submit" class="btn btn-success">Konfirmasi Pesanan</button>
-                                <a href="{{ route('dashboard') }}" class="btn btn-secondary">Batal</a>
+                                <div class="mb-3">
+                                    <label for="quantity" class="form-label">Quantity</label>
+                                    <div class="input-group" style="max-width: 150px;">
+                                        <button type="button" class="btn btn-outline-secondary" id="minus-btn">-</button>
+                                        <input type="number" class="form-control text-center" id="quantity" name="quantity" min="1" max="{{ $makanan->stock }}" value="1" style="width: 60px;">
+                                        <button type="button" class="btn btn-outline-secondary" id="plus-btn">+</button>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Checkout</button>
                             </form>
                         </div>
                     </div>
@@ -57,7 +65,7 @@
         </div>
     </section>
 
-   @include('user.layout.footer')
+   {{-- @include('user.layout.footer') --}}
 
 
 
@@ -82,6 +90,31 @@
   <script src="{{ asset('js/google-map.js') }}"></script>
   <script ript src="{{ asset('js/main.js') }}"></script>
 
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const quantityInput = document.getElementById('quantity');
+        const plusBtn = document.getElementById('plus-btn');
+        const minusBtn = document.getElementById('minus-btn');
+        const maxQuantity = {{ $makanan->stock }};
+
+        // Handle plus button click
+        plusBtn.addEventListener('click', function () {
+            let currentValue = parseInt(quantityInput.value);
+            if (currentValue < maxQuantity) {
+                quantityInput.value = currentValue + 1;
+            }
+        });
+
+        // Handle minus button click
+        minusBtn.addEventListener('click', function () {
+            let currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+            }
+        });
+    });
+</script>
 
   </body>
 </html>
