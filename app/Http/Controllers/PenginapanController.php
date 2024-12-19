@@ -54,76 +54,44 @@ class PenginapanController extends Controller
         return view('user.detailpenginapan', compact('penginapan', 'comments'));
     }
 
-    public function booking(Request $request, $name)
+    public function calculateTotalHarga($penginapan, $check_in, $check_out)
+{
+    $checkInDate = Carbon::parse($check_in);
+    $checkOutDate = Carbon::parse($check_out);
+    $days = $checkInDate->diffInDays($checkOutDate);
 
+    return $penginapan->harga * $days;
+}
+
+public function booking(Request $request, $name)
 {
     // Validasi data input
     $request->validate([
-
         'name' => 'required',
         'email' => 'required|email',
         'check_in' => 'required|date',
         'check_out' => 'required|date|after:check_in',
-        'total_harga' => 'required',
     ]);
 
     // Cari data penginapan berdasarkan name
     $penginapan = Penginapan::where('name', $name)->firstOrFail();
-    Booking::create([
-        'user_id' => Auth::id(), // Mengambil ID user yang sedang login
-        'penginapan_id' => $penginapan->id, // ID dari penginapan yang dipilih
-        'check_in' => $request->check_in,
-        'check_out' => $request->check_out,
-        'total_harga' => $request->total_harga,
-        'status' => 'pending', // Atur status awal menjadi pending
-    ]);
+
+    // Membuat booking baru
+    $booking = new Booking;
+    $booking->user_id = Auth::id();
+    $booking->penginapan_id = $penginapan->id;
+    $booking->check_in = Carbon::parse($request->check_in)->format('Y-m-d');
+    $booking->check_out = Carbon::parse($request->check_out)->format('Y-m-d');
+    $booking->total_harga = $this->calculateTotalHarga($penginapan, $request->check_in, $request->check_out);
+
+    $booking->status = 'pending';
     // Simpan data booking lainnya
-    return redirect()->route('penginapan.detail', ['name' => $penginapan->name])->with('success', 'Booking berhasil dibuat!');
-   
+    $booking->save();
+
+    // Redirect ke halaman pembayaran
+    return redirect()->route('penginapan.bayar', ['id' => $booking->id]);
 }
-// public function detail($name)
-// {
-//     // Cari data penginapan berdasarkan name dan muat relasi transactionPenginapan.transaction
-//     $penginapan = Penginapan::with('transactionPenginapan.transaction')->where('name', $name)->firstOrFail();
 
-//     // Ambil transaksi pertama dari relasi transactionPenginapan
-//     $transaction = $penginapan->transactionPenginapan->first()->transaction;
-
-//     // Ambil ID transaksi
-//     $transactionId = $transaction->id;
-
-//     // Kirim data ke view
-//     return view('user.detail_penginapan', compact('transactionId'));
-// }
-
-
-    {
-        // Validasi data input
-        $request->validate([
-
-            'name' => 'required',
-            'email' => 'required|email',
-            'check_in' => 'required|date',
-            'check_out' => 'required|date|after:check_in',
-        ]);
-
-        // Cari data penginapan berdasarkan name
-        $penginapan = Penginapan::where('name', $name)->firstOrFail();
-
-        // Membuat booking baru
-        $booking = new Booking;
-        $booking->user_id = Auth::id();
-        $booking->penginapan_id = $penginapan->id;
-        $booking->check_in = Carbon::parse($request->check_in)->format('Y-m-d');
-        $booking->check_out = Carbon::parse($request->check_out)->format('Y-m-d');
-        $booking->total_harga = $this->calculateTotalHarga($penginapan, $request->check_in, $request->check_out); // Menghitung total harga
-        $booking->status = 'pending';
-        // Simpan data booking lainnya
-
-        $booking->save();
-
-        return view('transactions.payment')->with(compact('booking'));
-    }
 
     public function addReview(Request $request, $id)
     {
@@ -138,6 +106,36 @@ class PenginapanController extends Controller
 
         return redirect()->route('penginapan.detail', $penginapan->name)->with('success', 'Review added successfully!');
     }
+
+    public function bayar($id)
+{
+    // Ambil data booking berdasarkan ID
+    $booking = Booking::findOrFail($id);
+
+    // Mengonfigurasi Midtrans
+    \Midtrans\Config::$serverKey = config('midtrans.server_key');
+    \Midtrans\Config::$isProduction = false;
+
+    $params = [
+        'transaction_details' => [
+            'order_id' => 'BOOK-' . $booking->id,
+            'gross_amount' => $booking->total_harga,
+        ],
+        'customer_details' => [
+            'first_name' => Auth::user()->name,
+            'email' => Auth::user()->email,
+        ],
+    ];
+
+    try {
+        $snapToken = \Midtrans\Snap::getSnapToken($params);
+        // Kembalikan ke view pembayaran dengan Snap Token
+        return view('user.detailpenginapan', compact('booking', 'snapToken'));
+    } catch (\Exception $e) {
+        return redirect()->route('penginapan.detail', $booking->penginapan->name)->with('error', 'Gagal mendapatkan Snap Token');
+    }
+}
+
 
 
 }

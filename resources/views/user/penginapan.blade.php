@@ -25,37 +25,40 @@
                       <img src="{{ asset($penginapan->image_url) }}" class="img-fluid" alt="Gambar Penginapan">
                     </div>
                     <div class="col-md-8">
-                      <form action="{{ route('penginapan.booking', ['name' => $penginapan->name]) }}" method="POST">
-                        @csrf
+                        <form action="{{ route('penginapan.booking', ['name' => $penginapan->name]) }}" method="POST">
+                          @csrf
 
-                        
-                        <div class="form-group">
-                          <label for="check_in">Nama</label>
-                          <input type="text" name="name" class="form-control" value="{{ old('name') }}" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="check_in">Email</label>
-                        <input type="text" name="email" class="form-control" value="{{ old('email') }}" required>
-                    </div>
-                        <div class="form-group">
+                          <div class="form-group">
+                            <label for="name">Nama</label>
+                            <input type="text" name="name" class="form-control" value="{{ old('name', Auth::user()->name ?? '') }}" required>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" class="form-control" value="{{ old('email', Auth::user()->email ?? '') }}" required>
+                          </div>
+
+                          <div class="form-group">
                             <label for="check_in">Check In</label>
                             <input type="date" name="check_in" class="form-control" value="{{ old('check_in') }}" required>
-                        </div>
-                
-                        <div class="form-group">
+                          </div>
+
+                          <div class="form-group">
                             <label for="check_out">Check Out</label>
                             <input type="date" name="check_out" class="form-control" value="{{ old('check_out') }}" required>
-                        </div>
-                
-                        <div class="form-group">
-                            <label for="total_harga">Total Harga</label>
-                            <input type="number" name="total_harga" class="form-control" value="{{ $penginapan->price }}" required>
-                        </div>
-                
-                        <button type="submit" class="btn btn-success">Pesan Sekarang</button>
-                    </form>
+                          </div>
 
-                        <div class="mb-3">
+                          <div class="form-group">
+                            <label for="total_harga">Total Harga</label>
+                            <input type="number" name="total_harga" class="form-control" value="{{ $penginapan->price }}" readonly>
+                          </div>
+
+                          <button type="submit" class="btn btn-success">Pesan Sekarang</button>
+                        </form>
+                      </div>
+
+
+                        {{-- <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nama</label>
                             <input type="text" class="form-control" id="name" name="name" value="{{ Auth::user()->name }}" readonly>
                           </div>
@@ -72,7 +75,7 @@
                             <input type="date" class="form-control" id="check_out" name="check_out" value="{{ old('check_out', $check_out_date ?? '') }}" required>
                           </div>
                         <button type="submit" class="btn btn-primary float-end">Submit</button>
-                      </form>
+                      </form> --}}
 
                     </div>
                   </div>
@@ -90,7 +93,7 @@
 
   </div>
 
-  
+
 
 
   <script src="../assets/libs/jquery/dist/jquery.min.js"></script>

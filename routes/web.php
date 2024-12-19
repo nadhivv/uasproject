@@ -113,12 +113,21 @@ Route::middleware(['auth'])->group(function () {
 
 });
 
-Route::get('/penginapan/{name}', [PenginapanController::class, 'show'])->name('penginapan.show');
+// Route::get('/penginapan/{name}', [PenginapanController::class, 'show'])->name('penginapan.show');
 
-Route::get('/penginapan/detail/{name}', [PenginapanController::class, 'detail'])->name('penginapan.detail');
-Route::post('/penginapan/{name}', [PenginapanController::class, 'booking'])->name('penginapan.booking');
+// Route::get('/penginapan/detail/{name}', [PenginapanController::class, 'detail'])->name('penginapan.detail');
+// Route::post('/penginapan/{name}', [PenginapanController::class, 'booking'])->name('penginapan.booking');
 
-Route::get('/penginapan/{name}/detail', [PenginapanController::class, 'detail'])->name('penginapan.detail');
+// Route::get('/penginapan/{name}/detail', [PenginapanController::class, 'detail'])->name('penginapan.detail');
 
-Route::post('/penginapan/{id}/add-review', [PenginapanController::class, 'addReview'])->name('penginapan.addReview');
+// Route::post('/penginapan/{id}/add-review', [PenginapanController::class, 'addReview'])->name('penginapan.addReview');
+
+Route::get('/search', [PenginapanController::class, 'search'])->name('penginapan.search');
+    Route::get('/{name}', [PenginapanController::class, 'show'])->name('penginapan.show');
+    Route::get('/{name}/detail', [PenginapanController::class, 'detail'])->name('penginapan.detail');
+    Route::post('/{name}/booking', [PenginapanController::class, 'booking'])->name('penginapan.booking');
+    Route::post('/{id}/review', [PenginapanController::class, 'addReview'])->name('penginapan.addReview');
+    Route::get('/penginapan/bayar/{id}', [PenginapanController::class, 'bayar'])->name('penginapan.bayar');
+    // Route yang benar
+Route::get('/penginapan/{id}/bayar', [PenginapanController::class, 'bayar'])->name('penginapan.bayar');
 
