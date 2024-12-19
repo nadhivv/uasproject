@@ -117,4 +117,8 @@ Route::get('/penginapan/{name}', [PenginapanController::class, 'show'])->name('p
 
 Route::get('/penginapan/detail/{name}', [PenginapanController::class, 'detail'])->name('penginapan.detail');
 Route::post('/penginapan/{name}', [PenginapanController::class, 'booking'])->name('penginapan.booking');
+
+Route::get('/penginapan/{name}/detail', [PenginapanController::class, 'detail'])->name('penginapan.detail');
+
 Route::post('/penginapan/{id}/add-review', [PenginapanController::class, 'addReview'])->name('penginapan.addReview');
+
