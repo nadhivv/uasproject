@@ -15,7 +15,7 @@
         <div class="card-body">
             <h4 class="card-title mb-4">User List</h4>
             <div class="table-responsive">
-                <table class="table table-hover table-striped w-100">
+                <table  id="myTable" class="table table-hover table-striped w-100">
                     <thead class="table-light">
                         <tr>
                             <th>ID</th>

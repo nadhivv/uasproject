@@ -5,7 +5,7 @@
     <h1>Daftar Makanan</h1>
     <a href="{{ route('admin.makanan.create') }}" class="btn btn-primary mb-3">Tambah Makanan</a>
     <a href="{{ route('transactions.index') }}" class="btn btn-primary mb-3"> History Pesanan</a>
-    <table class="table">
+    <table  id="myTable" class="table">
         <thead>
             <tr>
                 <th>Photo</th>

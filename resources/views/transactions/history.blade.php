@@ -4,7 +4,7 @@
 <div class="container">
     <h2 class="mb-4">Transaction History</h2>
     <div class="table-responsive">
-        <table class="table table-striped">
+        <table  id="myTable" class="table table-striped">
             <thead>
                 <tr>
                     <th>Order ID</th>
