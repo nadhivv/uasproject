@@ -126,7 +126,7 @@
                                         </p>
 
                                         <p class="view-details-btn">
-                                            <a href="room-single.html" class="btn-custom px-3 py-2 rounded">View Details <span class="icon-long-arrow-right"></span></a>
+                                            <a href="{{ route('penginapan.detail', ['name' => $penginapan->name]) }}" class="btn-custom px-3 py-2 rounded">View Details <span class="icon-long-arrow-right"></span></a>
                                         </p>
                                         <p class="pt-1">
                                             <a href="{{ route('penginapan.show', $penginapan->name) }}" class="book-now-btn">

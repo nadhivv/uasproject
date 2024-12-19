@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Booking;
 use App\Models\Penginapan;
+use App\Models\Review;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -36,6 +37,19 @@ class PenginapanController extends Controller
         return view('user.penginapan', compact('penginapan'));
     }
 
+    public function detail($name)
+    {
+        // Cari penginapan berdasarkan nama
+
+        $penginapan = Penginapan::where('name', $name)->firstOrFail();
+
+        // Ambil komentar untuk penginapan
+        $comments = $penginapan->comments; // Asumsi kamu sudah membuat relasi di model Penginapan
+
+        // Mengirimkan data ke view
+        return view('user.detailpenginapan', compact('penginapan', 'comments'));
+    }
+
     public function booking(Request $request, $name)
 {
     // Validasi data input
@@ -64,5 +78,19 @@ class PenginapanController extends Controller
 
     return view('transactions.payment')->with(compact('booking'));
 }
+
+    public function addReview(Request $request, $id)
+    {
+        $penginapan = Penginapan::findOrFail($id);
+
+        Review::create([
+            'user_id' => Auth::id(),
+            'penginapan_id' => $penginapan->id,
+            'rating' => $request->rating,
+            'comment' => $request->comment,
+        ]);
+
+        return redirect()->route('penginapan.detail', $penginapan->name)->with('success', 'Review added successfully!');
+    }
 
 }
