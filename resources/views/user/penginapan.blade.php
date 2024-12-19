@@ -25,8 +25,9 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col-md-4 d-flex align-items-center justify-content-center">
-                      <img src="{{ asset('/' . $penginapan->image_url) }}" class="img-fluid" alt="Gambar Penginapan">
+                        <img src="{{ asset($penginapan->image_url) }}" class="img-fluid" alt="Gambar Penginapan">
                     </div>
+
                     <div class="col-md-8">
                       <form method="POST" action="{{ route('penginapan.booking', ['name' => $penginapan->name]) }}">
                         @csrf
