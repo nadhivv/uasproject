@@ -45,24 +45,22 @@ class PenginapanController extends Controller
         'email' => 'required|email',
         'check_in' => 'required|date',
         'check_out' => 'required|date|after:check_in',
+        'total_harga' => 'required',
     ]);
 
     // Cari data penginapan berdasarkan name
     $penginapan = Penginapan::where('name', $name)->firstOrFail();
-
-    // Membuat booking baru
-    $booking = new Booking;
-    $booking->user_id = Auth::id();
-    $booking->penginapan_id = $penginapan->id;
-    $booking->check_in = Carbon::parse($request->check_in)->format('Y-m-d');
-    $booking->check_out = Carbon::parse($request->check_out)->format('Y-m-d');
-    $booking->total_harga = $this->calculateTotalHarga($penginapan, $request->check_in, $request->check_out); // Menghitung total harga
-    $booking->status = 'pending';
+    Booking::create([
+        'user_id' => Auth::id(), // Mengambil ID user yang sedang login
+        'penginapan_id' => $penginapan->id, // ID dari penginapan yang dipilih
+        'check_in' => $request->check_in,
+        'check_out' => $request->check_out,
+        'total_harga' => $request->total_harga,
+        'status' => 'pending', // Atur status awal menjadi pending
+    ]);
     // Simpan data booking lainnya
-
-    $booking->save();
-
-    return view('transactions.payment')->with(compact('booking'));
+    return redirect()->route('penginapan.show', ['name' => $penginapan->name])->with('success', 'Booking berhasil dibuat!');
+   
 }
 
 }
