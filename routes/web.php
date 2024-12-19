@@ -27,7 +27,7 @@ Route::get('/user/dashboard', [UserController::class, 'index'])->name('user.dash
 
 Route::get('/register', [UserController::class, 'registerview']);
 Route::post('/register', [UserController::class, 'register'])->name('register');
-Route::get('/login', [UserController::class, 'loginview']);
+Route::get('/', [UserController::class, 'loginview']);
 Route::post('/login', [UserController::class, 'login'])->name('login');
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
