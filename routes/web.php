@@ -9,6 +9,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PenginapanController;
+use App\Http\Controllers\ReviewController;
 
 // Home route
 Route::get('/', function () {
@@ -73,10 +74,12 @@ Route::middleware('auth')->group(function () {
     Route::post('/order/makanan', [OrderController::class, 'storeFoodOrder'])->name('order.makanan.store');
     Route::post('/order/laundry', [OrderController::class, 'storeLaundryOrder'])->name('order.laundry.store');
 
-    // Route::get('/lokasi/cari', [LokasiController::class, 'cariLokasi'])->name('lokasi.cari');
-
     Route::get('/user/sample', [PenginapanController::class, 'search'])->name('cari.penginapan');
     Route::get('/penginapan/results', [PenginapanController::class, 'results'])->name('hasil.penginapan');
+
+    Route::get('/reviews/{penginapan_id}', [ReviewController::class, 'index'])->name('reviews.index');
+    Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+
 
 
 });
