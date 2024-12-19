@@ -16,9 +16,9 @@ Route::get('/StayNest', function () {
 })->name('landing');
 
 
-Route::get('/', function () {
-    return view('transactions.payment');
-});
+// Route::get('/', function () {
+//     return view('transactions.payment');
+// });
 
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 Route::get('/user/dashboard', [UserController::class, 'index'])->name('user.dashboard');
@@ -95,6 +95,7 @@ Route::middleware(['auth'])->group(function () {
     // Route::get('/transactions/checkout/{transaction}', [PaymentController::class, 'checkout'])->name('checkout');
     Route::post('/transactions/callback', [PaymentController::class, 'callback'])->name('transactions.callback');
     Route::post('/transactions/update-payment-status', [PaymentController::class, 'updatePaymentStatus'])->name('transactions.updatePaymentStatus');
+
 
     Route::post('/laundry/store', [LaundryController::class, 'store'])->name('laundry.store');
     Route::get('/laundry/detail/{laundryId}', [LaundryController::class, 'detail'])->name('laundry.detail');

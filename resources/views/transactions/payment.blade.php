@@ -36,8 +36,6 @@
   </head>
   <body>
 
-    @if(Auth::check())
-      <!-- The user is logged in, show payment info -->
       <div class="container">
           <div class="center-content">
               <div class="card">
@@ -51,19 +49,6 @@
               </div>
           </div>
       </div>
-    @else
-      <!-- The user is not logged in, show login prompt -->
-      <div class="container">
-          <div class="center-content">
-              <div class="card">
-                  <div class="card-header">Login Required</div>
-                  <div class="card-body">
-                      <p>You need to be logged in to make a payment. Please <a href="{{ route('login') }}">login here</a>.</p>
-                  </div>
-              </div>
-          </div>
-      </div>
-    @endif
 
 <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}"></script>
 <script type="text/javascript">
