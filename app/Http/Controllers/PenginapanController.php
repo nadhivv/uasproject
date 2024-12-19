@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use App\Models\Penginapan;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PenginapanController extends Controller
 {
@@ -37,7 +40,7 @@ class PenginapanController extends Controller
 {
     // Validasi data input
     $request->validate([
-        
+
         'name' => 'required',
         'email' => 'required|email',
         'check_in' => 'required|date',
@@ -53,7 +56,7 @@ class PenginapanController extends Controller
     $booking->penginapan_id = $penginapan->id;
     $booking->check_in = Carbon::parse($request->check_in)->format('Y-m-d');
     $booking->check_out = Carbon::parse($request->check_out)->format('Y-m-d');
-    $booking->total_harga = $this->calculateTotalHarga($penginapan, $request->check_in, $request->check_out); // Menghitung total harga 
+    $booking->total_harga = $this->calculateTotalHarga($penginapan, $request->check_in, $request->check_out); // Menghitung total harga
     $booking->status = 'pending';
     // Simpan data booking lainnya
 

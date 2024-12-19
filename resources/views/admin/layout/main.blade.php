@@ -20,7 +20,7 @@
     <div class="body-wrapper">
       <!--  Header Start -->
     @include('admin.layout.header')
-    <a href="{{ route('transactions.index') }}" class="btn btn-primary"> History Pesanan</a>
+    
         <!--  Row 1 -->
         @yield('content')
     </div>
