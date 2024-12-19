@@ -25,9 +25,8 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col-md-4 d-flex align-items-center justify-content-center">
-                        <img src="{{ asset($penginapan->image_url) }}" class="img-fluid" alt="Gambar Penginapan">
+                      <img src="{{ asset($penginapan->image_url) }}" class="img-fluid" alt="Gambar Penginapan">
                     </div>
-
                     <div class="col-md-8">
                       <form method="POST" action="{{ route('penginapan.booking', ['name' => $penginapan->name]) }}">
                         @csrf
@@ -41,14 +40,11 @@
                           </div>
                           <div class="mb-3">
                             <label for="checkInDate" class="form-label">Check-In Date</label>
-                            <p class="form-control-plaintext">{{ $check_in_date }}</p>
-                            <input type="hidden" name="check_in" value="{{ $check_in_date }}">
+                            <input type="date" class="form-control" id="check_in" name="check_in" value="{{ old('check_in', $check_in_date ?? '') }}" required>
                           </div>
-
                           <div class="mb-3">
                             <label for="checkOutDate" class="form-label">Check-Out Date</label>
-                            <p class="form-control-plaintext">{{ $check_out_date }}</p>
-                            <input type="hidden" name="check_out" value="{{ $check_out_date }}">
+                            <input type="date" class="form-control" id="check_out" name="check_out" value="{{ old('check_out', $check_out_date ?? '') }}" required>
                           </div>
                         <button type="submit" class="btn btn-primary float-end">Submit</button>
                       </form>
