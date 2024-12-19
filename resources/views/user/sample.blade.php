@@ -100,16 +100,16 @@
 <body>
     <div class="container-fluid">
         <div class="container-fluid">
-            <div class="card">
+            <div class="card" style="margin-top: 40px;">
                 <div class="card-body">
                     <h5 class="card-title fw-semibold mb-4">Penginapan Terdekat</h5>
 
                     <div class="row">
                         @foreach ($penginapans as $index => $penginapan)
                             <div class="col-md-6" style="margin-bottom: 20px;">
-                                <div class="room-wrap d-flex ftco-animate">
+                                <div class="room-wrap d-flex ftco-animate">    
                                     <a href="#" class="img" style="background-image: url('{{ asset('storage/' . $penginapan->image_url) }}');">
-                                        <img src="{{ asset('storage/' . $penginapan->image_url) }}" alt="Image">
+                                        <img src="{{ asset('storage/' . $penginapan->image_url) }}">
                                     </a>
                                     <div class="text">
                                         <p class="star mb-0">
@@ -129,7 +129,7 @@
                                             <a href="room-single.html" class="btn-custom px-3 py-2 rounded">View Details <span class="icon-long-arrow-right"></span></a>
                                         </p>
                                         <p class="pt-1">
-                                            <a href="room-single.html" class="book-now-btn">
+                                            <a href="{{ route('penginapan.show', $penginapan->name) }}" class="book-now-btn">
                                                 Book Now <span class="icon-long-arrow-right"></span>
                                             </a>
                                         </p>
