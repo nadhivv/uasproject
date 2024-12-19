@@ -59,8 +59,23 @@ class PenginapanController extends Controller
         'status' => 'pending', // Atur status awal menjadi pending
     ]);
     // Simpan data booking lainnya
-    return redirect()->route('penginapan.show', ['name' => $penginapan->name])->with('success', 'Booking berhasil dibuat!');
+    return redirect()->route('penginapan.detail', ['name' => $penginapan->name])->with('success', 'Booking berhasil dibuat!');
    
 }
+// public function detail($name)
+// {
+//     // Cari data penginapan berdasarkan name dan muat relasi transactionPenginapan.transaction
+//     $penginapan = Penginapan::with('transactionPenginapan.transaction')->where('name', $name)->firstOrFail();
+
+//     // Ambil transaksi pertama dari relasi transactionPenginapan
+//     $transaction = $penginapan->transactionPenginapan->first()->transaction;
+
+//     // Ambil ID transaksi
+//     $transactionId = $transaction->id;
+
+//     // Kirim data ke view
+//     return view('user.detail_penginapan', compact('transactionId'));
+// }
+
 
 }
