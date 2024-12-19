@@ -25,28 +25,30 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col-md-4 d-flex align-items-center justify-content-center">
-                      <img src="{{ asset('storage/' . $penginapan->image_url) }}" class="img-fluid" alt="Gambar Penginapan">
+                      <img src="{{ asset('/' . $penginapan->image_url) }}" class="img-fluid" alt="Gambar Penginapan">
                     </div>
                     <div class="col-md-8">
                       <form method="POST" action="{{ route('penginapan.booking', ['name' => $penginapan->name]) }}">
                         @csrf
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Nama</label>
-                          <input type="name" class="form-control" id="name" value="{{ Auth::user()->name }}" readonly>
-                        </div>
-                        <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Email Address</label>
-                          <input type="email" class="form-control" id="exampleInputPassword1">
-                        </div>
-                        {{-- Removed commented phone number field --}}
-                        <div class="mb-3">
-                          <label for="checkInDate" class="form-label">Check-In Date</label>
-                          <input type="date" class="form-control" id="check_in" name="check_in" required>
-                        </div>
-                        <div class="mb-3">
-                          <label for="checkOutDate" class="form-label">Check-Out Date</label>
-                          <input type="date" class="form-control" id="check_out" name="check_out" required>
-                        </div>
+                            <label for="exampleInputEmail1" class="form-label">Nama</label>
+                            <input type="text" class="form-control" id="name" name="name" value="{{ Auth::user()->name }}" readonly>
+                          </div>
+                          <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" name="email" value="{{ Auth::user()->email }}" readonly>
+                          </div>
+                          <div class="mb-3">
+                            <label for="checkInDate" class="form-label">Check-In Date</label>
+                            <p class="form-control-plaintext">{{ $check_in_date }}</p>
+                            <input type="hidden" name="check_in" value="{{ $check_in_date }}">
+                          </div>
+
+                          <div class="mb-3">
+                            <label for="checkOutDate" class="form-label">Check-Out Date</label>
+                            <p class="form-control-plaintext">{{ $check_out_date }}</p>
+                            <input type="hidden" name="check_out" value="{{ $check_out_date }}">
+                          </div>
                         <button type="submit" class="btn btn-primary float-end">Submit</button>
                       </form>
                     </div>
