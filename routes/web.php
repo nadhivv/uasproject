@@ -73,11 +73,6 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/laundry', [LaundryController::class, 'index'])->name('laundry.index');
 
-
-    Route::get('/orders', [OrderController::class, 'index'])->name('order.index');
-    Route::post('/order/makanan', [OrderController::class, 'storeFoodOrder'])->name('order.makanan.store');
-    Route::post('/order/laundry', [OrderController::class, 'storeLaundryOrder'])->name('order.laundry.store');
-
     // Route::get('/lokasi/cari', [LokasiController::class, 'cariLokasi'])->name('lokasi.cari');
 
     Route::get('/user/sample', [PenginapanController::class, 'search'])->name('cari.penginapan');
