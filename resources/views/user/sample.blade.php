@@ -107,9 +107,9 @@
                     <div class="row">
                         @foreach ($penginapans as $index => $penginapan)
                             <div class="col-md-6" style="margin-bottom: 20px;">
-                                <div class="room-wrap d-flex ftco-animate">    
-                                    <a href="#" class="img" style="background-image: url('{{ asset('storage/' . $penginapan->image_url) }}');">
-                                        <img src="{{ asset('storage/' . $penginapan->image_url) }}">
+                                <div class="room-wrap d-flex ftco-animate">
+                                    <a href="#" class="img" style="background-image: url('{{ asset($penginapan->image_url) }}');">
+                                        <img src="{{ asset($penginapan->image_url) }}">
                                     </a>
                                     <div class="text">
                                         <p class="star mb-0">
