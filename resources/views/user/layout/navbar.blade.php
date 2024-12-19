@@ -9,12 +9,15 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active"><a href="" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="" class="nav-link">Our Rooms</a></li>
-          <li class="nav-item"><a href="" class="nav-link">About Us</a></li>
+          {{-- <li class="nav-item"><a href="{{ route('lokasi.cari') }}" class="nav-link">Nearby</a></li> --}}
           <li class="nav-item"><a href="" class="nav-link">Blog</a></li>
-          <form action="{{ route('logout') }}" method="POST">
-            @csrf
-            <button type="submit" class="btn btn-danger">Logout</button>
-          </form>
+          <form action="{{ route('logout') }}" method="POST" class="form-inline my-0">
+                @csrf
+                <button type="submit" class="btn btn-light px-4 py-2"
+                    style="border-radius: 20px; font-size: 1rem;">
+                    Logout
+                </button>
+            </form>
         </ul>
       </div>
     </div>

@@ -8,7 +8,7 @@ use App\Http\Controllers\LaundryController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PaymentController;
-
+use App\Http\Controllers\PenginapanController;
 
 // Home route
 Route::get('/StayNest', function () {
@@ -29,8 +29,6 @@ Route::post('/register', [UserController::class, 'register'])->name('register');
 Route::get('/login', [UserController::class, 'loginview']);
 Route::post('/login', [UserController::class, 'login'])->name('login');
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
-
-
 
 
 // Logout
@@ -79,6 +77,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/orders', [OrderController::class, 'index'])->name('order.index');
     Route::post('/order/makanan', [OrderController::class, 'storeFoodOrder'])->name('order.makanan.store');
     Route::post('/order/laundry', [OrderController::class, 'storeLaundryOrder'])->name('order.laundry.store');
+
+    // Route::get('/lokasi/cari', [LokasiController::class, 'cariLokasi'])->name('lokasi.cari');
+
+    Route::get('/user/sample', [PenginapanController::class, 'search'])->name('cari.penginapan');
+    Route::get('/penginapan/results', [PenginapanController::class, 'results'])->name('hasil.penginapan');
+
+
 });
 
 
@@ -106,4 +111,3 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/laundry/payment/failed', [LaundryController::class, 'paymentFailed'])->name('laundry.payment.failed');
 
 });
-

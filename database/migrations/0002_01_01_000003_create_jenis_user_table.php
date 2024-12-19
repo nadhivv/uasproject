@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('jenis_user');
             $table->string('create_by', 30);
-            $table->string('delete_mark', 1);
+            $table->string('delete_mark', 1)->nullable();
             $table->string('update_by', 30);
             $table->timestamps();
         });

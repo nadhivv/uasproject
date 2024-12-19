@@ -62,10 +62,12 @@
                 <label for="menu_name">Nama Menu</label>
                 <input type="text" class="form-control" id="menu_name" name="menu_name" placeholder="Masukkan nama menu" required>
             </div>
+
             <div class="form-group">
                 <label for="menu_link">Link Menu</label>
                 <input type="text" class="form-control" id="menu_link" name="menu_link" placeholder="Masukkan link menu" required>
             </div>
+
             <div class="form-group">
                 <label for="menu_icon">Icon Menu</label>
                 <input type="menu_icon" class="form-control" id="menu_icon" name="menu_icon" placeholder="Masukkan icon menu" required>

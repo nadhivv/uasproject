@@ -4,7 +4,7 @@
 
 		<div class="hero">
 	    <section class="home-slider owl-carousel">
-	      <div class="slider-item" style="{{ asset('background-image:url(images/bg_1.jpg);') }}">
+	      <div class="slider-item" style="background-image: url('{{ asset('images/bg_1.jpg') }}');">
 	      	<div class="overlay"></div>
 	        <div class="container">
 	          <div class="row no-gutters slider-text align-items-center justify-content-end">
@@ -18,7 +18,7 @@
 	        </div>
 	      </div>
 
-	      <div class="slider-item" style="{{ asset('background-image:url(images/bg_1.jpg);') }}">
+	      <div class="slider-item" style="background-image: url('{{ asset('images/bg_1.jpg') }}');">
 	      	<div class="overlay"></div>
 	        <div class="container">
 	          <div class="row no-gutters slider-text align-items-center justify-content-end">
@@ -34,79 +34,84 @@
 	    </section>
 	  </div>
 
-    <section class="ftco-booking ftco-section ftco-no-pt ftco-no-pb">
-    	<div class="container">
-    		<div class="row no-gutters">
-    			<div class="col-lg-12">
-    				<form action="#" class="booking-form aside-stretch">
-	        		<div class="row">
-	        			<div class="col-md d-flex py-md-4">
-	        				<div class="form-group align-self-stretch d-flex align-items-end">
-	        					<div class="wrap align-self-stretch py-3 px-4">
-				    					<label for="#">Check-in Date</label>
-				    					<input type="text" class="form-control checkin_date" placeholder="Check-in date">
-			    					</div>
-			    				</div>
-	        			</div>
-	        			<div class="col-md d-flex py-md-4">
-	        				<div class="form-group align-self-stretch d-flex align-items-end">
-	        					<div class="wrap align-self-stretch py-3 px-4">
-				    					<label for="#">Check-out Date</label>
-				    					<input type="text" class="form-control checkout_date" placeholder="Check-out date">
-			    					</div>
-			    				</div>
-	        			</div>
-	        			<div class="col-md d-flex py-md-4">
-	        				<div class="form-group align-self-stretch d-flex align-items-end">
-	        					<div class="wrap align-self-stretch py-3 px-4">
-			      					<label for="#">Room</label>
-			      					<div class="form-field">
-			        					<div class="select-wrap">
-			                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-			                    <select name="" id="" class="form-control">
-			                    	<option value="">Suite</option>
-			                      <option value="">Family Room</option>
-			                      <option value="">Deluxe Room</option>
-			                      <option value="">Classic Room</option>
-			                      <option value="">Superior Room</option>
-			                      <option value="">Luxury Room</option>
-			                    </select>
-			                  </div>
-				              </div>
-				            </div>
-		              </div>
-	        			</div>
-	        			<div class="col-md d-flex py-md-4">
-	        				<div class="form-group align-self-stretch d-flex align-items-end">
-	        					<div class="wrap align-self-stretch py-3 px-4">
-			      					<label for="#">Guests</label>
-			      					<div class="form-field">
-			        					<div class="select-wrap">
-			                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-			                    <select name="" id="" class="form-control">
-			                    	<option value="">1 Adult</option>
-			                      <option value="">2 Adult</option>
-			                      <option value="">3 Adult</option>
-			                      <option value="">4 Adult</option>
-			                      <option value="">5 Adult</option>
-			                      <option value="">6 Adult</option>
-			                    </select>
-			                  </div>
-				              </div>
-				            </div>
-		              </div>
-	        			</div>
-	        			<div class="col-md d-flex">
-	        				<div class="form-group d-flex align-self-stretch">
-			              <a href="#" class="btn btn-primary py-5 py-md-3 px-4 align-self-stretch d-block"><span>Check Availability <small>Best Price Guaranteed!</small></span></a>
-			            </div>
-	        			</div>
-	        		</div>
-	        	</form>
-	    		</div>
-    		</div>
-    	</div>
+	  <section class="ftco-booking ftco-section ftco-no-pt ftco-no-pb">
+        <div class="container">
+            <div class="row no-gutters">
+                <div class="col-lg-12">
+                    <form action="{{ url('/user/sample') }}" class="booking-form aside-stretch">
+                        <div class="row">
+                            <!-- Check-in Date -->
+                            <div class="col-md-3 py-md-3">
+                                <div class="form-group align-self-stretch">
+                                    <div class="wrap align-self-stretch py-3 px-3">
+                                        <label for="checkin_date" class="mb-2">Check-in Date</label>
+                                        <input type="date" name="checkin_date" id="checkin_date" class="form-control" placeholder="Check-in date" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 py-md-3">
+                                <div class="form-group align-self-stretch">
+                                    <div class="wrap align-self-stretch py-3 px-3">
+                                        <label for="checkout_date" class="mb-2">Check-out Date</label>
+                                        <input type="date" name="checkout_date" id="checkout_date" class="form-control" placeholder="Check-out date" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 py-md-3">
+                                <div class="form-group align-self-stretch">
+                                    <div class="wrap align-self-stretch py-3 px-3">
+                                        <label for="provinsi" class="mb-2">Provinsi</label>
+                                        <select name="provinsi" id="provinsi" class="form-control" required>
+                                            <option value="">Pilih</option>
+                                            <option value="Jawa Timur">Jawa Timur</option>
+                                            <option value="Jawa Barat">Jawa Barat</option>
+                                            <option value="Jawa Tengah">Jawa Tengah</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 py-md-3">
+                                <div class="form-group align-self-stretch">
+                                    <div class="wrap align-self-stretch py-3 px-3">
+                                        <label for="kota" class="mb-2">Kota</label>
+                                        <select name="kota" id="kota" class="form-control" required>
+                                            <option value="">Pilih</option>
+                                            <option value="Surabaya">Surabaya</option>
+                                            <option value="Bandung">Bandung</option>
+                                            <option value="Semarang">Semarang</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 py-md-3">
+                                <div class="form-group align-self-stretch">
+                                    <div class="wrap align-self-stretch py-3 px-3">
+                                        <label for="guests" class="mb-2">Guests</label>
+                                        <select name="guests" id="guests" class="form-control" required>
+                                            <option value="1">1 Adult</option>
+                                            <option value="2">2 Adults</option>
+                                            <option value="3">3 Adults</option>
+                                            <option value="4">4 Adults</option>
+                                            <option value="5">5 Adults</option>
+                                            <option value="6">6 Adults</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 d-flex justify-content-center py-md-3">
+                                <div class="form-group" style="width: 30%;">
+                                    <button type="submit" class="btn btn-primary py-4 px-5 w-200 text-center">
+                                        <span>Check Availability <small>Best Price Guaranteed!</small></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </section>
+
 
 
 	<section class="ftco-section">
@@ -155,8 +160,8 @@
 			<div class="container">
 				<div class="row no-gutters">
 					<div class="col-md-7 order-md-last d-flex">
-						<div class="img img-1 mr-md-2 ftco-animate" style="{{ asset('background-image: url(images/about-1.jpg);') }}"></div>
-						<div class="img img-2 ml-md-2 ftco-animate" style="{{ asset('background-image: url(images/about-1.jpg);') }}"></div>
+						<div class="img img-1 mr-md-2 ftco-animate" style="background-image: url('{{ asset('images/surabaya2.webp') }}');"></div>
+						<div class="img img-2 ml-md-2 ftco-animate" style="background-image: url('{{ asset('images/bandung3.webp') }}');"></div>
 					</div>
 					<div class="col-md-5 wrap-about pb-md-3 ftco-animate pr-md-5 pb-md-5 pt-md-4">
 	          <div class="heading-section mb-4 my-5 my-md-0">
@@ -174,7 +179,7 @@
       <div class="container">
         <div class="row no-gutters ftco-animate justify-content-center">
         	<div class="col-md-5 d-flex">
-        		<div class="testimony-img aside-stretch-2" style="{{ asset('background-image: url(images/testimony-img.jpg);') }}"></div>
+        		<div class="testimony-img aside-stretch-2" style="background-image: url('{{ asset('images/bandung4.webp') }}');"></div>
         	</div>
           <div class="col-md-7 py-5 pl-md-5">
           	<div class="py-md-5">
@@ -186,13 +191,13 @@
 	              <div class="item">
 	                <div class="testimony-wrap pb-4">
 	                  <div class="text">
-	                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+	                    <p class="mb-4">Sangat sederhana namun nyaman dan ramah untuk anak-anak, sejuk, dan adem.</p>
 	                  </div>
 	                  <div class="d-flex">
-		                  <div class="user-img" style="{{ asset('background-image: url(images/testimony-img.jpg);') }}">
+		                  <div class="user-img" style="background-image: url('{{ asset('images/person_1.jpg') }}');">
 		                  </div>
 		                  <div class="pos ml-3">
-		                  	<p class="name">Gerald Hodson</p>
+		                  	<p class="name">Budi Triono</p>
 		                    <span class="position">Businessman</span>
 		                  </div>
 		                </div>
@@ -201,14 +206,14 @@
 	              <div class="item">
 	                <div class="testimony-wrap pb-4">
 	                  <div class="text">
-	                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+	                    <p class="mb-4">Suasana sangat nyaman, asri, sejuk, dan menyenangkan untuk disinggahi sesaat.</p>
 	                  </div>
 	                  <div class="d-flex">
-		                  <div class="user-img" style="{{ asset('background-image: url(images/testimony-img.jpg);') }}">
+		                  <div class="user-img" style="background-image: url('{{ asset('images/person_5.jpg') }}');">
 		                  </div>
 		                  <div class="pos ml-3">
-		                  	<p class="name">Gerald Hodson</p>
-		                    <span class="position">Businessman</span>
+		                  	<p class="name">Citra Ayu</p>
+		                    <span class="position">Housewife</span>
 		                  </div>
 		                </div>
 	                </div>
@@ -216,14 +221,14 @@
 	              <div class="item">
 	                <div class="testimony-wrap pb-4">
 	                  <div class="text">
-	                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+	                    <p class="mb-4">Rumah yg nyaman untuk bersantai sejenak bersama keluarga.</p>
 	                  </div>
 	                  <div class="d-flex">
-		                  <div class="user-img" style="{{ asset('background-image: url(images/testimony-img.jpg);') }}">
+		                  <div class="user-img" style="background-image: url('{{ asset('images/person_2.jpg') }}');">
 		                  </div>
 		                  <div class="pos ml-3">
-		                  	<p class="name">Gerald Hodson</p>
-		                    <span class="position">Businessman</span>
+		                  	<p class="name">Bambang</p>
+		                    <span class="position">Programmer</span>
 		                  </div>
 		                </div>
 	                </div>
@@ -231,14 +236,14 @@
 	              <div class="item">
 	                <div class="testimony-wrap pb-4">
 	                  <div class="text">
-	                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+	                    <p class="mb-4">Cocok untuk singgah sementara karena seperti rumah sendiri.</p>
 	                  </div>
 	                  <div class="d-flex">
-		                  <div class="user-img" style="{{ asset('background-image: url(images/testimony-img.jpg);') }}">
+		                  <div class="user-img" style="background-image: url('{{ asset('images/person_6.jpg') }}');">
 		                  </div>
 		                  <div class="pos ml-3">
-		                  	<p class="name">Gerald Hodson</p>
-		                    <span class="position">Businessman</span>
+		                  	<p class="name">Gracia</p>
+		                    <span class="position">Corporate</span>
 		                  </div>
 		                </div>
 	                </div>
@@ -261,12 +266,12 @@
     		<div class="row no-gutters">
     			<div class="col-lg-6">
     				<div class="room-wrap d-md-flex ftco-animate">
-    					<a href="#" class="img" style="{{ asset('background-image: url(images/testimony-img.jpg);') }}"></a>
+    					<a href="#" class="img" style="background-image: url('{{ asset('images/surabaya2.webp') }}');"></a>
     					<div class="half left-arrow d-flex align-items-center">
     						<div class="text p-4 text-center">
     							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p>
-    							<p class="mb-0"><span class="price mr-1">$120.00</span> <span class="per">per night</span></p>
-	    						<h3 class="mb-3"><a href="rooms.html">King Room</a></h3>
+    							<p class="mb-0"><span class="price mr-1">Rp.600.000</span> <span class="per">per malam</span></p>
+	    						<h3 class="mb-3"><a href="rooms.html">House of Dharmawan</a></h3>
 	    						<p class="pt-1"><a href="room-single.html" class="btn-custom px-3 py-2 rounded">View Details <span class="icon-long-arrow-right"></span></a></p>
     						</div>
     					</div>
@@ -274,12 +279,12 @@
     			</div>
     			<div class="col-lg-6">
     				<div class="room-wrap d-md-flex ftco-animate">
-    					<a href="#" class="img" style="{{ asset('background-image: url(images/testimony-img.jpg);') }}"></a>
+    					<a href="#" class="img" style="background-image: url('{{ asset('images/bandung3.webp') }}');"></a>
     					<div class="half left-arrow d-flex align-items-center">
     						<div class="text p-4 text-center">
     							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p>
-    							<p class="mb-0"><span class="price mr-1">$120.00</span> <span class="per">per night</span></p>
-	    						<h3 class="mb-3"><a href="rooms.html">Suite Room</a></h3>
+    							<p class="mb-0"><span class="price mr-1">Rp.600.000</span> <span class="per">per malam</span></p>
+	    						<h3 class="mb-3"><a href="rooms.html">La Grande by Djitu Hospitality</a></h3>
 	    						<p class="pt-1"><a href="room-single.html" class="btn-custom px-3 py-2 rounded">View Details <span class="icon-long-arrow-right"></span></a></p>
     						</div>
     					</div>
@@ -288,12 +293,12 @@
 
     			<div class="col-lg-6">
     				<div class="room-wrap d-md-flex ftco-animate">
-    					<a href="#" class="img order-md-last" style="background-image: url(images/room-2.jpg);"></a>
+    					<a href="#" class="img order-md-last" style="background-image: url('{{ asset('images/bandung5.webp') }}');"></a>
     					<div class="half right-arrow d-flex align-items-center">
     						<div class="text p-4 text-center">
     							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p>
-    							<p class="mb-0"><span class="price mr-1">$120.00</span> <span class="per">per night</span></p>
-	    						<h3 class="mb-3"><a href="rooms.html">Family Room</a></h3>
+    							<p class="mb-0"><span class="price mr-1">Rp.900.000</span> <span class="per">per malam</span></p>
+	    						<h3 class="mb-3"><a href="rooms.html">Uma Gati</a></h3>
 	    						<p class="pt-1"><a href="room-single.html" class="btn-custom px-3 py-2 rounded">View Details <span class="icon-long-arrow-right"></span></a></p>
     						</div>
     					</div>
@@ -301,12 +306,12 @@
     			</div>
     			<div class="col-lg-6">
     				<div class="room-wrap d-md-flex ftco-animate">
-    					<a href="#" class="img order-md-last" style="background-image: url(images/room-3.jpg);"></a>
+    					<a href="#" class="img order-md-last" style="background-image: url('{{ asset('images/rumahkertajaya.webp') }}');"></a>
     					<div class="half right-arrow d-flex align-items-center">
     						<div class="text p-4 text-center">
     							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p>
-    							<p class="mb-0"><span class="price mr-1">$120.00</span> <span class="per">per night</span></p>
-	    						<h3 class="mb-3"><a href="rooms.html">Deluxe Room</a></h3>
+    							<p class="mb-0"><span class="price mr-1">Rp.500.000</span> <span class="per">per malam</span></p>
+	    						<h3 class="mb-3"><a href="rooms.html">Rumah Kertajaya</a></h3>
 	    						<p class="pt-1"><a href="room-single.html" class="btn-custom px-3 py-2 rounded">View Details <span class="icon-long-arrow-right"></span></a></p>
     						</div>
     					</div>
@@ -315,12 +320,12 @@
 
     			<div class="col-lg-6">
     				<div class="room-wrap d-md-flex ftco-animate">
-    					<a href="#" class="img" style="background-image: url(images/room-4.jpg);"></a>
+    					<a href="#" class="img" style="background-image: url('{{ asset('images/bandung2.webp') }}');"></a>
     					<div class="half left-arrow d-flex align-items-center">
     						<div class="text p-4 text-center">
     							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p>
-    							<p class="mb-0"><span class="price mr-1">$120.00</span> <span class="per">per night</span></p>
-	    						<h3 class="mb-3"><a href="rooms.html">Luxury Room</a></h3>
+    							<p class="mb-0"><span class="price mr-1">Rp.700.000</span> <span class="per">per malam</span></p>
+	    						<h3 class="mb-3"><a href="rooms.html">The W Avenue</a></h3>
 	    						<p class="pt-1"><a href="room-single.html" class="btn-custom px-3 py-2 rounded">View Details <span class="icon-long-arrow-right"></span></a></p>
     						</div>
     					</div>
@@ -328,12 +333,12 @@
     			</div>
     			<div class="col-lg-6">
     				<div class="room-wrap d-md-flex ftco-animate">
-    					<a href="#" class="img" style="background-image: url(images/room-5.jpg);"></a>
+    					<a href="#" class="img" style="background-image: url('{{ asset('images/surabaya3.webp') }}');"></a>
     					<div class="half left-arrow d-flex align-items-center">
     						<div class="text p-4 text-center">
     							<p class="star mb-0"><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span><span class="ion-ios-star"></span></p>
-    							<p class="mb-0"><span class="price mr-1">$120.00</span> <span class="per">per night</span></p>
-	    						<h3 class="mb-3"><a href="rooms.html">Superior Room</a></h3>
+    							<p class="mb-0"><span class="price mr-1">Rp.850.000</span> <span class="per">per malam</span></p>
+	    						<h3 class="mb-3"><a href="rooms.html">Home Guesthouse</a></h3>
 	    						<p class="pt-1"><a href="room-single.html" class="btn-custom px-3 py-2 rounded">View Details <span class="icon-long-arrow-right"></span></a></p>
     						</div>
     					</div>
@@ -581,7 +586,7 @@
     <script src="{{ asset('js/scrollax.min.js') }}"></script>
     <script src="{{ asset('js/google-map.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="{{ asset('https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false') }}"></script>
 
 
   <script>

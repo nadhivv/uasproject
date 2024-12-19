@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SettingMenu extends Model
 {
-    use HasFactory;
+    // use HasFactory;
 
     protected $table = 'settingmenu';
 
