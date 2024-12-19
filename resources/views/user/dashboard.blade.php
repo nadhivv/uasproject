@@ -45,7 +45,7 @@
                                 <div class="form-group align-self-stretch">
                                     <div class="wrap align-self-stretch py-3 px-3">
                                         <label for="checkin_date" class="mb-2">Check-in Date</label>
-                                        <input type="date" name="checkin_date" id="checkin_date" class="form-control" placeholder="Check-in date" required>
+                                        <input type="date" name="check_in" id="check_in" class="form-control" placeholder="Check-in date" required>
                                     </div>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@
                                 <div class="form-group align-self-stretch">
                                     <div class="wrap align-self-stretch py-3 px-3">
                                         <label for="checkout_date" class="mb-2">Check-out Date</label>
-                                        <input type="date" name="checkout_date" id="checkout_date" class="form-control" placeholder="Check-out date" required>
+                                        <input type="date" name="check_out" id="check_out" class="form-control" placeholder="Check-out date" required>
                                     </div>
                                 </div>
                             </div>
@@ -470,8 +470,8 @@
         </div>
         <div class="row d-flex">
           <div class="col-md-4 d-flex ftco-animate">
-            <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20 rounded" style="background-image: url('images/image_1.jpg');">
+            <div class="blog-entry align-self-stretch"> 
+              <a href="blog-single.html" class="block-20 rounded" style="background-image: url(' {{ asset('images/image_1.jpg') }} ');">
               </a>
               <div class="text mt-3 text-center">
               	<div class="meta mb-2">
@@ -485,7 +485,7 @@
           </div>
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20 rounded" style="background-image: url('images/image_2.jpg');">
+              <a href="blog-single.html" class="block-20 rounded" style="background-image: url(' {{ asset('images/image_2.jpg') }} ');">
               </a>
               <div class="text mt-3 text-center">
               	<div class="meta mb-2">
@@ -499,7 +499,7 @@
           </div>
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20 rounded" style="background-image: url('images/image_3.jpg');">
+              <a href="blog-single.html" class="block-20 rounded" style="background-image: url('{{ asset('images/image_3.jpg') }}');">
               </a>
               <div class="text mt-3 text-center">
               	<div class="meta mb-2">
@@ -525,35 +525,35 @@
         </div>
         <div class="row no-gutters">
           <div class="col-sm-12 col-md ftco-animate">
-            <a href="images/insta-1.jpg" class="insta-img image-popup" style="background-image: url(images/insta-1.jpg);">
+            <a href="images/insta-1.jpg" class="insta-img image-popup" style="background-image: url('{{ asset('images/insta-1.jpg') }}');">
               <div class="icon d-flex justify-content-center">
                 <span class="icon-instagram align-self-center"></span>
               </div>
             </a>
           </div>
           <div class="col-sm-12 col-md ftco-animate">
-            <a href="images/insta-2.jpg" class="insta-img image-popup" style="background-image: url(images/insta-2.jpg);">
+            <a href="images/insta-2.jpg" class="insta-img image-popup" style="background-image: url('{{ asset('images/insta-2.jpg') }} ');">
               <div class="icon d-flex justify-content-center">
                 <span class="icon-instagram align-self-center"></span>
               </div>
             </a>
           </div>
           <div class="col-sm-12 col-md ftco-animate">
-            <a href="images/insta-3.jpg" class="insta-img image-popup" style="background-image: url(images/insta-3.jpg);">
+            <a href="images/insta-3.jpg" class="insta-img image-popup" style="background-image: url(' {{ asset('images/insta-3.jpg') }}');">
               <div class="icon d-flex justify-content-center">
                 <span class="icon-instagram align-self-center"></span>
               </div>
             </a>
           </div>
           <div class="col-sm-12 col-md ftco-animate">
-            <a href="images/insta-4.jpg" class="insta-img image-popup" style="background-image: url(images/insta-4.jpg);">
+            <a href="images/insta-4.jpg" class="insta-img image-popup" style="background-image: url(' {{ asset('images/insta-4.jpg') }}');">
               <div class="icon d-flex justify-content-center">
                 <span class="icon-instagram align-self-center"></span>
               </div>
             </a>
           </div>
           <div class="col-sm-12 col-md ftco-animate">
-            <a href="images/insta-5.jpg" class="insta-img image-popup" style="background-image: url(images/insta-5.jpg);">
+            <a href="images/insta-5.jpg" class="insta-img image-popup" style="background-image: url(' {{ asset('images/insta-5.jpg') }}');">
               <div class="icon d-flex justify-content-center">
                 <span class="icon-instagram align-self-center"></span>
               </div>
