@@ -36,7 +36,6 @@ class JenisUserController extends Controller
 
         JenisUser::create([
             'jenis_user' => $request->jenis_user,
-            'create_by' => Auth::user()->name,
             'update_by' => Auth::user()->name,
         ]);
 

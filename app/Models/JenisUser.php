@@ -11,7 +11,7 @@ class JenisUser extends Model
 
     protected $table = 'jenis_user';
 
-    protected $primarykey = 'id';
+    protected $primaryKey = 'id';
     protected $fillable = [
         'jenis_user',
     ];

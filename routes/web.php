@@ -10,6 +10,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PenginapanController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\JenisUserController;
 
 // Home route
 Route::get('/StayNest', function () {
@@ -107,7 +108,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/laundry/payment/{transactionId}', [LaundryController::class, 'payment'])->name('laundry.payment');
     Route::post('/laundry/callback', [LaundryController::class, 'callback'])->name('laundry.callback');
     Route::get('/laundry/history', [LaundryController::class, 'laundryhistory'])->name('laundry.history');
-    Route::get('/laundry/detail-pesanan/{laundryId}', [LaundryController::class, 'DetailPesanan'])->name('laundry.detail.pesanan');
+    Route::get('/laundry/detail-pesanan/{laundryId}', [LaundryController::class, 'DetailPesanan'])->name('laundry.detail.pesanan');   
     Route::get('/laundry/payment/success', [LaundryController::class, 'paymentSuccess'])->name('laundry.payment.success');
     Route::get('/laundry/payment/failed', [LaundryController::class, 'paymentFailed'])->name('laundry.payment.failed');
 
@@ -130,4 +131,10 @@ Route::get('/search', [PenginapanController::class, 'search'])->name('penginapan
     Route::get('/penginapan/bayar/{id}', [PenginapanController::class, 'bayar'])->name('penginapan.bayar');
     // Route yang benar
 Route::get('/penginapan/{id}/bayar', [PenginapanController::class, 'bayar'])->name('penginapan.bayar');
+
+Route::get('/admin/role', [JenisUserController::class, 'index']);
+Route::post('/admin/role/add', [JenisUserController::class, 'store'])->name('store.role');
+Route::get('/admin/role/{id}/edit', [JenisUserController::class, 'edit'])->name('edit.role');
+Route::put('/admin/role/{id}', [JenisUserController::class, 'update'])->name('update.role');
+Route::delete('/admin/role/{id}', [JenisUserController::class, 'destroy'])->name('delete.role');
 
